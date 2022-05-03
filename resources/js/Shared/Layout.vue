@@ -6,7 +6,7 @@
 
             <h1 class="font-bold text-3xl"> Zaiko </h1>
 
-            <p class="text-xl ml-4">Welcome back, {{ $page.props.auth.user }}</p>
+            <p class="text-xl ml-4">Welcome back, {{ username }}</p>
         </div>
 
         <Nav />
@@ -38,6 +38,14 @@ import Nav from './Nav.vue';
     export default {
 
         components: { Nav},
+
+        computed: {
+            username() {
+                return this.$page.props.auth.user.username;
+            }
+        }
+
+
     };
 
 </script>
