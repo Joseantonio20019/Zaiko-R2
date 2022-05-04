@@ -2,6 +2,7 @@ import { createApp, h } from 'vue'
 import { createInertiaApp, Link, Head } from '@inertiajs/inertia-vue3';
 import { InertiaProgress} from '@inertiajs/progress';
 import Layout from './Shared/Layout.vue';
+import {plugin,defaultConfig} from '@formkit/vue';
 
 
 createInertiaApp({
@@ -20,7 +21,7 @@ createInertiaApp({
     },
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
-      .use(plugin)
+      .use(plugin,defaultConfig)
       .component('Link', Link)
       .component('Head', Head)
       .mount(el)

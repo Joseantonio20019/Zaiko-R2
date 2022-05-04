@@ -618,11 +618,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/progress */ "./node_modules/@inertiajs/progress/dist/index.js");
 /* harmony import */ var _Shared_Layout_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Shared/Layout.vue */ "./resources/js/Shared/Layout.vue");
+/* harmony import */ var _formkit_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @formkit/vue */ "./node_modules/@formkit/vue/dist/index.mjs");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
@@ -671,7 +673,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       render: function render() {
         return (0,vue__WEBPACK_IMPORTED_MODULE_1__.h)(App, props);
       }
-    }).use(plugin).component('Link', _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Link).component('Head', _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Head).mount(el);
+    }).use(plugin, _formkit_vue__WEBPACK_IMPORTED_MODULE_5__.defaultConfig).component('Link', _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Link).component('Head', _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Head).mount(el);
   },
   title: function title(_title) {
     return "Zaiko - ".concat(_title);
@@ -1029,6 +1031,30 @@ var map = {
 		"./resources/js/Pages/Settings.vue",
 		"resources_js_Pages_Settings_vue"
 	],
+	"./Sites/Create": [
+		"./resources/js/Pages/Sites/Create.vue",
+		"resources_js_Pages_Sites_Create_vue"
+	],
+	"./Sites/Create.vue": [
+		"./resources/js/Pages/Sites/Create.vue",
+		"resources_js_Pages_Sites_Create_vue"
+	],
+	"./Sites/Edit": [
+		"./resources/js/Pages/Sites/Edit.vue",
+		"resources_js_Pages_Sites_Edit_vue"
+	],
+	"./Sites/Edit.vue": [
+		"./resources/js/Pages/Sites/Edit.vue",
+		"resources_js_Pages_Sites_Edit_vue"
+	],
+	"./Sites/Index": [
+		"./resources/js/Pages/Sites/Index.vue",
+		"resources_js_Pages_Sites_Index_vue"
+	],
+	"./Sites/Index.vue": [
+		"./resources/js/Pages/Sites/Index.vue",
+		"resources_js_Pages_Sites_Index_vue"
+	],
 	"./Users/Create": [
 		"./resources/js/Pages/Users/Create.vue",
 		"resources_js_Pages_Users_Create_vue"
@@ -1036,6 +1062,14 @@ var map = {
 	"./Users/Create.vue": [
 		"./resources/js/Pages/Users/Create.vue",
 		"resources_js_Pages_Users_Create_vue"
+	],
+	"./Users/Edit": [
+		"./resources/js/Pages/Users/Edit.vue",
+		"resources_js_Pages_Users_Edit_vue"
+	],
+	"./Users/Edit.vue": [
+		"./resources/js/Pages/Users/Edit.vue",
+		"resources_js_Pages_Users_Edit_vue"
 	],
 	"./Users/Index": [
 		"./resources/js/Pages/Users/Index.vue",

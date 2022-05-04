@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Request as RequestFacade;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 
@@ -15,7 +16,7 @@ class UserController extends Controller
         return Inertia::render('Users/Index',[
 
             'users' => User::query()
-            ->when(Request::input('search'), function ($query,$search){
+            ->when(RequestFacade::input('search'), function ($query,$search){
     
                 $query->where('name','like','%'.$search.'%')->orWhere('email','like','%'.$search.'%');
     
@@ -24,7 +25,7 @@ class UserController extends Controller
             ->withQueryString(),
     
     
-            'filters' => Request::only(['search'])
+            'filters' => RequestFacade::only(['search'])
     
     
         ]);
@@ -38,7 +39,7 @@ class UserController extends Controller
 
     public function store(){
 
-        $data = Request::validate([
+        $data = RequestFacade::validate([
             'name' => ['required','min:3'],
             'email' => ['required','email','unique:users,email'],
             'password' => ['required','min:8'],
@@ -54,5 +55,47 @@ class UserController extends Controller
 
     }
 
+    public function edit($id){
+
+        
+         return Inertia::render('Users/Edit',[
+             
+            'user' => User::findOrFail($id)
+        
+        ]); 
+
+    }
+
+   public function update(Request $request,$id){
+
+   
+        $request->validate([
+            'name' => ['required','min:3'],
+            'email' => ['required','email'],
+        ]);
+
+        $user = User::findOrFail($id);
+
+    
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+
+        return redirect('/users')->with('success','User updated successfully');
+
+
+
+
+    }
+
+    public function destroy($id){
+
+
+         User::findOrFail($id)->delete();
+
+        return back();
+    }
 
 }

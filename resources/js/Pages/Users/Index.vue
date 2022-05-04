@@ -51,9 +51,11 @@
                             {{user.email}}
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
-                            <Link :href="`/users/${user.id}/edit`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
+                            <Link :href="`/users/edit/${user.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
                 
-                            <Link :href="`/users/${user.id}/delete`" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</Link>
+                            <button type="buttton" @click="destroy(user.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+
+                        
                         </td>
                     </tr>
                 </tbody>
@@ -101,6 +103,19 @@ import debounce from 'lodash/throttle';
 
 
     },300));
+
+
+    let destroy = async function (id) {
+
+        Inertia.delete(`/users/delete/${id}`,{
+
+            onBefore: () => confirm('Are you sure you want to delete this user?')
+
+        });
+
+        
+
+    }
 
 
 
