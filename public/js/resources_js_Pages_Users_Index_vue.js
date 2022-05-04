@@ -143,7 +143,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Create New User ");
 
 var _hoisted_6 = {
-  "class": "relative overflow-x-auto shadow-md sm:rounded-lg"
+  "class": "shadow-md sm:rounded-lg"
 };
 var _hoisted_7 = {
   "class": "w-full mt-1 text-sm text-left"

@@ -21,7 +21,7 @@
            <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
            </div>
 
-           <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+           <div class=" shadow-md sm:rounded-lg">
                 <table class="w-full mt-1 text-sm text-left">
                     <thead class="text-xs text-gray-300 uppercase bg-gray-50 dark:bg-blue-700 dark:text-amber-500">
                         <tr>

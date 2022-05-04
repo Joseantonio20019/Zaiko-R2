@@ -3,6 +3,8 @@ import { createInertiaApp, Link, Head } from '@inertiajs/inertia-vue3';
 import { InertiaProgress} from '@inertiajs/progress';
 import Layout from './Shared/Layout.vue';
 import {plugin,defaultConfig} from '@formkit/vue';
+import 'flowbite';
+import './index.css';
 
 
 createInertiaApp({

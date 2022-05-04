@@ -9,9 +9,6 @@
                 <NavLink href='/users' :active="$page.component === 'Users'" >Users</NavLink>
             </li>
             <li>
-                <NavLink href='/settings' :active="$page.component === 'Settings'" >Settings</NavLink>
-            </li>
-            <li>
                 <DropdownDevices></DropdownDevices>
             </li>  
             <li>
