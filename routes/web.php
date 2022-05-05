@@ -7,7 +7,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UbicationController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\StatusController;
-use App\Http\Controllers\ModelController;
+use App\Http\Controllers\ModelDeviceController;
 use App\Http\Controllers\RegisterController;
 
 use Illuminate\Support\Facades\Route;
@@ -127,17 +127,17 @@ Route::delete('/family/delete/{id}',[FamilyController::class,'destroy']);
 
 //Model Routes
 
-Route::get('/model', [ModelController::class, 'index']);
+Route::get('/model', [ModelDeviceController::class, 'index']);
 
-Route::get('/model/create', [ModelController::class, 'create']);
+Route::get('/model/create', [ModelDeviceController::class, 'create']);
 
-Route::post('/model/create',[ModelController::class,'store']);
+Route::post('/model/create',[ModelDeviceController::class,'store']);
 
-Route::get('/model/edit/{id}',[ModelController::class,'edit']);
+Route::get('/model/edit/{id}',[ModelDeviceController::class,'edit']);
 
-Route::put('/model/edit/{id}',[ModelController::class,'update']);
+Route::put('/model/edit/{id}',[ModelDeviceController::class,'update']);
 
-Route::delete('/model/delete/{id}',[ModelController::class,'destroy']);
+Route::delete('/model/delete/{id}',[ModelDeviceController::class,'destroy']);
 
 
 //Register Routes

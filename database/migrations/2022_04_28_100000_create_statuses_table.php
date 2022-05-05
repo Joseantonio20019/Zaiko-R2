@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('status', function (Blueprint $table) {
+        Schema::create('statuses', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement();
             $table->string('name')->nullable(false);
             $table->timestamps();

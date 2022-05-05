@@ -1076,6 +1076,32 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Sites_Index_vue"
 	],
+	"./Status/Create": [
+		"./resources/js/Pages/Status/Create.vue",
+		"resources_js_Pages_Status_Create_vue"
+	],
+	"./Status/Create.vue": [
+		"./resources/js/Pages/Status/Create.vue",
+		"resources_js_Pages_Status_Create_vue"
+	],
+	"./Status/Edit": [
+		"./resources/js/Pages/Status/Edit.vue",
+		"resources_js_Pages_Status_Edit_vue"
+	],
+	"./Status/Edit.vue": [
+		"./resources/js/Pages/Status/Edit.vue",
+		"resources_js_Pages_Status_Edit_vue"
+	],
+	"./Status/Index": [
+		"./resources/js/Pages/Status/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Status_Index_vue"
+	],
+	"./Status/Index.vue": [
+		"./resources/js/Pages/Status/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Status_Index_vue"
+	],
 	"./Ubications/Create": [
 		"./resources/js/Pages/Ubications/Create.vue",
 		"resources_js_Pages_Ubications_Create_vue"
