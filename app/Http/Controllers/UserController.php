@@ -95,7 +95,7 @@ class UserController extends Controller
 
          User::findOrFail($id)->delete();
 
-        return back()->with('message','User deleted successfully');
+        return redirect('/users')->with('message','User deleted successfully');
     }
 
 }

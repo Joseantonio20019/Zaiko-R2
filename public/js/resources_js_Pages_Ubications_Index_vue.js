@@ -72,7 +72,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
-    console.log(props.ubications);
     var __returned__ = {
       props: props,
       search: search,

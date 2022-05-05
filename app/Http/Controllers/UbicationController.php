@@ -29,8 +29,6 @@ class UbicationController extends Controller
             ->withQueryString()
             , 
 
-            //'ubications' => Ubication::with('site')->paginate(10),
-
             'filters' => RequestFacade::only(['search']),
 
     
@@ -77,14 +75,14 @@ class UbicationController extends Controller
 
     }
 
-
     public function edit($id){
 
 
 
         return Inertia::render('Ubications/Edit',[
 
-            'ubication' => Ubication::findOrFail($id)
+            'ubication' => Ubication::findOrFail($id),
+            'sites' => Site::all()
 
         ]);
 
@@ -114,7 +112,7 @@ class UbicationController extends Controller
 
         Ubication::findOrFail($id)->delete();
 
-        return back()->with('message','Ubication deleted successfully');
+        return redirect('/ubications')->with('message','Ubication deleted successfully');
 
     }
 }

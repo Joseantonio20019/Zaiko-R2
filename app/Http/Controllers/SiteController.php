@@ -95,7 +95,7 @@ class SiteController extends Controller
 
         Site::findOrFail($id)->delete();
 
-        return back()->with('message','Site deleted successfully');
+        return redirect('/sites')->with('message','Site deleted successfully');
 
     }
 }
