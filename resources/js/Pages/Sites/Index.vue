@@ -2,10 +2,7 @@
 
     <div>
 
-        <Head>
-            <title>Sites</title>
-        
-        </Head>
+        <Head title="Sites"/>
 
         <Layout>
 
@@ -35,9 +32,6 @@
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 NAME
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                SITE
                             </th>
                             <th scope="col" class="px-10 py-3 text-center">
                                 CONFIGURATION

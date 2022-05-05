@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\MarkController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UbicationController;
@@ -71,6 +72,25 @@ Route::get('/ubications/edit/{id}',[UbicationController::class,'edit']);
 Route::put('/ubications/edit/{id}',[UbicationController::class,'update']);
 
 Route::delete('/ubications/delete/{id}',[UbicationController::class,'destroy']);
+
+//Marks Routes
+
+
+Route::get('/marks', [MarkController::class, 'index']);
+
+Route::get('/marks/create', [MarkController::class, 'create']);
+
+Route::post('/marks/create',[MarkController::class,'store']);
+
+Route::get('/marks/edit/{id}',[MarkController::class,'edit']);
+
+Route::put('/marks/edit/{id}',[MarkController::class,'update']);
+
+Route::delete('/marks/delete/{id}',[MarkController::class,'destroy']);
+
+
+
+
 
 
  }); 

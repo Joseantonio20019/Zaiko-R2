@@ -1,27 +1,28 @@
 <template>
-
+    
     <div>
 
-        <Head title="Ubications" />
+        <Head title="Marks"/> 
+
 
         <Layout>
 
             <div v-if="$page.props.flash.message" class="absolute top-20 left-10 z-10">
             <Notification :message="$page.props.flash.message" />
             </div>
-            
+
             <div class="flex justify-between mb-6">
         
             <div class="flex items-center">
-            <h1 class="text-3xl">Ubications</h1>
+            <h1 class="text-3xl">Marks</h1>
 
-            <Link href="/ubications/create" class="text-blue-500 text-sm ml-2"  >Create New Ubication </Link>
+            <Link href="/marks/create" class="text-blue-500 text-sm ml-2"  >Create New mark </Link>
 
             </div>
+            
 
-            <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
+           <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
            </div>
-
 
            <div class=" shadow-md sm:rounded-lg">
                 <table class="w-full mt-1 text-sm text-left">
@@ -33,31 +34,25 @@
                             <th scope="col" class="px-6 py-3">
                                 NAME
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                SITE
-                            </th>
                             <th scope="col" class="px-10 py-3 text-center">
                                 CONFIGURATION
                             </th>
                         </tr>
                     </thead>
-                  <tbody>
-                    <tr v-for="ubication in ubications.data" :key="ubication.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
+                <tbody>
+                    <tr v-for="mark in marks.data" :key="mark.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
-                            {{ ubication.id}}
+                            {{ mark.id}}
                         </th>
                         <td class="px-6 py-4">
-                            {{ubication.name}}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ubication.site["name"]}}
-
+                            {{mark.name}}
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
-                            <Link :href="`/ubications/edit/${ubication.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
+                            <Link :href="`/marks/edit/${mark.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
                 
-                            <button type="buttton" @click="destroy(ubication.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                            <button type="buttton" @click="destroy(mark.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
 
+                        
                         </td>
                     </tr>
                 </tbody>
@@ -65,17 +60,22 @@
                 </table>
             </div>
 
+        
+        <Pagination :links="marks.links" class="mt-6" />
+
+            
         </Layout>
 
+        
 
     </div>
-    
 </template>
 
 <script setup>
 
-import {ref,watch} from 'vue';
-import {Inertia} from "@inertiajs/inertia";
+import { ref,watch } from 'vue';
+import Pagination from '../../Shared/Pagination.vue';
+import {Inertia} from "@inertiajs/inertia"
 import debounce from 'lodash/throttle';
 import Notification from '../../Shared/Notification.vue';
 
@@ -83,31 +83,38 @@ import Notification from '../../Shared/Notification.vue';
 
     let props = defineProps({
 
-        ubications: Object,
+        marks: Object,
         filters: Object,
+        
     });
 
     let search = ref(props.filters.search);
 
-        watch(search,debounce(function (value){
+    watch(search,debounce(function (value){
 
-            Inertia.get('/ubications',{ search : value }, {
+        Inertia.get('/marks',{ search : value }, {
 
             preserveState:true,
             replace:true
 
         });
 
+
     },300));
 
 
-       let destroy = async function (id) {
+    let destroy = async function (id) {
 
-        Inertia.delete(`/ubications/delete/${id}`,{
+        Inertia.delete(`/marks/delete/${id}`,{
 
-            onBefore: () => confirm('Are you sure you want to delete this ubication?')
+            onBefore: () => confirm('Are you sure you want to delete this mark?')
 
         });
-       }
+
+        
+
+    }
+
+
 
 </script>

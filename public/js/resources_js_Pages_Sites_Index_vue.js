@@ -188,9 +188,6 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "px-6 py-3"
 }, " NAME "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col",
-  "class": "px-6 py-3"
-}, " SITE "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  scope: "col",
   "class": "px-10 py-3 text-center"
 }, " CONFIGURATION ")])], -1
 /* HOISTED */

@@ -1,9 +1,10 @@
 <template>
 <div>
 
-    <Head title="Create Site"/>
+    <Head title="Create Mark" />
 
-    <h1 class="text-3xl text-center">Create a New Site</h1>
+
+    <h1 class="text-3xl text-center">Create a New Mark</h1>
 
 
     <form @submit.prevent="submit" action="/" class="max-w-md mx-auto mt-8">
@@ -56,7 +57,7 @@ let form = useForm({
 
 let submit = () => {
 
-    form.post('/sites/create');
+    form.post('/marks/create');
 };
 
 

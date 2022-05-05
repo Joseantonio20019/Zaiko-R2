@@ -2,9 +2,9 @@
     
     <div>
 
-        <Head title="Edit site" />
+        <Head title="Edit Mark" />
 
-        <h1 class="text-3xl text-center">Edit Site</h1>
+        <h1 class="text-3xl text-center">Edit Mark</h1>
 
         <form @submit.prevent="submit" class="max-w-md mx-auto mt-8">
         
@@ -26,7 +26,7 @@
 
             <div class="mb-6">
 
-                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Edit Site</button>
+                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Edit Mark</button>
 
             </div>
         
@@ -45,19 +45,19 @@ import { useForm} from "@inertiajs/inertia-vue3";
 let props= defineProps({
 
     errors: Object,
-    site: Object
+    mark: Object
 
 });
 
 let form = useForm({
 
-    name: props.site.name
+    name: props.mark.name
 
 });
 
 
 let submit = () => {
 
-    form.put('/sites/edit/'+props.site.id);
+    form.put('/marks/edit/'+props.mark.id);
 };
 </script>

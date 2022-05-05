@@ -58,64 +58,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("title", null, "Ubications", -1
-/* HOISTED */
-);
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-3xl text-center"
 }, "Create a New Ubication", -1
 /* HOISTED */
 );
 
-var _hoisted_3 = {
+var _hoisted_2 = {
   "class": "mb-6"
 };
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
   "for": "name"
 }, " Name ", -1
 /* HOISTED */
 );
 
-var _hoisted_5 = ["textContent"];
-var _hoisted_6 = {
+var _hoisted_4 = ["textContent"];
+var _hoisted_5 = {
   "class": "mb-6"
 };
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "block mb-2 uppercase font-bold text-xs text-gray-700",
   "for": "name"
 }, " Site ", -1
 /* HOISTED */
 );
 
-var _hoisted_8 = {
+var _hoisted_7 = {
   "class": "mb-3 xl:w-96"
 };
-var _hoisted_9 = ["value"];
-var _hoisted_10 = ["textContent"];
-var _hoisted_11 = {
+var _hoisted_8 = ["value"];
+var _hoisted_9 = ["textContent"];
+var _hoisted_10 = {
   "class": "mb-6"
 };
-var _hoisted_12 = ["disabled"];
+var _hoisted_11 = ["disabled"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, null, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_1];
-    }),
-    _: 1
-    /* STABLE */
-
-  }), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
+    title: "Create Ubication"
+  }), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $setup.submit && $setup.submit.apply($setup, arguments);
     }, ["prevent"])),
     "class": "max-w-md mx-auto mt-8"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $setup.form.name = $event;
     }),
@@ -132,7 +123,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-red-500 text-xs italic mt-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_5)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+  , _hoisted_4)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $setup.form.select = $event;
     }),
@@ -144,7 +135,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       value: site.id
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(site.name), 9
     /* TEXT, PROPS */
-    , _hoisted_9);
+    , _hoisted_8);
   }), 128
   /* KEYED_FRAGMENT */
   ))], 512
@@ -155,13 +146,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-red-500 text-xs italic mt-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  , _hoisted_9)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "submit",
     "class": "bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500",
     disabled: $setup.form.processing
   }, "Create", 8
   /* PROPS */
-  , _hoisted_12)])], 32
+  , _hoisted_11)])], 32
   /* HYDRATE_EVENTS */
   )]);
 }

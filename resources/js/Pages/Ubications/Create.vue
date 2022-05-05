@@ -1,10 +1,7 @@
 <template>
 <div>
 
-    <Head>
-            <title>Ubications</title>
-        
-        </Head>
+    <Head title="Create Ubication" />
 
 
     <h1 class="text-3xl text-center">Create a New Ubication</h1>

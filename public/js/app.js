@@ -204,7 +204,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
                   var active = _ref.active;
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-                    href: "/pcs",
+                    href: "/marks",
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'])
                   }, "Marks", 2
                   /* CLASS */
@@ -217,7 +217,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref2) {
                   var active = _ref2.active;
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-                    href: "/phones",
+                    href: "/models",
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'])
                   }, "Models", 2
                   /* CLASS */
@@ -230,7 +230,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref3) {
                   var active = _ref3.active;
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-                    href: "/pda",
+                    href: "/family",
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'])
                   }, "Family", 2
                   /* CLASS */
@@ -243,7 +243,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref4) {
                   var active = _ref4.active;
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-                    href: "/network-devices",
+                    href: "/status",
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'])
                   }, "Status", 2
                   /* CLASS */
@@ -1015,6 +1015,32 @@ var map = {
 	"./Home.vue": [
 		"./resources/js/Pages/Home.vue",
 		"resources_js_Pages_Home_vue"
+	],
+	"./Marks/Create": [
+		"./resources/js/Pages/Marks/Create.vue",
+		"resources_js_Pages_Marks_Create_vue"
+	],
+	"./Marks/Create.vue": [
+		"./resources/js/Pages/Marks/Create.vue",
+		"resources_js_Pages_Marks_Create_vue"
+	],
+	"./Marks/Edit": [
+		"./resources/js/Pages/Marks/Edit.vue",
+		"resources_js_Pages_Marks_Edit_vue"
+	],
+	"./Marks/Edit.vue": [
+		"./resources/js/Pages/Marks/Edit.vue",
+		"resources_js_Pages_Marks_Edit_vue"
+	],
+	"./Marks/Index": [
+		"./resources/js/Pages/Marks/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Marks_Index_vue"
+	],
+	"./Marks/Index.vue": [
+		"./resources/js/Pages/Marks/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Marks_Index_vue"
 	],
 	"./Settings": [
 		"./resources/js/Pages/Settings.vue",
