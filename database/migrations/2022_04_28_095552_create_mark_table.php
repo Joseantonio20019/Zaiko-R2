@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mark', function (Blueprint $table) {
+        Schema::create('marks', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement();
             $table->string('name')->nullable(false);
             $table->timestamps();

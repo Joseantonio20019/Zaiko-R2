@@ -3,7 +3,7 @@
     <div>
 
         <Head>
-            <title>Sites</title>
+            <title>Ubications</title>
         
         </Head>
 
@@ -16,9 +16,9 @@
             <div class="flex justify-between mb-6">
         
             <div class="flex items-center">
-            <h1 class="text-3xl">Sites</h1>
+            <h1 class="text-3xl">Ubications</h1>
 
-            <Link href="/sites/create" class="text-blue-500 text-sm ml-2"  >Create New site </Link>
+            <Link href="/ubications/create" class="text-blue-500 text-sm ml-2"  >Create New Ubication </Link>
 
             </div>
 
@@ -45,17 +45,21 @@
                         </tr>
                     </thead>
                   <tbody>
-                    <tr v-for="site in sites.data" :key="site.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
+                    <tr v-for="ubication in ubications.data" :key="ubication.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
-                            {{ site.id}}
+                            {{ ubication.id}}
                         </th>
                         <td class="px-6 py-4">
-                            {{site.name}}
+                            {{ubication.name}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ubication.site["name"]}}
+
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
-                            <Link :href="`/sites/edit/${site.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
+                            <Link :href="`/ubications/edit/${ubication.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
                 
-                            <button type="buttton" @click="destroy(site.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                            <button type="buttton" @click="destroy(ubication.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
 
                         </td>
                     </tr>
@@ -82,7 +86,7 @@ import Notification from '../../Shared/Notification.vue';
 
     let props = defineProps({
 
-        sites: Object,
+        ubications: Object,
         filters: Object,
     });
 
@@ -90,7 +94,7 @@ import Notification from '../../Shared/Notification.vue';
 
         watch(search,debounce(function (value){
 
-            Inertia.get('/sites',{ search : value }, {
+            Inertia.get('/ubications',{ search : value }, {
 
             preserveState:true,
             replace:true
@@ -102,13 +106,11 @@ import Notification from '../../Shared/Notification.vue';
 
        let destroy = async function (id) {
 
-        Inertia.delete(`/sites/delete/${id}`,{
+        Inertia.delete(`/ubications/delete/${id}`,{
 
-            onBefore: () => confirm('Are you sure you want to delete this site?')
+            onBefore: () => confirm('Are you sure you want to delete this ubication?')
 
         });
        }
-
-
 
 </script>

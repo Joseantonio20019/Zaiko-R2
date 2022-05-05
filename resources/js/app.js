@@ -2,9 +2,9 @@ import { createApp, h } from 'vue'
 import { createInertiaApp, Link, Head } from '@inertiajs/inertia-vue3';
 import { InertiaProgress} from '@inertiajs/progress';
 import Layout from './Shared/Layout.vue';
-import {plugin,defaultConfig} from '@formkit/vue';
-import 'flowbite';
-import './index.css';
+
+
+
 
 
 createInertiaApp({
@@ -23,7 +23,7 @@ createInertiaApp({
     },
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
-      .use(plugin,defaultConfig)
+      .use(plugin)
       .component('Link', Link)
       .component('Head', Head)
       .mount(el)
@@ -35,12 +35,6 @@ createInertiaApp({
 
 });
 
+InertiaProgress.init();
 
-InertiaProgress.init({
 
-  color: 'amber',
-  delay: 250,
-
-  showSpinner: true,
-
-});

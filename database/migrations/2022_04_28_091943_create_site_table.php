@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('site', function (Blueprint $table) {
-            $table->id()->unique()->autoIncrement();
+        Schema::create('sites', function (Blueprint $table) {
+            $table->id()->autoIncrement();
             $table->string('name')->nullable(false);
             $table->timestamps();
         });

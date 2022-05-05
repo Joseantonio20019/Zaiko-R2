@@ -4,7 +4,7 @@
 
         <Head title="Edit User" />
 
-        <h1 class="text-3xl">Edit User</h1>
+        <h1 class="text-3xl text-center">Edit User</h1>
 
         <form @submit.prevent="submit" class="max-w-md mx-auto mt-8">
         
@@ -53,8 +53,6 @@
 <script setup>
 
 import { useForm} from "@inertiajs/inertia-vue3";
-import Layout from "../../Shared/Layout.vue";
-
 
 let props= defineProps({
 

@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ubication', function (Blueprint $table) {
+        Schema::create('ubications', function (Blueprint $table) {
 
-            $table->id()->unique()->autoIncrement();
+            $table->id()->autoIncrement();
             $table->string('name')->nullable(false);
             $table->unsignedBigInteger('site_id');
             $table->timestamps();
 
 
-            $table->foreign('site_id')->references('id')->on('site')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('site_id')->references('id')->on('sites')->onUpdate('cascade')->onDelete('cascade');
         });
 
 

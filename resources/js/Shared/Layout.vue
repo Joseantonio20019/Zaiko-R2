@@ -15,10 +15,11 @@
 
     </section>
 
+
     <section class="p-6">
 
         <div class="max-w-1xl mx-auto ml-6">
-
+            
         <slot/>
 
         </div>

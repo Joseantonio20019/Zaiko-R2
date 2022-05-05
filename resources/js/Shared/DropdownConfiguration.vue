@@ -24,7 +24,10 @@
             <a href="/network-devices" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Status</a>
           </MenuItem>
           <MenuItem v-slot="{ active }">
-            <a href="/printers" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Users</a>
+            <a href="/sites" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Sites</a>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a href="/ubications" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Ubications</a>
           </MenuItem>
         </div>
       </MenuItems>

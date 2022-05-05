@@ -4,7 +4,7 @@
 
         <Head title="Create User" />
 
-        <h1 class="text-3xl">Create New User</h1>
+        <h1 class="text-3xl text-center">Create a New User</h1>
 
         <form @submit.prevent="submit" action="/" class="max-w-md mx-auto mt-8">
         

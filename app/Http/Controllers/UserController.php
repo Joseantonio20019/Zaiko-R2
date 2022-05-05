@@ -51,7 +51,7 @@ class UserController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        return redirect('/users');
+        return redirect('/users')->with('message','User created successfully');
 
     }
 
@@ -62,7 +62,7 @@ class UserController extends Controller
              
             'user' => User::findOrFail($id)
         
-        ]); 
+        ])->with('message','User updated successfully'); 
 
     }
 
@@ -83,7 +83,7 @@ class UserController extends Controller
         ]);
 
 
-        return redirect('/users')->with('success','User updated successfully');
+        return redirect('/users')->with('message','User updated successfully');
 
 
 
@@ -95,7 +95,7 @@ class UserController extends Controller
 
          User::findOrFail($id)->delete();
 
-        return back();
+        return back()->with('message','User deleted successfully');
     }
 
 }

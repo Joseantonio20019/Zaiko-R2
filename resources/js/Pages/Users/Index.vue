@@ -9,6 +9,11 @@
 
 
         <Layout>
+
+            <div v-if="$page.props.flash.message" class="absolute top-20 left-10 z-10">
+            <Notification :message="$page.props.flash.message" />
+            </div>
+
             <div class="flex justify-between mb-6">
         
             <div class="flex items-center">
@@ -17,6 +22,7 @@
             <Link href="/users/create" class="text-blue-500 text-sm ml-2"  >Create New User </Link>
 
             </div>
+            
 
            <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
            </div>
@@ -80,6 +86,7 @@ import { ref,watch } from 'vue';
 import Pagination from '../../Shared/Pagination.vue';
 import {Inertia} from "@inertiajs/inertia"
 import debounce from 'lodash/throttle';
+import Notification from '../../Shared/Notification.vue';
 
 
 

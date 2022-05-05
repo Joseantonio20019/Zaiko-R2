@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pda', function (Blueprint $table) {
+        Schema::create('pdas', function (Blueprint $table) {
 
             $table->id('devices_id');
             $table->macAddress('MAC')->nullable(false);
