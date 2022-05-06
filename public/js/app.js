@@ -278,6 +278,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 _: 1
                 /* STABLE */
 
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MenuItem, null, {
+                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref7) {
+                  var active = _ref7.active;
+                  return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+                    href: "/departments",
+                    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'])
+                  }, "Departments", 2
+                  /* CLASS */
+                  )];
+                }),
+                _: 1
+                /* STABLE */
+
               })])];
             }),
             _: 1
@@ -1001,6 +1014,32 @@ var map = {
 	"./Auth/Login.vue": [
 		"./resources/js/Pages/Auth/Login.vue",
 		"resources_js_Pages_Auth_Login_vue"
+	],
+	"./Family/Create": [
+		"./resources/js/Pages/Family/Create.vue",
+		"resources_js_Pages_Family_Create_vue"
+	],
+	"./Family/Create.vue": [
+		"./resources/js/Pages/Family/Create.vue",
+		"resources_js_Pages_Family_Create_vue"
+	],
+	"./Family/Edit": [
+		"./resources/js/Pages/Family/Edit.vue",
+		"resources_js_Pages_Family_Edit_vue"
+	],
+	"./Family/Edit.vue": [
+		"./resources/js/Pages/Family/Edit.vue",
+		"resources_js_Pages_Family_Edit_vue"
+	],
+	"./Family/Index": [
+		"./resources/js/Pages/Family/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Family_Index_vue"
+	],
+	"./Family/Index.vue": [
+		"./resources/js/Pages/Family/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Family_Index_vue"
 	],
 	"./Home": [
 		"./resources/js/Pages/Home.vue",

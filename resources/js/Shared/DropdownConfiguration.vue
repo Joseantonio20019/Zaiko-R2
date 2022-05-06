@@ -29,6 +29,9 @@
           <MenuItem v-slot="{ active }">
             <a href="/ubications" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Ubications</a>
           </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a href="/departments" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Departments</a>
+          </MenuItem>
         </div>
       </MenuItems>
     </transition>

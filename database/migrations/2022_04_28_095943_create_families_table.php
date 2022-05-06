@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('family', function (Blueprint $table) {
+        Schema::create('families', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement();
             $table->string('name')->nullable(false);
             $table->enum('Device',['PHONES','PDA','MONITORS','PRINTER','NETWORK DEVICES']);
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('family');
+        Schema::dropIfExists('families');
     }
 };
