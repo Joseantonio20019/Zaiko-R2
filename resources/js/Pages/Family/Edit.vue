@@ -72,7 +72,7 @@ let props= defineProps({
 let form = useForm({
 
     name: props.family.name,
-    device: props.family.Device,
+    device: props.family.device,
 
 });
 

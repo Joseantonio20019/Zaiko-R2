@@ -53,7 +53,7 @@ class FamilyController extends Controller
        Family::create([
 
         'name' => $data['name'],
-        'Device' => $data['device']
+        'device' => $data['device']
         
        ]);
 

@@ -24,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm)({
       name: props.family.name,
-      device: props.family.Device
+      device: props.family.device
     });
 
     var submit = function submit() {

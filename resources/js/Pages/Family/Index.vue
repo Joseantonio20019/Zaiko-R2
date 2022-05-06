@@ -52,7 +52,7 @@
                         </td>
 
                         <td class="px-6 py-4">
-                            {{family.Device}}
+                            {{family.device}}
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
                             <Link :href="`/family/edit/${family.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>

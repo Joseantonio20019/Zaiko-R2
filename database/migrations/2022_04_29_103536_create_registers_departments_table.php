@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('register_ubications', function (Blueprint $table) {
+        Schema::create('registers_departments', function (Blueprint $table) {
             $table->unsignedBigInteger('register_id')->index();
             $table->foreign('register_id')->references('id')->on('registers')->onUpdate('restrict')->onDelete('restrict');
-            $table->unsignedBigInteger('ubication_id')->index();
-            $table->foreign('ubication_id')->references('id')->on('ubications')->onUpdate('restrict')->onDelete('restrict');
+            $table->unsignedBigInteger('departments_id')->index();
+            $table->foreign('departments_id')->references('id')->on('departments')->onUpdate('restrict')->onDelete('restrict');
             $table->dateTime('ModificationDate')->nullable(false);
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('register_ubication');
+        Schema::dropIfExists('registers_departments');
     }
 };
