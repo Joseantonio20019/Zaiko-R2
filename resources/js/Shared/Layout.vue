@@ -6,7 +6,7 @@
 
             <h1 class="font-bold text-3xl"> Zaiko </h1>
 
-            <p class="text-xl ml-4">Welcome back, {{ username }}</p>
+            <!-- <p class="text-xl ml-4">Welcome back, {{ username }}</p> -->
         </div>
 
         <Nav />

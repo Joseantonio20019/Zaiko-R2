@@ -217,7 +217,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref2) {
                   var active = _ref2.active;
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-                    href: "/models",
+                    href: "/model",
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'])
                   }, "Models", 2
                   /* CLASS */
@@ -475,31 +475,25 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "flex justify-between"
 };
-var _hoisted_3 = {
-  "class": "flex items-center"
-};
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex items-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold text-3xl"
-}, " Zaiko ", -1
+}, " Zaiko "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p class=\"text-xl ml-4\">Welcome back, {{ username }}</p> ")], -1
 /* HOISTED */
 );
 
-var _hoisted_5 = {
-  "class": "text-xl ml-4"
-};
-var _hoisted_6 = {
+var _hoisted_4 = {
   "class": "p-6"
 };
-var _hoisted_7 = {
+var _hoisted_5 = {
   "class": "max-w-1xl mx-auto ml-6"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Nav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Nav");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, "Welcome back, " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.username), 1
-  /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Nav)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Nav)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
 }
 
 /***/ }),
@@ -1041,6 +1035,32 @@ var map = {
 		"./resources/js/Pages/Marks/Index.vue",
 		"/js/vendor",
 		"resources_js_Pages_Marks_Index_vue"
+	],
+	"./Models/Create": [
+		"./resources/js/Pages/Models/Create.vue",
+		"resources_js_Pages_Models_Create_vue"
+	],
+	"./Models/Create.vue": [
+		"./resources/js/Pages/Models/Create.vue",
+		"resources_js_Pages_Models_Create_vue"
+	],
+	"./Models/Edit": [
+		"./resources/js/Pages/Models/Edit.vue",
+		"resources_js_Pages_Models_Edit_vue"
+	],
+	"./Models/Edit.vue": [
+		"./resources/js/Pages/Models/Edit.vue",
+		"resources_js_Pages_Models_Edit_vue"
+	],
+	"./Models/Index": [
+		"./resources/js/Pages/Models/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Models_Index_vue"
+	],
+	"./Models/Index.vue": [
+		"./resources/js/Pages/Models/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Models_Index_vue"
 	],
 	"./Settings": [
 		"./resources/js/Pages/Settings.vue",

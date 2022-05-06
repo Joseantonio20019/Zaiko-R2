@@ -2,7 +2,7 @@
 
     <div>
 
-        <Head title="Status"/>
+        <Head title="Models"/>
 
         <Layout>
 
@@ -13,9 +13,9 @@
             <div class="flex justify-between mb-6">
         
             <div class="flex items-center">
-            <h1 class="text-3xl">Status</h1>
+            <h1 class="text-3xl">Models</h1>
 
-            <Link href="/status/create" class="text-blue-500 text-sm ml-2"  >Create New Status </Link>
+            <Link href="/model/create" class="text-blue-500 text-sm ml-2"  >Create New Model </Link>
 
             </div>
 
@@ -39,17 +39,17 @@
                         </tr>
                     </thead>
                   <tbody>
-                    <tr v-for="status in status.data" :key="status.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
+                    <tr v-for="model in model.data" :key="model.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
-                            {{ status.id}}
+                            {{ model.id}}
                         </th>
                         <td class="px-6 py-4">
-                            {{status.name}}
+                            {{model.name}}
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
-                            <Link :href="`/status/edit/${status.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
+                            <Link :href="`/model/edit/${model.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
                 
-                            <button type="buttton" @click="destroy(status.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                            <button type="buttton" @click="destroy(model.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
 
                         </td>
                     </tr>
@@ -59,7 +59,7 @@
             </div>
 
         </Layout>
-        <Pagination :links="status.links" class="mt-6" />
+        <Pagination :links="model.links" class="mt-6" />
 
 
     </div>
@@ -78,7 +78,7 @@ import Notification from '../../Shared/Notification.vue';
 
     let props = defineProps({
 
-        status: Object,
+        model: Object,
         filters: Object,
     });
 
@@ -86,7 +86,7 @@ import Notification from '../../Shared/Notification.vue';
 
         watch(search,debounce(function (value){
 
-            Inertia.get('/status',{ search : value }, {
+            Inertia.get('/model',{ search : value }, {
 
             preserveState:true,
             replace:true
@@ -98,9 +98,9 @@ import Notification from '../../Shared/Notification.vue';
 
        let destroy = async function (id) {
 
-        Inertia.delete(`/status/delete/${id}`,{
+        Inertia.delete(`/model/delete/${id}`,{
 
-            onBefore: () => confirm('Are you sure you want to delete this status?')
+            onBefore: () => confirm('Are you sure you want to delete this model?')
 
         });
        }

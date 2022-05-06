@@ -6,9 +6,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UbicationController;
 use App\Http\Controllers\DeviceController;
-use App\Http\Controllers\StatusController;
 use App\Http\Controllers\ModelDeviceController;
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\FamilyController;
+
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -22,7 +24,7 @@ Route::post('logout',[LoginController::class, 'destroy'])->middleware('auth');
 
 
 
-Route::middleware('auth')->group(function () {
+/* Route::middleware('auth')->group(function () { */
 
 
 Route::get('/', function () {
@@ -172,4 +174,4 @@ Route::delete('/devices/delete/{id}',[DeviceController::class,'destroy']);
 
 
 
- }); 
+/*  });  */

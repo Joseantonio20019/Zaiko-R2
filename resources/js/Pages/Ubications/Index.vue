@@ -67,6 +67,8 @@
 
         </Layout>
 
+        <Pagination :links="ubications.links" class="mt-6" />
+
 
     </div>
     
@@ -75,6 +77,7 @@
 <script setup>
 
 import {ref,watch} from 'vue';
+import Pagination from '../../Shared/Pagination.vue';
 import {Inertia} from "@inertiajs/inertia";
 import debounce from 'lodash/throttle';
 import Notification from '../../Shared/Notification.vue';

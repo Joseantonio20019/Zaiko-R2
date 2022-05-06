@@ -15,7 +15,7 @@
             <a href="/marks" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Marks</a>
           </MenuItem>
           <MenuItem v-slot="{ active }">
-            <a href="/models" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Models</a>
+            <a href="/model" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Models</a>
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <a href="/family" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Family</a>
