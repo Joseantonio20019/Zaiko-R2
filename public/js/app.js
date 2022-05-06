@@ -1015,6 +1015,32 @@ var map = {
 		"./resources/js/Pages/Auth/Login.vue",
 		"resources_js_Pages_Auth_Login_vue"
 	],
+	"./Departments/Create": [
+		"./resources/js/Pages/Departments/Create.vue",
+		"resources_js_Pages_Departments_Create_vue"
+	],
+	"./Departments/Create.vue": [
+		"./resources/js/Pages/Departments/Create.vue",
+		"resources_js_Pages_Departments_Create_vue"
+	],
+	"./Departments/Edit": [
+		"./resources/js/Pages/Departments/Edit.vue",
+		"resources_js_Pages_Departments_Edit_vue"
+	],
+	"./Departments/Edit.vue": [
+		"./resources/js/Pages/Departments/Edit.vue",
+		"resources_js_Pages_Departments_Edit_vue"
+	],
+	"./Departments/Index": [
+		"./resources/js/Pages/Departments/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Departments_Index_vue"
+	],
+	"./Departments/Index.vue": [
+		"./resources/js/Pages/Departments/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Departments_Index_vue"
+	],
 	"./Family/Create": [
 		"./resources/js/Pages/Family/Create.vue",
 		"resources_js_Pages_Family_Create_vue"

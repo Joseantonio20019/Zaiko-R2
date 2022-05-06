@@ -10,6 +10,7 @@ use App\Http\Controllers\ModelDeviceController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\FamilyController;
+use App\Http\Controllers\DepartmentController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -171,6 +172,20 @@ Route::put('/devices/edit/{id}',[DeviceController::class,'update']);
 
 Route::delete('/devices/delete/{id}',[DeviceController::class,'destroy']);
 
+
+//Department Routes
+
+Route::get('/departments', [DepartmentController::class, 'index']);
+
+Route::get('/departments/create', [DepartmentController::class, 'create']);
+
+Route::post('/departments/create',[DepartmentController::class,'store']);
+
+Route::get('/departments/edit/{id}',[DepartmentController::class,'edit']);
+
+Route::put('/departments/edit/{id}',[DepartmentController::class,'update']);
+
+Route::delete('/departments/delete/{id}',[DepartmentController::class,'destroy']);
 
 
 
