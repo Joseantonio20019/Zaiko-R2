@@ -20,7 +20,8 @@ class SiteController extends Controller
             'sites' => Site::query()
             ->when(RequestFacade::input('search'), function ($query,$search){
     
-                $query->where('name','like','%'.$search.'%');
+                $query->where('name','like','%'.$search.'%')
+                ->orWhere('alias','like','%'.$search.'%');
     
             })
             ->paginate(10)
@@ -45,12 +46,14 @@ class SiteController extends Controller
        $data = RequestFacade::validate([
 
         'name' => ['required','min:3'],
+        'alias' => ['required','min:2'],
         
        ]);
 
        Site::create([
 
         'name' => $data['name'],
+        'alias' => $data['alias'],
         
        ]);
 
@@ -78,6 +81,7 @@ class SiteController extends Controller
 
         $request->validate([
             'name' => ['required','min:3'],
+            'alias' => ['required','min:2'],
 
         ]);
 
@@ -85,6 +89,7 @@ class SiteController extends Controller
 
         $site->update([
             'name' => $request->name,
+            'alias' => $request->alias,
         ]);
 
 

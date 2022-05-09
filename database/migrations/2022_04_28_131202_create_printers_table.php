@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('printers', function (Blueprint $table) {
-            $table->id('devices_id');
+            $table->id();
             $table->enum('ink',['Color','BW']);
             $table->boolean('USB');
             $table->boolean('COM');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('Ethernet');
             $table->timestamps();
 
-            $table->foreign('devices_id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
 
 
         });

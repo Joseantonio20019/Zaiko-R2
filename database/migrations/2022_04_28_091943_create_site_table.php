@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('sites', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('name')->nullable(false);
+            $table->string('alias')->nullable(false);
             $table->timestamps();
         });
     }

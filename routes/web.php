@@ -11,6 +11,9 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\PCSController;
+use App\Http\Controllers\MonitorController;
+
 
 
 use Illuminate\Support\Facades\Route;
@@ -186,6 +189,41 @@ Route::get('/departments/edit/{id}',[DepartmentController::class,'edit']);
 Route::put('/departments/edit/{id}',[DepartmentController::class,'update']);
 
 Route::delete('/departments/delete/{id}',[DepartmentController::class,'destroy']);
+
+
+//PCS Routes
+
+Route::get('/pcs', [PCSController::class, 'index']);
+
+Route::get('/pcs/create', [PCSController::class, 'create']);
+
+Route::post('/pcs/create',[PCSController::class,'store']);
+
+Route::get('/pcs/edit/{id}',[PCSController::class,'edit']);
+
+Route::put('/pcs/edit/{id}',[PCSController::class,'update']);
+
+Route::delete('/pcs/delete/{id}',[PCSController::class,'destroy']);
+
+
+//Monitors Routes
+
+Route::get('/monitors', [MonitorController::class, 'index']);
+
+Route::get('/monitors/create', [MonitorController::class, 'create']);
+
+Route::post('/monitors/create',[MonitorController::class,'store']);
+
+Route::get('/monitors/edit/{id}',[MonitorController::class,'edit']);
+
+Route::put('/monitors/edit/{id}',[MonitorController::class,'update']);
+
+Route::delete('/monitors/delete/{id}',[MonitorController::class,'destroy']);
+
+Route::get('/monitors/show/{id}',[MonitorController::class,'show']);
+
+
+
 
 
 

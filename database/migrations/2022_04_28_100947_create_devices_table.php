@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement();
-            $table->integer('Inventory Nº')->nullable(false);
-            $table->text('Comment')->nullable(false);
-            $table->string('Model')->nullable(false);
-            $table->string('Type')->nullable(false);
-            $table->string('Status')->nullable(false);
+            $table->integer('inventory_number')->nullable(false);
+            $table->text('comment')->nullable(false);
+            $table->string('model')->nullable(false);
+            $table->string('type')->nullable(false);
+            $table->string('status')->nullable(false);
             $table->unsignedBigInteger('mark_id');
             $table->timestamps();
 

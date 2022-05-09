@@ -12,18 +12,6 @@
       <MenuItems class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
         <div class="py-1">
           <MenuItem v-slot="{ active }">
-            <a href="/marks" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Marks</a>
-          </MenuItem>
-          <MenuItem v-slot="{ active }">
-            <a href="/model" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Models</a>
-          </MenuItem>
-          <MenuItem v-slot="{ active }">
-            <a href="/family" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Family</a>
-          </MenuItem>
-          <MenuItem v-slot="{ active }">
-            <a href="/status" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Status</a>
-          </MenuItem>
-          <MenuItem v-slot="{ active }">
             <a href="/sites" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Sites</a>
           </MenuItem>
           <MenuItem v-slot="{ active }">
@@ -32,6 +20,19 @@
           <MenuItem v-slot="{ active }">
             <a href="/departments" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Departments</a>
           </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a href="/marks" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Marks</a>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a href="/model" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Models</a>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a href="/family" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Families</a>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a href="/status" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Status</a>
+          </MenuItem>
+          
         </div>
       </MenuItems>
     </transition>

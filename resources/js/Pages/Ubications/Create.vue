@@ -28,6 +28,20 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
+                    Alias
+                </label>
+
+
+                <input v-model="form.alias" class="border border-gray-400 p-2 w-full" type="text" name="alias" id="alias" autofocus> 
+
+                <div v-if="form.errors.alias" v-text="form.errors.alias" class="text-red-500 text-xs italic mt-2"></div>
+
+            </div>
+
+            <div class="mb-6">
+
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
                     Site
                 </label>
                 <div class="mb-3 xl:w-96">
@@ -40,8 +54,6 @@
                 <div v-if="form.errors.select" v-text="form.errors.select" class="text-red-500 text-xs italic mt-2"></div>
 
             </div>
-
-
 
               <div class="mb-6">
 

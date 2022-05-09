@@ -34,6 +34,9 @@
                                 NAME
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                ALIAS
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 SITE
                             </th>
                             <th scope="col" class="px-10 py-3 text-center">
@@ -48,6 +51,9 @@
                         </th>
                         <td class="px-6 py-4">
                             {{ubication.name}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ubication.alias}}
                         </td>
                         <td class="px-6 py-4">
                             {{ubication.site["name"]}}

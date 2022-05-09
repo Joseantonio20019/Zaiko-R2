@@ -14,16 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('network_devices', function (Blueprint $table) {
-            $table->id('devices_id');
+            $table->id();
             $table->enum('manageable',['YES','NO','UNIFY'])->nullable(false);
             $table->enum('POE',['NO','24','48','24&48'])->nullable(false);
             $table->enum('Speed',['100MB','1GB','2.5GB','5GB','10GB'])->nullable(false);
-            $table->integer('Ethernet Ports Nº')->nullable(false);
-            $table->integer('Fiber Ports Nº')->nullable(false);
+            $table->integer('ethernet_ports_number')->nullable(false);
+            $table->integer('fiber_ports_number')->nullable(false);
 
             $table->timestamps();
 
-            $table->foreign('devices_id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

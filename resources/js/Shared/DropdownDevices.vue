@@ -12,6 +12,11 @@
       <MenuItems class="origin-top-right absolute overflow-y-auto right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
         <div class="py-1">
           <MenuItem v-slot="{ active }">
+            <a href="/devices" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Main Page</a>
+          </MenuItem>
+        </div>
+        <div class="py-1">
+          <MenuItem v-slot="{ active }">
             <a href="/pcs" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">PC'S</a>
           </MenuItem>
           <MenuItem v-slot="{ active }">

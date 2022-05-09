@@ -5,23 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ubication extends Model
+class PC extends Model
 {
     use HasFactory;
 
 
     protected $fillable = [
-
-        'name',
-        'alias',
-        'site_id'
+        'CPU',
+        'CPU Model',
+        'RAM Type',
+        'RAM Size',
+        'O.S'
     ];
-
-
-    public function site(){
-
-        return $this->belongsTo(Site::class);
-
-    }
-
 }

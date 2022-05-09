@@ -5,23 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ubication extends Model
+class Monitor extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
 
-        'name',
-        'alias',
-        'site_id'
+        'inches',
+        'HDMI',
+        'VGA',
+        'DVI',
+        'DisplayPort',
     ];
 
+    public function device(){
 
-    public function site(){
-
-        return $this->belongsTo(Site::class);
+        return $this->belongsTo(Device::class);
 
     }
+
 
 }

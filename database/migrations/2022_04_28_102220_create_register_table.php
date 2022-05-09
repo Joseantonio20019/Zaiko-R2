@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('registers', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement();
-            $table->string('User')->nullable(false);
-            $table->string('Comment')->nullable(false);
+            $table->string('user')->nullable(false);
+            $table->string('comment')->nullable(false);
             $table->timestamps();
             $table->unsignedBigInteger('devices_id');
 

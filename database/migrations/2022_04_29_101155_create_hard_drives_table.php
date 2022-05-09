@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->integer('size')->nullable(false);
             $table->string('type')->nullable(false);
-            $table->unsignedBigInteger('PC_id');
+            $table->unsignedBigInteger('pc_id');
             $table->timestamps();
 
-            $table->foreign('PC_id')->references('devices_id')->on('pcs')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('pc_id')->references('id')->on('computers')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

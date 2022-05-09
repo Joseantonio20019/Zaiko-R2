@@ -17,6 +17,7 @@ return new class extends Migration
 
             $table->id()->autoIncrement();
             $table->string('name')->nullable(false);
+            $table->string('alias')->nullable(false);
             $table->unsignedBigInteger('site_id');
             $table->timestamps();
 

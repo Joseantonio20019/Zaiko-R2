@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('register_id')->references('id')->on('registers')->onUpdate('restrict')->onDelete('restrict');
             $table->unsignedBigInteger('departments_id')->index();
             $table->foreign('departments_id')->references('id')->on('departments')->onUpdate('restrict')->onDelete('restrict');
-            $table->dateTime('ModificationDate')->nullable(false);
+            $table->dateTime('modification_date')->nullable(false);
         });
     }
 

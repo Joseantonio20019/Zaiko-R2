@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('pdas', function (Blueprint $table) {
 
-            $table->id('devices_id');
+            $table->id();
             $table->macAddress('MAC')->nullable(false);
-            $table->string('Serial Nº')->nullable(false);
+            $table->string('serial_number')->nullable(false);
             $table->timestamps();
 
-            $table->foreign('devices_id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
