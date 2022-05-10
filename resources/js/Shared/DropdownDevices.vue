@@ -17,7 +17,7 @@
         </div>
         <div class="py-1">
           <MenuItem v-slot="{ active }">
-            <a href="/pcs" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">PC'S</a>
+            <a href="/computers" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Computers</a>
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <a href="/phones" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Phones</a>

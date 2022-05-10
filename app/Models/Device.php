@@ -32,5 +32,9 @@ class Device extends Model
         return $this->hasMany(Printer::class);
     }
 
+    public function networkDevices(){
+        return $this->hasMany(NetworkDevice::class);
+    }
+
 
 }

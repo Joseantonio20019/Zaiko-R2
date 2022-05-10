@@ -391,9 +391,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref2) {
                   var active = _ref2.active;
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-                    href: "/pcs",
+                    href: "/computers",
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'])
-                  }, "PC'S", 2
+                  }, "Computers", 2
                   /* CLASS */
                   )];
                 }),
@@ -1057,6 +1057,38 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Departments_Index_vue"
 	],
+	"./Devices/Computers/Create": [
+		"./resources/js/Pages/Devices/Computers/Create.vue",
+		"resources_js_Pages_Devices_Computers_Create_vue"
+	],
+	"./Devices/Computers/Create.vue": [
+		"./resources/js/Pages/Devices/Computers/Create.vue",
+		"resources_js_Pages_Devices_Computers_Create_vue"
+	],
+	"./Devices/Computers/Edit": [
+		"./resources/js/Pages/Devices/Computers/Edit.vue",
+		"resources_js_Pages_Devices_Computers_Edit_vue"
+	],
+	"./Devices/Computers/Edit.vue": [
+		"./resources/js/Pages/Devices/Computers/Edit.vue",
+		"resources_js_Pages_Devices_Computers_Edit_vue"
+	],
+	"./Devices/Computers/Index": [
+		"./resources/js/Pages/Devices/Computers/Index.vue",
+		"resources_js_Pages_Devices_Computers_Index_vue"
+	],
+	"./Devices/Computers/Index.vue": [
+		"./resources/js/Pages/Devices/Computers/Index.vue",
+		"resources_js_Pages_Devices_Computers_Index_vue"
+	],
+	"./Devices/Computers/Show": [
+		"./resources/js/Pages/Devices/Computers/Show.vue",
+		"resources_js_Pages_Devices_Computers_Show_vue"
+	],
+	"./Devices/Computers/Show.vue": [
+		"./resources/js/Pages/Devices/Computers/Show.vue",
+		"resources_js_Pages_Devices_Computers_Show_vue"
+	],
 	"./Devices/Index": [
 		"./resources/js/Pages/Devices/Index.vue",
 		"/js/vendor",
@@ -1100,6 +1132,40 @@ var map = {
 	"./Devices/Monitors/Show.vue": [
 		"./resources/js/Pages/Devices/Monitors/Show.vue",
 		"resources_js_Pages_Devices_Monitors_Show_vue"
+	],
+	"./Devices/NetworkDevices/Create": [
+		"./resources/js/Pages/Devices/NetworkDevices/Create.vue",
+		"resources_js_Pages_Devices_NetworkDevices_Create_vue"
+	],
+	"./Devices/NetworkDevices/Create.vue": [
+		"./resources/js/Pages/Devices/NetworkDevices/Create.vue",
+		"resources_js_Pages_Devices_NetworkDevices_Create_vue"
+	],
+	"./Devices/NetworkDevices/Edit": [
+		"./resources/js/Pages/Devices/NetworkDevices/Edit.vue",
+		"resources_js_Pages_Devices_NetworkDevices_Edit_vue"
+	],
+	"./Devices/NetworkDevices/Edit.vue": [
+		"./resources/js/Pages/Devices/NetworkDevices/Edit.vue",
+		"resources_js_Pages_Devices_NetworkDevices_Edit_vue"
+	],
+	"./Devices/NetworkDevices/Index": [
+		"./resources/js/Pages/Devices/NetworkDevices/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_NetworkDevices_Index_vue"
+	],
+	"./Devices/NetworkDevices/Index.vue": [
+		"./resources/js/Pages/Devices/NetworkDevices/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_NetworkDevices_Index_vue"
+	],
+	"./Devices/NetworkDevices/Show": [
+		"./resources/js/Pages/Devices/NetworkDevices/Show.vue",
+		"resources_js_Pages_Devices_NetworkDevices_Show_vue"
+	],
+	"./Devices/NetworkDevices/Show.vue": [
+		"./resources/js/Pages/Devices/NetworkDevices/Show.vue",
+		"resources_js_Pages_Devices_NetworkDevices_Show_vue"
 	],
 	"./Devices/Printers/Create": [
 		"./resources/js/Pages/Devices/Printers/Create.vue",

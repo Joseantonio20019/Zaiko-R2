@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('network_devices', function (Blueprint $table) {
             $table->id();
-            $table->enum('manageable',['YES','NO','UNIFY'])->nullable(false);
+            $table->enum('manageable',['YES','NO','Controller'])->nullable(false);
             $table->enum('POE',['NO','24','48','24&48'])->nullable(false);
             $table->enum('Speed',['100MB','1GB','2.5GB','5GB','10GB'])->nullable(false);
             $table->integer('ethernet_ports_number')->nullable(false);

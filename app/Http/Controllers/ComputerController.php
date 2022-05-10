@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PC;
+use App\Models\Computer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request as RequestFacade;
 use Inertia\Inertia;
 
-class PCSController extends Controller
+class ComputerController extends Controller
 {
     
 
     public function index()
     {
-        return Inertia::render('PCS/Index',[
+        return Inertia::render('Computers/Index',[
 
-            'pcs' => PC::query()
+            'computers' => Computer::query()
             ->when(RequestFacade::input('search'), function ($query,$search){
     
                 $query->where('cpu','like','%'.$search.'%')->orWhere('cpu_model','like','%'.$search.'%')->orWhere('ram','like','%'.$search.'%');

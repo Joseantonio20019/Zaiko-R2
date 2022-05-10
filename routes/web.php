@@ -11,9 +11,10 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\PCSController;
+use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\MonitorController;
 use App\Http\Controllers\PrinterController;
+use App\Http\Controllers\NetworkDeviceController;
 
 
 
@@ -192,19 +193,19 @@ Route::put('/departments/edit/{id}',[DepartmentController::class,'update']);
 Route::delete('/departments/delete/{id}',[DepartmentController::class,'destroy']);
 
 
-//PCS Routes
+//Computers Routes
 
-Route::get('/pcs', [PCSController::class, 'index']);
+Route::get('/computers', [ComputerController::class, 'index']);
 
-Route::get('/pcs/create', [PCSController::class, 'create']);
+Route::get('/computers/create', [ComputerController::class, 'create']);
 
-Route::post('/pcs/create',[PCSController::class,'store']);
+Route::post('/computers/create',[ComputerController::class,'store']);
 
-Route::get('/pcs/edit/{id}',[PCSController::class,'edit']);
+Route::get('/computers/edit/{id}',[ComputerController::class,'edit']);
 
-Route::put('/pcs/edit/{id}',[PCSController::class,'update']);
+Route::put('/computers/edit/{id}',[ComputerController::class,'update']);
 
-Route::delete('/pcs/delete/{id}',[PCSController::class,'destroy']);
+Route::delete('/computers/delete/{id}',[ComputerController::class,'destroy']);
 
 
 //Monitors Routes
@@ -239,9 +240,21 @@ Route::delete('/printers/delete/{id}',[PrinterController::class,'destroy']);
 
 Route::get('/printers/show/{id}',[PrinterController::class,'show']);
 
+//Network Devices Routes
 
+Route::get('/network-devices', [NetworkDeviceController::class, 'index']);
 
+Route::get('/network-devices/create', [NetworkDeviceController::class, 'create']);
 
+Route::post('/network-devices/create',[NetworkDeviceController::class,'store']);
+
+Route::get('/network-devices/edit/{id}',[NetworkDeviceController::class,'edit']);
+
+Route::put('/network-devices/edit/{id}',[NetworkDeviceController::class,'update']);
+
+Route::delete('/network-devices/delete/{id}',[NetworkDeviceController::class,'destroy']);
+
+Route::get('/network-devices/show/{id}',[NetworkDeviceController::class,'show']);
 
 
 /*  });  */
