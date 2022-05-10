@@ -13,6 +13,7 @@ use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\PCSController;
 use App\Http\Controllers\MonitorController;
+use App\Http\Controllers\PrinterController;
 
 
 
@@ -221,6 +222,22 @@ Route::put('/monitors/edit/{id}',[MonitorController::class,'update']);
 Route::delete('/monitors/delete/{id}',[MonitorController::class,'destroy']);
 
 Route::get('/monitors/show/{id}',[MonitorController::class,'show']);
+
+//Printers Routes
+
+Route::get('/printers', [PrinterController::class, 'index']);
+
+Route::get('/printers/create', [PrinterController::class, 'create']);
+
+Route::post('/printers/create',[PrinterController::class,'store']);
+
+Route::get('/printers/edit/{id}',[PrinterController::class,'edit']);
+
+Route::put('/printers/edit/{id}',[PrinterController::class,'update']);
+
+Route::delete('/printers/delete/{id}',[PrinterController::class,'destroy']);
+
+Route::get('/printers/show/{id}',[PrinterController::class,'show']);
 
 
 

@@ -1101,6 +1101,40 @@ var map = {
 		"./resources/js/Pages/Devices/Monitors/Show.vue",
 		"resources_js_Pages_Devices_Monitors_Show_vue"
 	],
+	"./Devices/Printers/Create": [
+		"./resources/js/Pages/Devices/Printers/Create.vue",
+		"resources_js_Pages_Devices_Printers_Create_vue"
+	],
+	"./Devices/Printers/Create.vue": [
+		"./resources/js/Pages/Devices/Printers/Create.vue",
+		"resources_js_Pages_Devices_Printers_Create_vue"
+	],
+	"./Devices/Printers/Edit": [
+		"./resources/js/Pages/Devices/Printers/Edit.vue",
+		"resources_js_Pages_Devices_Printers_Edit_vue"
+	],
+	"./Devices/Printers/Edit.vue": [
+		"./resources/js/Pages/Devices/Printers/Edit.vue",
+		"resources_js_Pages_Devices_Printers_Edit_vue"
+	],
+	"./Devices/Printers/Index": [
+		"./resources/js/Pages/Devices/Printers/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_Printers_Index_vue"
+	],
+	"./Devices/Printers/Index.vue": [
+		"./resources/js/Pages/Devices/Printers/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_Printers_Index_vue"
+	],
+	"./Devices/Printers/Show": [
+		"./resources/js/Pages/Devices/Printers/Show.vue",
+		"resources_js_Pages_Devices_Printers_Show_vue"
+	],
+	"./Devices/Printers/Show.vue": [
+		"./resources/js/Pages/Devices/Printers/Show.vue",
+		"resources_js_Pages_Devices_Printers_Show_vue"
+	],
 	"./Family/Create": [
 		"./resources/js/Pages/Family/Create.vue",
 		"resources_js_Pages_Family_Create_vue"

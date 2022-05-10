@@ -25,4 +25,12 @@ class Device extends Model
 
         return $this->hasMany(Monitor::class);
     }
+
+    public function printers(){
+
+
+        return $this->hasMany(Printer::class);
+    }
+
+
 }

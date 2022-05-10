@@ -1,10 +1,10 @@
 <template>
 <div>
 
-    <Head title="Edit Monitor" />
+    <Head title="Create Printer" />
 
 
-    <h1 class="text-3xl text-center">Edit a Monitor</h1>
+    <h1 class="text-3xl text-center">Create a New Printer</h1>
 
 
     <form @submit.prevent="submit" action="/" class="max-w-md mx-auto mt-8">
@@ -14,7 +14,7 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Inventory Number
+                    Inventory Number
                 </label>
 
 
@@ -28,7 +28,7 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Comment(Optional)
+                    Comment(Optional)
                 </label>
 
 
@@ -42,12 +42,12 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Model
+                    Model
                 </label>
                 <div class="mb-3 xl:w-96">
                     
                     <select v-model="form.model" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option :selected="form.model" v-for="model in models" :key="model.id">{{model.name}}</option>
+                        <option v-for="model in models" :key="model.id">{{model.name}}</option>
                     </select>
                 </div>
 
@@ -59,12 +59,12 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Family
+                    Family
                 </label>
                 <div class="mb-3 xl:w-96">
                     
                     <select v-model="form.family" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option :selected="form.family" v-for="family in families" :key="family.id">{{family.name}}</option>
+                        <option v-for="family in families" :key="family.id">{{family.name}}</option>
                     </select>
                 </div>
 
@@ -76,12 +76,12 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Status
+                    Status
                 </label>
                 <div class="mb-3 xl:w-96">
                     
                     <select v-model="form.status" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option :selected="form.status" v-for="status in statuses" :key="status.id">{{status.name}}</option>
+                        <option v-for="status in statuses" :key="status.id">{{status.name}}</option>
                     </select>
                 </div>
 
@@ -93,12 +93,12 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Mark
+                    Mark
                 </label>
                 <div class="mb-3 xl:w-96">
                     
                     <select v-model="form.mark" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option :selected="form.mark_id" v-for="mark in marks" :key="mark.id" :value="mark.id" >{{mark.name}}</option>
+                        <option v-for="mark in marks" :key="mark.id" :value="mark.id" >{{mark.name}}</option>
                     </select>
                 </div>
 
@@ -110,34 +110,39 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Inches
+                    Ink
                 </label>
 
-                <input v-model="form.inches" class="border border-gray-400 p-2 w-full" type="number" name="inches" id="inches" autofocus> 
+                <input type="radio" v-model="form.ink" value="Color" id="Color"> 
+                <label for="Color">Color</label>
+                <br>
+                <input type="radio" v-model="form.ink" value="BW" id="Black&White"> 
+                <label for="Black&White">Black & White</label>
 
-                <div v-if="form.errors.inches" v-text="form.errors.inches" class="text-red-500 text-xs italic mt-2"></div>
+                <div v-if="form.errors.ink" v-text="form.errors.inches" class="text-red-500 text-xs italic mt-2"></div>
 
             </div>
 
-            <div class="mb-6 flex justify-evenly">
+            <div class="mb-6">
 
-                <label>HDMI</label>
-                <input type="checkbox"  v-model="form.hdmi" true-value="1" false-value="0" name="hdmi" id="hdmi"> 
-                <label>VGA</label>
-                <input type="checkbox"  v-model="form.vga" true-value="1" false-value="0" name="vga" id="vga"> 
-                <label>DVI</label>
-                <input type="checkbox"  v-model="form.dvi" true-value="1" false-value="0" name="dvi" id="dvi"> 
-                <label>DisplayPort</label>
-                <input type="checkbox" v-model="form.displayport" true-value="1" false-value="0" name="displayport" id="displayport" > 
+                <label>USB</label>
+                <input type="checkbox" v-model="form.usb" name="usb" id="usb"> 
+                <label>COM</label>
+                <input type="checkbox" v-model="form.com" name="com" id="usb"> 
+                <label>WIFI</label>
+                <input type="checkbox" v-model="form.wifi" name="wifi" id="wifi"> 
+                <label>Ethernet</label>
+                <input type="checkbox" v-model="form.ethernet" name="ethernet" id="ethernet"> 
 
-                
+
+
             </div>      
 
 
 
               <div class="mb-6">
 
-                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Edit</button>
+                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Create</button>
 
 
             </div>
@@ -152,31 +157,29 @@
 
     import { useForm } from '@inertiajs/inertia-vue3';
 
-    let props= defineProps({
+    defineProps({
 
         errors: Object,
         families: Object,
         models: Object,
         statuses: Object,
         marks: Object,
-        monitor: Object,
-        device: Object,
 
     });
     
     let form = useForm({
 
-        inventory_number: props.device.inventory_number,
-        comment: props.device.comment,
-        model: props.device.model,
-        family: props.device.family,
-        status: props.device.status,
-        mark: props.device.mark_id,
-        inches: props.monitor.inches,
-        hdmi: props.monitor.HDMI,
-        vga: props.monitor.VGA,
-        dvi: props.monitor.DVI,
-        displayport: props.monitor.DisplayPort,
+        inventory_number: '',
+        comment: '',
+        model: '',
+        family: '',
+        status:'',
+        mark:'',
+        ink:'',
+        usb: false,
+        com: false,
+        wifi: false,
+        ethernet: false,
 
 
 
@@ -185,9 +188,10 @@
 
     let submit = () => {
 
-        form.put(`/monitors/edit/${props.monitor.id}`);
+        form.post('/printers/create');
 
 
     }
+
 
 </script>

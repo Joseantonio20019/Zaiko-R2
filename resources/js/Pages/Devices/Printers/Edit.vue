@@ -1,10 +1,10 @@
 <template>
 <div>
 
-    <Head title="Edit Monitor" />
+    <Head title="Edit Printer" />
 
 
-    <h1 class="text-3xl text-center">Edit a Monitor</h1>
+    <h1 class="text-3xl text-center">Edit a Printer</h1>
 
 
     <form @submit.prevent="submit" action="/" class="max-w-md mx-auto mt-8">
@@ -110,27 +110,32 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Inches
+                    Edit Ink
                 </label>
 
-                <input v-model="form.inches" class="border border-gray-400 p-2 w-full" type="number" name="inches" id="inches" autofocus> 
+                <input type="radio" v-model="form.ink" value="Color" id="Color"> 
+                <label for="Color">Color</label>
+                <br>
+                <input type="radio" v-model="form.ink" value="BW" id="Black&White"> 
+                <label for="Black&White">Black & White</label>
 
-                <div v-if="form.errors.inches" v-text="form.errors.inches" class="text-red-500 text-xs italic mt-2"></div>
+                <div v-if="form.errors.ink" v-text="form.errors.inches" class="text-red-500 text-xs italic mt-2"></div>
 
             </div>
 
-            <div class="mb-6 flex justify-evenly">
+            <div class="mb-6">
 
-                <label>HDMI</label>
-                <input type="checkbox"  v-model="form.hdmi" true-value="1" false-value="0" name="hdmi" id="hdmi"> 
-                <label>VGA</label>
-                <input type="checkbox"  v-model="form.vga" true-value="1" false-value="0" name="vga" id="vga"> 
-                <label>DVI</label>
-                <input type="checkbox"  v-model="form.dvi" true-value="1" false-value="0" name="dvi" id="dvi"> 
-                <label>DisplayPort</label>
-                <input type="checkbox" v-model="form.displayport" true-value="1" false-value="0" name="displayport" id="displayport" > 
+                <label>USB</label>
+                <input type="checkbox" v-model="form.usb"  true-value="1" false-value="0" name="usb" id="usb"> 
+                <label>COM</label>
+                <input type="checkbox" v-model="form.com" true-value="1" false-value="0" name="com" id="usb"> 
+                <label>WIFI</label>
+                <input type="checkbox" v-model="form.wifi" true-value="1" false-value="0" name="wifi" id="wifi"> 
+                <label>Ethernet</label>
+                <input type="checkbox" v-model="form.ethernet" true-value="1" false-value="0" name="ethernet" id="ethernet"> 
 
-                
+
+
             </div>      
 
 
@@ -159,7 +164,7 @@
         models: Object,
         statuses: Object,
         marks: Object,
-        monitor: Object,
+        printer: Object,
         device: Object,
 
     });
@@ -172,11 +177,11 @@
         family: props.device.family,
         status: props.device.status,
         mark: props.device.mark_id,
-        inches: props.monitor.inches,
-        hdmi: props.monitor.HDMI,
-        vga: props.monitor.VGA,
-        dvi: props.monitor.DVI,
-        displayport: props.monitor.DisplayPort,
+        ink: props.printer.ink,
+        usb: props.printer.USB,
+        com: props.printer.COM,
+        wifi: props.printer.WIFI,
+        ethernet: props.printer.Ethernet,
 
 
 
@@ -185,9 +190,11 @@
 
     let submit = () => {
 
-        form.put(`/monitors/edit/${props.monitor.id}`);
+        form.put(`/printers/edit/${props.printer.id}`);
 
 
     }
+
+
 
 </script>
