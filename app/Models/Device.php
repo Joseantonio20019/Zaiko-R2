@@ -14,7 +14,7 @@ class Device extends Model
         'inventory_number',
         'comment',
         'model',
-        'type',
+        'family',
         'status',
         'mark_id'
     ];

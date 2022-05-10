@@ -18,7 +18,7 @@
                 </label>
 
 
-                <input v-model="form.inventory_number" class="border border-gray-400 p-2 w-full" type="number" name="inventory_number" id="inventory_number" autofocus> 
+                <input v-model="form.inventory_number" class="border border-gray-400 p-2 w-full" type="text" name="inventory_number" id="inventory_number" autofocus> 
 
                 <div v-if="form.errors.inventory_number" v-text="form.errors.inventory_number" class="text-red-500 text-xs italic mt-2"></div>
 
@@ -162,7 +162,7 @@
         marks: Object,
 
     });
-
+    
     let form = useForm({
 
         inventory_number: '',
@@ -172,10 +172,10 @@
         status:'',
         mark:'',
         inches:'',
-        hdmi: '',
-        vga: '',
-        dvi: '',
-        displayport: '',
+        hdmi: false,
+        vga: false,
+        dvi: false,
+        displayport: false,
 
 
 

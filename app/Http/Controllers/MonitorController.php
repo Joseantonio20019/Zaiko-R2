@@ -64,30 +64,26 @@ class MonitorController extends Controller
             $data = RequestFacade::validate([
      
              'inventory_number' => ['required'],
-             'comment' => ['required'],
+             'comment' => ['nullable'],
              'model' => ['required'],
              'family' => ['required'],
              'status' => ['required'],
              'mark' => ['required'],
              'inches' => ['required'],
-             'hdmi' => ['required'],
-             'vga' => ['required'],
-             'dvi' => ['required'],
-             'displayport' => ['required'],
+             'hdmi' => ['nullable'],
+             'vga' => ['nullable'],
+             'dvi' => ['nullable'],
+             'displayport' => ['nullable'],
              
              
             ]);
 
-            dd($data);
-
-
             $device = Device::create([
-
 
                 'inventory_number' => $data['inventory_number'],
                 'comment' => $data['comment'],
                 'model' => $data['model'],
-                'type' => $data['family'],
+                'family' => $data['family'],
                 'status' => $data['status'],
                 'mark_id' => $data['mark'],
 
@@ -113,22 +109,68 @@ class MonitorController extends Controller
          }
 
 
-         public function edit($devices_id){
+         public function edit($id){
 
                 
             return Inertia::render('Devices/Monitors/Edit',[
         
-                'monitor' => Monitor::find($devices_id)
+                'monitor' => Monitor::find($id),
+                'device' => Device::find($id),
+                'marks' => Mark::all(),
+                'families' => Family::all(),
+                'models' => ModelDevice::all(),
+                'statuses' => Status::all(),
         
             ]);
         }
 
         public function update(Request $request,$id){
 
+        
             $request->validate([
-                'name' => ['required']
-    
-            ]);
+     
+                'inventory_number' => ['required'],
+                'comment' => ['nullable'],
+                'model' => ['required'],
+                'family' => ['required'],
+                'status' => ['required'],
+                'mark' => ['required'],
+                'inches' => ['required'],
+                'hdmi' => ['nullable'],
+                'vga' => ['nullable'],
+                'dvi' => ['nullable'],
+                'displayport' => ['nullable'],
+                
+                
+               ]);
+
+
+
+
+               $device = Device::findorFail($id);
+
+               $device->update([
+
+                'inventory_number' => $request->inventory_number,
+                'comment' => $request->comment,
+                'model' => $request->model,
+                'family' => $request->family,
+                'status' => $request->status,
+                'mark_id' => $request->mark,
+               ]);
+
+                $monitor = Monitor::findorFail($id);
+
+                $monitor->update([
+                    'inches' => $request->inches,
+                    'HDMI' => $request->hdmi,
+                    'VGA' => $request->vga,
+                    'DVI' => $request->dvi,
+                    'DisplayPort' => $request->displayport,
+
+                ]);
+
+                return redirect('/monitors')->with('message','Monitor updated successfully');
 
         }
 

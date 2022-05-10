@@ -32,13 +32,10 @@
                                 INVENTORY NUMBER
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                COMMENT
-                            </th>
-                            <th scope="col" class="px-6 py-3">
                                 MODEL
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                TYPE
+                                FAMILY
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 STATUS
@@ -51,20 +48,16 @@
                 <tbody>
                     <tr v-for="monitor in monitors.data" :key="monitor.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
-                            {{ monitor.inventory_number }}
+                            {{ monitor.device['inventory_number'] }}
                         </th>
                         <td class="px-6 py-4">
-                            {{monitor.comment}}
-                        </td>
-
-                        <td class="px-6 py-4">
-                            {{monitor.model}}
+                            {{monitor.device['model']}}
                         </td>
                         <td class="px-6 py-4">
-                            {{monitor.type}}
+                            {{monitor.device['family']}}
                         </td>
                         <td class="px-6 py-4">
-                            {{monitor.status}}
+                            {{monitor.device['status']}}
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
                             <Link :href="`/monitors/show/${monitor.id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
@@ -126,7 +119,7 @@ import Notification from '../../../Shared/Notification.vue';
 
     let destroy = async function (id) {
 
-        Inertia.delete(`/monitor/delete/${id}`,{
+        Inertia.delete(`/monitors/delete/${id}`,{
 
             onBefore: () => confirm('Are you sure you want to delete this monitor?')
 

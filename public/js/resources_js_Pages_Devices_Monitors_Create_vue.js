@@ -32,10 +32,10 @@ __webpack_require__.r(__webpack_exports__);
       status: '',
       mark: '',
       inches: '',
-      hdmi: '',
-      vga: '',
-      dvi: '',
-      displayport: ''
+      hdmi: false,
+      vga: false,
+      dvi: false,
+      displayport: false
     });
 
     var submit = function submit() {
@@ -213,7 +213,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.inventory_number = $event;
     }),
     "class": "border border-gray-400 p-2 w-full",
-    type: "number",
+    type: "text",
     name: "inventory_number",
     id: "inventory_number",
     autofocus: ""
