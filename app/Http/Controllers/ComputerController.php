@@ -179,6 +179,17 @@ class ComputerController extends Controller
 
         ]);
 
+        $computer = Computer::find($id);
+
+        $computer->update([
+            'cpu' => $request->cpu,
+            'cpu_model' => $request->cpu_model,
+            'ram_type' => $request->ram_type,
+            'ram_size' => $request->ram_size,
+            'os' => $request->os,
+        ]);
+        
+
         $harddrives = HardDrive::where('pc_id',$id)->get();
         $harddrive1= $harddrives->first();
         $harddrive2= $harddrives->last();
