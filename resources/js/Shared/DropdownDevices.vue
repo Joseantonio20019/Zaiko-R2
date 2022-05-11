@@ -23,7 +23,7 @@
             <a href="/phones" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Phones</a>
           </MenuItem>
           <MenuItem v-slot="{ active }">
-            <a href="/pda" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">PDA</a>
+            <a href="/pdas" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">PDAS</a>
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <a href="/network-devices" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Network Devices</a>

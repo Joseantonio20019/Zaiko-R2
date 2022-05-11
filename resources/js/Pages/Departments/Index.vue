@@ -33,6 +33,9 @@
                             <th scope="col" class="px-6 py-3">
                                 NAME
                             </th>
+                            <th scope="col" class="px-6 py-3">
+                                ALIAS
+                            </th>
                             <th scope="col" class="px-10 py-3 text-center">
                                 CONFIGURATION
                             </th>
@@ -45,6 +48,9 @@
                         </th>
                         <td class="px-6 py-4">
                             {{department.name}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{department.alias}}
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
                             <Link :href="`/departments/edit/${department.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>

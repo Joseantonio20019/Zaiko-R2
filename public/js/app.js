@@ -417,9 +417,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref4) {
                   var active = _ref4.active;
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-                    href: "/pda",
+                    href: "/pdas",
                     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'])
-                  }, "PDA", 2
+                  }, "PDAS", 2
                   /* CLASS */
                   )];
                 }),
@@ -1168,6 +1168,74 @@ var map = {
 	"./Devices/NetworkDevices/Show.vue": [
 		"./resources/js/Pages/Devices/NetworkDevices/Show.vue",
 		"resources_js_Pages_Devices_NetworkDevices_Show_vue"
+	],
+	"./Devices/PDA/Create": [
+		"./resources/js/Pages/Devices/PDA/Create.vue",
+		"resources_js_Pages_Devices_PDA_Create_vue"
+	],
+	"./Devices/PDA/Create.vue": [
+		"./resources/js/Pages/Devices/PDA/Create.vue",
+		"resources_js_Pages_Devices_PDA_Create_vue"
+	],
+	"./Devices/PDA/Edit": [
+		"./resources/js/Pages/Devices/PDA/Edit.vue",
+		"resources_js_Pages_Devices_PDA_Edit_vue"
+	],
+	"./Devices/PDA/Edit.vue": [
+		"./resources/js/Pages/Devices/PDA/Edit.vue",
+		"resources_js_Pages_Devices_PDA_Edit_vue"
+	],
+	"./Devices/PDA/Index": [
+		"./resources/js/Pages/Devices/PDA/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_PDA_Index_vue"
+	],
+	"./Devices/PDA/Index.vue": [
+		"./resources/js/Pages/Devices/PDA/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_PDA_Index_vue"
+	],
+	"./Devices/PDA/Show": [
+		"./resources/js/Pages/Devices/PDA/Show.vue",
+		"resources_js_Pages_Devices_PDA_Show_vue"
+	],
+	"./Devices/PDA/Show.vue": [
+		"./resources/js/Pages/Devices/PDA/Show.vue",
+		"resources_js_Pages_Devices_PDA_Show_vue"
+	],
+	"./Devices/Phones/Create": [
+		"./resources/js/Pages/Devices/Phones/Create.vue",
+		"resources_js_Pages_Devices_Phones_Create_vue"
+	],
+	"./Devices/Phones/Create.vue": [
+		"./resources/js/Pages/Devices/Phones/Create.vue",
+		"resources_js_Pages_Devices_Phones_Create_vue"
+	],
+	"./Devices/Phones/Edit": [
+		"./resources/js/Pages/Devices/Phones/Edit.vue",
+		"resources_js_Pages_Devices_Phones_Edit_vue"
+	],
+	"./Devices/Phones/Edit.vue": [
+		"./resources/js/Pages/Devices/Phones/Edit.vue",
+		"resources_js_Pages_Devices_Phones_Edit_vue"
+	],
+	"./Devices/Phones/Index": [
+		"./resources/js/Pages/Devices/Phones/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_Phones_Index_vue"
+	],
+	"./Devices/Phones/Index.vue": [
+		"./resources/js/Pages/Devices/Phones/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_Phones_Index_vue"
+	],
+	"./Devices/Phones/Show": [
+		"./resources/js/Pages/Devices/Phones/Show.vue",
+		"resources_js_Pages_Devices_Phones_Show_vue"
+	],
+	"./Devices/Phones/Show.vue": [
+		"./resources/js/Pages/Devices/Phones/Show.vue",
+		"resources_js_Pages_Devices_Phones_Show_vue"
 	],
 	"./Devices/Printers/Create": [
 		"./resources/js/Pages/Devices/Printers/Create.vue",

@@ -6,19 +6,19 @@ use App\Models\Device;
 use App\Models\Family;
 use App\Models\Mark;
 use App\Models\ModelDevice;
-use App\Models\Phone;
+use App\Models\Pda;
 use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request as RequestFacade;
 use Inertia\Inertia;
 
-class PhoneController extends Controller
+class PdaController extends Controller
 {
 
     public function index(){
-        return Inertia::render('Devices/Phones/Index',[
+        return Inertia::render('Devices/PDA/Index',[
 
-            'phones' => Phone::with('device')
+            'pdas' => Pda::with('device')
                 ->when(RequestFacade::input('search'), function ($query,$search){
         
                     $query->where('inventory_number','like','%'.$search.'%');
@@ -37,7 +37,7 @@ class PhoneController extends Controller
 
     public function create(){
 
-        return Inertia::render('Devices/Phones/Create',[
+        return Inertia::render('Devices/PDA/Create',[
 
             'statuses' => Status::all(),
 
@@ -62,7 +62,7 @@ class PhoneController extends Controller
             'family' => 'required',
             'status' => 'required',
             'mark' => 'required',
-            'extension' => 'required',
+            'mac' => 'required',
             'serial_number' => 'required',
             'imei' => 'required',
         ]);
@@ -79,29 +79,29 @@ class PhoneController extends Controller
 
         ]);
 
-        Phone::create([
+        $pda= Pda::create([
             'device_id' => $device->id,
-            'extension' => $data['extension'],
+            'MAC' => $data['mac'],
             'serial_number' => $data['serial_number'],
             'imei' => $data['imei'],
 
         ]);
 
-        return redirect('/phones')->with('success','Phone created successfully');
+        return redirect('/pdas')->with('success','Pda created successfully');
 
 
     }
 
     public function edit($id){
 
-        return Inertia::render('Devices/Phones/Edit',[
-            
-            'phone' => Phone::find($id),
+        return Inertia::render('Devices/PDA/Edit',[
+
+            'pda' => Pda::find($id),
             'device' => Device::find($id),
             'marks' => Mark::all(),
             'statuses' => Status::all(),
             'families' => Family::all(),
-            'models' => ModelDevice::all()
+            'models' => ModelDevice::all(),
 
         ]);
 
@@ -111,13 +111,13 @@ class PhoneController extends Controller
 
         $request->validate([
 
-            'inventory_number' => ['required'],
+            'inventory_number' => ['required','unique:devices,inventory_number,'.$id],
             'comment' => ['nullable'],
             'model' => ['required'],
             'family' => ['required'],
             'status' => ['required'],
             'mark' => ['required'],
-            'extension' => ['required'],
+            'mac' => ['required'],
             'serial_number' => ['required'],
             'imei' => ['required'],
         ]);
@@ -132,28 +132,30 @@ class PhoneController extends Controller
             'family' => $request->family,
             'status' => $request->status,
             'mark_id' => $request->mark,
+            
 
         ]);
 
-        $phone = Phone::find($id);
+        $pda = Pda::find($id);
 
-        $phone->update([
-            'extension' => $request->extension,
+        $pda->update([
+            'MAC' => $request->mac,
             'serial_number' => $request->serial_number,
             'imei' => $request->imei,
         ]);
 
+    
 
-        return redirect('/phones')->with('success','Phone updated successfully');
+        return redirect('/pdas')->with('success','Pda updated successfully');
 
 
     }
 
     public function destroy($id){
 
-        Phone::find($id)->delete();
+        Pda::find($id)->delete();
 
-        return redirect('/phones')->with('success','Phone deleted successfully');
+        return redirect('/pdas')->with('success','Pda deleted successfully');
 
     }
 

@@ -13,7 +13,6 @@ class Ubication extends Model
     protected $fillable = [
 
         'name',
-        'alias',
         'site_id'
     ];
 

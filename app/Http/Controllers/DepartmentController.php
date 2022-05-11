@@ -20,7 +20,8 @@ class DepartmentController extends Controller
             'departments' => Department::query()
             ->when(RequestFacade::input('search'), function ($query,$search){
     
-                $query->where('name','like','%'.$search.'%');
+                $query->where('name','like','%'.$search.'%')
+                ->orWhere('alias','like','%'.$search.'%');
     
             })
             ->paginate(10)
@@ -44,13 +45,15 @@ class DepartmentController extends Controller
 
        $data = RequestFacade::validate([
 
-        'name' => ['required','min:3'],
+        'name' => ['required'],
+        'alias' => ['required'],
         
        ]);
 
        Department::create([
 
         'name' => $data['name'],
+        'alias' => $data['alias'],
         
        ]);
 
@@ -77,7 +80,8 @@ class DepartmentController extends Controller
 
 
         $request->validate([
-            'name' => ['required']
+            'name' => ['required'],
+            'alias' => ['required'],
 
         ]);
 
@@ -85,6 +89,7 @@ class DepartmentController extends Controller
 
         $department->update([
             'name' => $request->name,
+            'alias' => $request->alias,
         ]);
 
 

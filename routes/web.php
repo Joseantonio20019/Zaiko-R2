@@ -15,6 +15,9 @@ use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\MonitorController;
 use App\Http\Controllers\PrinterController;
 use App\Http\Controllers\NetworkDeviceController;
+use App\Http\Controllers\PhoneController;
+use App\Http\Controllers\PdaController;
+
 
 
 
@@ -255,6 +258,38 @@ Route::put('/network-devices/edit/{id}',[NetworkDeviceController::class,'update'
 Route::delete('/network-devices/delete/{id}',[NetworkDeviceController::class,'destroy']);
 
 Route::get('/network-devices/show/{id}',[NetworkDeviceController::class,'show']);
+
+//Phones Routes
+
+Route::get('/phones', [PhoneController::class, 'index']);
+
+Route::get('/phones/create', [PhoneController::class, 'create']);
+
+Route::post('/phones/create',[PhoneController::class,'store']);
+
+Route::get('/phones/edit/{id}',[PhoneController::class,'edit']);
+
+Route::put('/phones/edit/{id}',[PhoneController::class,'update']);
+
+Route::delete('/phones/delete/{id}',[PhoneController::class,'destroy']);
+
+Route::get('/phones/show/{id}',[PhoneController::class,'show']);
+
+//PDAS Routes
+
+Route::get('/pdas', [PdaController::class, 'index']);
+
+Route::get('/pdas/create', [PdaController::class, 'create']);
+
+Route::post('/pdas/create',[PdaController::class,'store']);
+
+Route::get('/pdas/edit/{id}',[PdaController::class,'edit']);
+
+Route::put('/pdas/edit/{id}',[PdaController::class,'update']);
+
+Route::delete('/pdas/delete/{id}',[PdaController::class,'destroy']);
+
+Route::get('/pdas/show/{id}',[PdaController::class,'show']);
 
 
 /*  });  */

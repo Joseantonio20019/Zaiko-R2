@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->macAddress('MAC')->nullable(false);
             $table->string('serial_number')->nullable(false);
+            $table->string('imei')->nullable(false);
             $table->timestamps();
 
             $table->foreign('id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
