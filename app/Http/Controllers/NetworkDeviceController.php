@@ -160,9 +160,9 @@ class NetworkDeviceController extends Controller
 
                ]);
 
-                $monitor = NetworkDevice::findorFail($id);
+                $networkdevice = NetworkDevice::findorFail($id);
 
-                $monitor->update([
+                $networkdevice->update([
                     
                     'manageable' => $request->manageable,
                     'ethernet_ports_number' => $request->ethernet_ports_number,

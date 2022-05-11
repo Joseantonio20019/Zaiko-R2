@@ -12,10 +12,21 @@ class Computer extends Model
 
     protected $fillable = [
 
-        'CPU',
-        'CPU Model',
-        'RAM Type',
-        'RAM Size',
-        'OS'
+        'cpu',
+        'cpu_model',
+        'ram_type',
+        'ram_size',
+        'os'
     ];
+
+    public function device()
+    {
+        return $this->belongsTo(Device::class,'id');
+    }
+
+    public function hardDrives(){
+
+        return $this->hasMany(HardDrive::class,'pc_id');
+
+    }
 }

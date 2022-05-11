@@ -130,6 +130,4 @@ import Notification from '../../../Shared/Notification.vue';
     }
 
 
-    console.log(props.monitors);
-
 </script>

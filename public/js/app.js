@@ -1075,10 +1075,12 @@ var map = {
 	],
 	"./Devices/Computers/Index": [
 		"./resources/js/Pages/Devices/Computers/Index.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_Computers_Index_vue"
 	],
 	"./Devices/Computers/Index.vue": [
 		"./resources/js/Pages/Devices/Computers/Index.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_Computers_Index_vue"
 	],
 	"./Devices/Computers/Show": [
