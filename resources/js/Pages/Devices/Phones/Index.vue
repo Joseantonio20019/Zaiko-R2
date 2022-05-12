@@ -31,6 +31,9 @@
                             <th scope="col" class="px-6 py-3">
                                 INVENTORY NUMBER
                             </th>
+                            <th>
+                                DEVICE ID
+                            </th>
                             <th scope="col" class="px-6 py-3">
                                 MODEL
                             </th>
@@ -50,6 +53,9 @@
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
                             {{ phone.device['inventory_number'] }}
                         </th>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            {{ phone.device['id'] }}
+                            </td>
                         <td class="px-6 py-4">
                             {{phone.device['model']}}
                         </td>

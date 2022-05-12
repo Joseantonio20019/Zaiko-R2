@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('monitors', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('device_id')->unsigned()->unique();
             $table->integer('inches')->nullable(false);
             $table->boolean('HDMI')->nullable(false);
             $table->boolean('VGA')->nullable(false);
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('DisplayPort')->nullable(false);
             $table->timestamps();
 
-            $table->foreign('id')->references('id')->on('devices');
+            $table->foreign('device_id')->references('id')->on('devices');
 
 
         });

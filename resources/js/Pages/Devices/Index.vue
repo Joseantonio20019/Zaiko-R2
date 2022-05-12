@@ -29,6 +29,10 @@
                                 INVENTORY Nº
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                ID
+                            </th>
+
+                            <th scope="col" class="px-6 py-3">
                                 COMMENT
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -45,8 +49,12 @@
                             {{device.inventory_number}}
                         </td>
                         <td class="px-6 py-4">
+                            {{device.id}}
+                        </td>
+                        <td class="px-6 py-4">
                             {{device.comment}}
                         </td>
+                        
                         <td class="px-6 py-4">
                             {{device.created_at}}
                         </td>

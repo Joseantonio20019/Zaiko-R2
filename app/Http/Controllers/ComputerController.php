@@ -38,6 +38,15 @@ class ComputerController extends Controller
 
     }
 
+    public function show($id){
+
+        return Inertia::render('Devices/Computers/Show',[
+
+            'computer' => Computer::with('device')->find($id),
+
+        ]);
+    }
+
 
     public function create()
     {
@@ -93,7 +102,7 @@ class ComputerController extends Controller
 
        $computer = Computer::create([
 
-            'id' => $device->id,
+            'device_id' => $device->id,
             'cpu' => $data['cpu'],
             'cpu_model' => $data['cpu_model'],
             'ram_type' => $data['ram_type'],
@@ -105,7 +114,7 @@ class ComputerController extends Controller
 
             'size' => $data['size'],
             'type' => $data['type'],
-            'pc_id' => $computer->id,
+            'pc_id' => $computer->device_id,
 
         ]);
 
@@ -115,7 +124,7 @@ class ComputerController extends Controller
 
                 'size' => $data['size1'],
                 'type' => $data['type1'],
-                'pc_id' => $computer->id,
+                'pc_id' => $computer->device_id,
 
             ]);
 

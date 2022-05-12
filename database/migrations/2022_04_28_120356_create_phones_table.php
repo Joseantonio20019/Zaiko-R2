@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('phones', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('device_id')->unsigned()->unique();
             $table->integer('extension')->nullable(false);
             $table->string('serial_number')->nullable(false);
             $table->string('imei')->nullable(false);
             $table->timestamps();
 
-            $table->foreign('id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('device_id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

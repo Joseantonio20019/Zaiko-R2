@@ -35,6 +35,15 @@ class PhoneController extends Controller
 
     }
 
+    public function show($id){
+
+        return Inertia::render('Devices/Phones/Show',[
+
+            'phone' => Phone::with('device')->find($id),
+
+        ]);
+    }
+
     public function create(){
 
         return Inertia::render('Devices/Phones/Create',[
@@ -57,7 +66,7 @@ class PhoneController extends Controller
 
         $data = RequestFacade::validate([
             'inventory_number' => 'required|unique:devices',
-            'comment' => 'nullable',
+            'comment' => ['nullable'],
             'model' => 'required',
             'family' => 'required',
             'status' => 'required',

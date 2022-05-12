@@ -39,6 +39,15 @@ class MonitorController extends Controller
 
         }
 
+        public function show($id){
+
+            return Inertia::render('Devices/Monitors/Show',[
+    
+                'monitor' => Monitor::with('device')->find($id),
+    
+            ]);
+        }
+
 
         public function create(){
 
@@ -93,7 +102,7 @@ class MonitorController extends Controller
 
             Monitor::create([
 
-             'devices_id' => $device->id,
+             'device_id' => $device->id,
              'inches' => $data['inches'],
              'HDMI' => $data['hdmi'],
              'VGA' => $data['vga'],

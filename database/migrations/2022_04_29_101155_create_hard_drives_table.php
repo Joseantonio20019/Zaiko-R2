@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('pc_id');
             $table->timestamps();
 
-            $table->foreign('pc_id')->references('id')->on('computers')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('pc_id')->references('device_id')->on('computers')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -10,7 +10,8 @@ class Phone extends Model
     use HasFactory;
 
     protected $fillable = [
-        
+
+        'device_id',
         'extension',
         'serial_number',
         'imei',
@@ -20,7 +21,7 @@ class Phone extends Model
 
     public function device()
     {
-        return $this->belongsTo(Device::class,'id');
+        return $this->belongsTo(Device::class,'device_id');
     }
 
 

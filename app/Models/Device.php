@@ -16,7 +16,7 @@ class Device extends Model
         'model',
         'family',
         'status',
-        'mark_id'
+        'mark'
     ];
 
 

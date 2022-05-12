@@ -12,6 +12,7 @@ class NetworkDevice extends Model
 
     protected $fillable = [
 
+        'device_id',
         'manageable',
         'POE',
         'Speed',
@@ -22,6 +23,6 @@ class NetworkDevice extends Model
 
     public function device()
     {
-        return $this->belongsTo(Device::class,'id');
+        return $this->belongsTo(Device::class,'device_id');
     }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('computers', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('device_id')->unsigned()->unique();
             $table->string('cpu')->nullable(false);
             $table->string('cpu_model')->nullable(false);
             $table->string('ram_type')->nullable(false);
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('os')->nullable(false);
             $table->timestamps();
 
-            $table->foreign('id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade'); 
+            $table->foreign('device_id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade'); 
         });
     }
 

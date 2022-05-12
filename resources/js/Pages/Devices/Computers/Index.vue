@@ -46,7 +46,7 @@
                         </tr>
                     </thead>
                 <tbody>
-                    <tr v-for="computer in computers.data" :key="computer.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
+                    <tr v-for="computer in computers.data" :key="computer.device_id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
                             {{ computer.device['inventory_number'] }}
                         </th>
@@ -60,11 +60,11 @@
                             {{computer.device['status']}}
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
-                            <Link :href="`/computers/show/${computer.id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
+                            <Link :href="`/computers/show/${computer.device_id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
 
-                            <Link :href="`/computers/edit/${computer.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
+                            <Link :href="`/computers/edit/${computer.device_id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
                 
-                            <button type="buttton" @click="destroy(computer.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                            <button type="buttton" @click="destroy(computer.device_id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
 
                         
                         </td>

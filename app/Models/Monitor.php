@@ -11,6 +11,7 @@ class Monitor extends Model
 
     protected $fillable = [
 
+        'device_id',
         'inches',
         'HDMI',
         'VGA',
@@ -18,10 +19,9 @@ class Monitor extends Model
         'DisplayPort',
     ];
 
-    public function device(){
-
-        return $this->belongsTo(Device::class,'id');
-
+    public function device()
+    {
+        return $this->belongsTo(Device::class,'device_id');
     }
 
 

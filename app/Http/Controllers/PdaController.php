@@ -35,6 +35,15 @@ class PdaController extends Controller
 
     }
 
+    public function show($id){
+
+        return Inertia::render('Devices/PDA/Show',[
+
+            'pda' => Pda::with('device')->find($id),
+
+        ]);
+    }
+
     public function create(){
 
         return Inertia::render('Devices/PDA/Create',[
@@ -53,14 +62,7 @@ class PdaController extends Controller
 
     }
 
-    public function show($id){
-
-        return Inertia::render('Devices/PDA/Show',[
-
-            'pda' => Pda::with('device')->find($id),
-
-        ]);
-    }
+   
 
     public function store (){
 

@@ -12,6 +12,7 @@ class Computer extends Model
 
     protected $fillable = [
 
+        'device_id',
         'cpu',
         'cpu_model',
         'ram_type',
@@ -21,7 +22,7 @@ class Computer extends Model
 
     public function device()
     {
-        return $this->belongsTo(Device::class,'id');
+        return $this->belongsTo(Device::class,'device_id');
     }
 
     public function hardDrives(){

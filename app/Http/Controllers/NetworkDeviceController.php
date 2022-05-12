@@ -39,6 +39,15 @@ class NetworkDeviceController extends Controller
 
         }
 
+        public function show($id){
+
+            return Inertia::render('Devices/NetworkDevices/Show',[
+    
+                'networkdevice' => NetworkDevice::with('device')->find($id),
+    
+            ]);
+        }
+
 
         public function create(){
 
@@ -93,7 +102,7 @@ class NetworkDeviceController extends Controller
 
             NetworkDevice::create([
 
-             'id' => $device->id,
+             'device_id' => $device->id,
              'manageable' => $data['manageable'],
              'ethernet_ports_number' => $data['ethernet_ports_number'],
              'fiber_ports_number' => $data['fiber_ports_number'],

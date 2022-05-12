@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('network_devices', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('device_id')->unsigned()->unique();
             $table->enum('manageable',['YES','NO','Controller'])->nullable(false);
             $table->enum('POE',['NO','24','48','24&48'])->nullable(false);
             $table->enum('Speed',['100MB','1GB','2.5GB','5GB','10GB'])->nullable(false);
@@ -23,7 +23,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->foreign('id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('device_id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -15,21 +15,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    pda: Object,
-    filters: Object
+    pda: Object
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var props = __props;
-    comment = props.pda.device['comment'];
-
-    if (comment == '') {
-      comment = false;
-    } else {}
-
     var __returned__ = {
-      props: props,
       Notification: _Shared_Notification_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -154,13 +145,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, "Inventory Number: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.pda.device["inventory_number"]), 1
       /* TEXT */
-      ), $setup.props.device['comment'] != null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_4, "Comment: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.props.device["comment"]), 1
+      ), $props.pda.device['comment'] == null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_4, "Comment: No comment")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_5, "Comment: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.pda.device["comment"]), 1
       /* TEXT */
-      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_5, "Comment: No comment")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, "Family: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.pda.device["family"]), 1
+      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, "Family: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.pda.device["family"]), 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, "Model: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.pda.device["model"]), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, "Inventory Number: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.pda.device["status"]), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, "Status: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.pda.device["status"]), 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, "MAC Address: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.pda.MAC), 1
       /* TEXT */

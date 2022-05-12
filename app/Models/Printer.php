@@ -10,6 +10,8 @@ class Printer extends Model
     use HasFactory;
 
     protected $fillable = [
+
+        'device_id',
         'ink',
         'USB',
         'COM',
@@ -19,10 +21,9 @@ class Printer extends Model
 
 
 
-    public function device(){
-
-        return $this->belongsTo(Device::class,'id');
-    
+    public function device()
+    {
+        return $this->belongsTo(Device::class,'device_id');
     }
 
 }

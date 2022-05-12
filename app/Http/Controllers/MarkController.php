@@ -44,7 +44,7 @@ class MarkController extends Controller
 
        $data = RequestFacade::validate([
 
-        'name' => ['required','min:3'],
+        'name' => ['required','min:2'],
         
        ]);
 
