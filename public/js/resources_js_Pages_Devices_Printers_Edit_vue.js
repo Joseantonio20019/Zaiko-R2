@@ -33,7 +33,7 @@ __webpack_require__.r(__webpack_exports__);
       model: props.device.model,
       family: props.device.family,
       status: props.device.status,
-      mark: props.device.mark_id,
+      mark: props.device.mark,
       ink: props.printer.ink,
       usb: props.printer.USB,
       com: props.printer.COM,
@@ -344,7 +344,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
       selected: $setup.form.mark_id,
       key: mark.id,
-      value: mark.id
+      value: mark.name
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(mark.name), 9
     /* TEXT, PROPS */
     , _hoisted_26);

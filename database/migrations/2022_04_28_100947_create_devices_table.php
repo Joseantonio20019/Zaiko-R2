@@ -20,10 +20,8 @@ return new class extends Migration
             $table->string('model')->nullable(false);
             $table->string('family')->nullable(false);
             $table->string('status')->nullable(false);
-            $table->unsignedBigInteger('mark_id');
+            $table->string('mark')->nullable(false);
             $table->timestamps();
-
-            $table->foreign('mark_id')->references('id')->on('marks')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

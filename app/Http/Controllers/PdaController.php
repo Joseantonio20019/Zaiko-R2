@@ -53,18 +53,27 @@ class PdaController extends Controller
 
     }
 
+    public function show($id){
+
+        return Inertia::render('Devices/PDA/Show',[
+
+            'pda' => Pda::with('device')->find($id),
+
+        ]);
+    }
+
     public function store (){
 
         $data = RequestFacade::validate([
-            'inventory_number' => 'required|unique:devices',
-            'comment' => 'nullable',
-            'model' => 'required',
-            'family' => 'required',
-            'status' => 'required',
-            'mark' => 'required',
-            'mac' => 'required',
-            'serial_number' => 'required',
-            'imei' => 'required',
+            'inventory_number' => ['required','unique:devices'],
+            'comment' => ['nullable'],
+            'model' => ['required'],
+            'family' => ['required'],
+            'status' => ['required'],
+            'mark' => ['required'],
+            'mac' => ['required'],
+            'serial_number' => ['required'],
+            'imei' => ['required'],
         ]);
 
 
@@ -74,7 +83,7 @@ class PdaController extends Controller
             'model' => $data['model'],
             'family' => $data['family'],
             'status' => $data['status'],
-            'mark_id' => $data['mark'],
+            'mark' => $data['mark'],
             
 
         ]);
@@ -131,7 +140,7 @@ class PdaController extends Controller
             'model' => $request->model,
             'family' => $request->family,
             'status' => $request->status,
-            'mark_id' => $request->mark,
+            'mark' => $request->mark,
             
 
         ]);

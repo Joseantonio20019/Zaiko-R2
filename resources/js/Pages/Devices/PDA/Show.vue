@@ -1,0 +1,58 @@
+<template>
+    
+    <div>
+
+        <Head title="PDA View"/> 
+
+
+        <Layout>
+
+            <div class="p-6 w-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">PDA View</h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Inventory Number: {{pda.device["inventory_number"]}}</p>
+                <p v-if="props.device['comment'] != null" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: {{props.device["comment"] }}</p>
+                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Family: {{pda.device["family"]}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Model: {{pda.device["model"]}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Inventory Number: {{pda.device["status"]}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">MAC Address: {{pda.MAC}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Serial Number: {{pda.serial_number}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">IMEI: {{pda.imei}}</p>
+                
+            </div>
+
+            <div class="mb-6">
+                <h2>Last Registers</h2>
+
+            </div>
+            
+        </Layout>
+
+
+    </div>
+</template>
+
+<script setup>
+
+import Notification from '../../../Shared/Notification.vue';
+
+
+ let props = defineProps({
+
+        pda: Object,
+        filters: Object,
+        
+    });
+
+    comment= props.pda.device['comment'];
+
+    if(comment == ''){
+
+        comment = false;
+    }else{
+
+
+    }
+
+</script>

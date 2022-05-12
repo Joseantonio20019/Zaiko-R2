@@ -63,7 +63,7 @@ class PrinterController extends Controller
 
             $data = RequestFacade::validate([
      
-             'inventory_number' => ['required'],
+             'inventory_number' => ['required','unique:devices'],
              'comment' => ['nullable'],
              'model' => ['required'],
              'family' => ['required'],
@@ -84,7 +84,7 @@ class PrinterController extends Controller
                 'model' => $data['model'],
                 'family' => $data['family'],
                 'status' => $data['status'],
-                'mark_id' => $data['mark'],
+                'mark' => $data['mark'],
 
 
             ]);
@@ -155,7 +155,7 @@ class PrinterController extends Controller
                 'model' => $request->model,
                 'family' => $request->family,
                 'status' => $request->status,
-                'mark_id' => $request->mark,
+                'mark' => $request->mark,
                ]);
 
                 $printer = Printer::findorFail($id);

@@ -33,7 +33,7 @@ __webpack_require__.r(__webpack_exports__);
       model: props.device.model,
       family: props.device.family,
       status: props.device.status,
-      mark: props.device.mark_id,
+      mark: props.device.mark,
       extension: props.phone.extension,
       serial_number: props.phone.serial_number,
       imei: props.phone.imei
@@ -314,7 +314,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.marks, function (mark) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
       key: mark.id,
-      value: mark.id
+      value: mark.name
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(mark.name), 9
     /* TEXT, PROPS */
     , _hoisted_23);

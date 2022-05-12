@@ -74,7 +74,7 @@ class PhoneController extends Controller
             'model' => $data['model'],
             'family' => $data['family'],
             'status' => $data['status'],
-            'mark_id' => $data['mark'],
+            'mark' => $data['mark'],
             
 
         ]);
@@ -131,7 +131,7 @@ class PhoneController extends Controller
             'model' => $request->model,
             'family' => $request->family,
             'status' => $request->status,
-            'mark_id' => $request->mark,
+            'mark' => $request->mark,
 
         ]);
 

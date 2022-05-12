@@ -98,7 +98,7 @@
                 <div class="mb-3 xl:w-96">
                     
                     <select v-model="form.mark" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option :selected="form.mark_id" v-for="mark in marks" :key="mark.id" :value="mark.id" >{{mark.name}}</option>
+                        <option :selected="form.mark_id" v-for="mark in marks" :key="mark.id" :value="mark.name" >{{mark.name}}</option>
                     </select>
                 </div>
 
@@ -176,7 +176,7 @@
         model: props.device.model,
         family: props.device.family,
         status: props.device.status,
-        mark: props.device.mark_id,
+        mark: props.device.mark,
         ink: props.printer.ink,
         usb: props.printer.USB,
         com: props.printer.COM,
