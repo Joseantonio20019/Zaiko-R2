@@ -130,8 +130,6 @@
                 <label>DisplayPort</label>
                 <input type="checkbox" v-model="form.displayport" name="displayport" id="displayport"> 
 
-
-
             </div>      
 
 

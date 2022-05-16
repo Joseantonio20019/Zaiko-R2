@@ -18,9 +18,9 @@
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Status: {{networkdevice.device["status"]}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Manageable: {{networkdevice.manageable}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ethernet Ports Number: {{networkdevice.ethernet_ports_number}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Speed: {{networkdevice.speed}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Speed: {{networkdevice.Speed}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Fiber Ports Number: {{networkdevice.fiber_ports_number}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">POE: {{networkdevice.poe}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">POE: {{networkdevice.POE}}</p>
     
             </div>
 

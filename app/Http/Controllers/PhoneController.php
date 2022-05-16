@@ -18,10 +18,18 @@ class PhoneController extends Controller
     public function index(){
         return Inertia::render('Devices/Phones/Index',[
 
-            'phones' => Phone::with('device')
+
+            
+
+            'phones' => Phone::with('device')->join('devices', 'devices.id', '=', 'phones.device_id')
+
                 ->when(RequestFacade::input('search'), function ($query,$search){
         
-                    $query->where('inventory_number','like','%'.$search.'%');
+                    $query->where('inventory_number','like','%'.$search.'%')
+                    ->orWhere('serial_number','like','%'.$search.'%')
+                    ->orWhere('extension','like','%'.$search.'%')
+                    ->orWhere('mark','like','%'.$search.'%')
+                    ->orWhere('status','like','%'.$search.'%');
         
                 })
                 ->paginate(10)
@@ -39,7 +47,7 @@ class PhoneController extends Controller
 
         return Inertia::render('Devices/Phones/Show',[
 
-            'phone' => Phone::with('device')->find($id),
+            'phone' => Phone::with('device')->where('device_id',$id)->first(),
 
         ]);
     }
@@ -65,19 +73,21 @@ class PhoneController extends Controller
     public function store (){
 
         $data = RequestFacade::validate([
-            'inventory_number' => 'required|unique:devices',
+            'inventory_number' => ['required|unique:devices'],
             'comment' => ['nullable'],
-            'model' => 'required',
-            'family' => 'required',
-            'status' => 'required',
-            'mark' => 'required',
-            'extension' => 'required',
-            'serial_number' => 'required',
-            'imei' => 'required',
+            'model' => ['required'],
+            'family' => ['required'],
+            'status' => ['required'],
+            'mark' => ['required'],
+            'extension' => ['required'],
+            'serial_number' => ['required'],
+            'imei' => ['required'],
         ]);
 
 
         $device = Device::create([
+
+
             'inventory_number' => $data['inventory_number'],
             'comment' => $data['comment'],
             'model' => $data['model'],
@@ -105,7 +115,7 @@ class PhoneController extends Controller
 
         return Inertia::render('Devices/Phones/Edit',[
             
-            'phone' => Phone::find($id),
+            'phone' => Phone::where('device_id',$id)->first(),
             'device' => Device::find($id),
             'marks' => Mark::all(),
             'statuses' => Status::all(),
@@ -144,9 +154,9 @@ class PhoneController extends Controller
 
         ]);
 
-        $phone = Phone::find($id);
+            $phone=Phone::where('device_id',$id);
 
-        $phone->update([
+            $phone->update([
             'extension' => $request->extension,
             'serial_number' => $request->serial_number,
             'imei' => $request->imei,
@@ -160,13 +170,11 @@ class PhoneController extends Controller
 
     public function destroy($id){
 
-        Phone::find($id)->delete();
+        Device::find($id)->delete();
 
         return redirect('/phones')->with('success','Phone deleted successfully');
 
     }
-
-
 
 
 }

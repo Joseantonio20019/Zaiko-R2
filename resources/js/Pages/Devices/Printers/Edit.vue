@@ -182,15 +182,11 @@
         com: props.printer.COM,
         wifi: props.printer.WIFI,
         ethernet: props.printer.Ethernet,
-
-
-
-
     })
 
     let submit = () => {
 
-        form.put(`/printers/edit/${props.printer.id}`);
+        form.put(`/printers/edit/${props.printer.device_id}`);
 
 
     }

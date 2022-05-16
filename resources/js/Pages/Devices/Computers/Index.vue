@@ -32,10 +32,16 @@
                                 INVENTORY NUMBER
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                MODEL
+                                CPU
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                FAMILY
+                                CPU MODEL
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                RAM TYPE
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                RAM SIZE
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 STATUS
@@ -48,25 +54,31 @@
                 <tbody>
                     <tr v-for="computer in computers.data" :key="computer.device_id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
-                            {{ computer.device['inventory_number'] }}
+                            {{ computer.device["inventory_number"] }}
                         </th>
                         <td class="px-6 py-4">
-                            {{computer.device['model']}}
+                            {{computer.cpu}}
                         </td>
                         <td class="px-6 py-4">
-                            {{computer.device['family']}}
+                            {{computer.cpu_model}}
                         </td>
                         <td class="px-6 py-4">
-                            {{computer.device['status']}}
+                            {{computer.ram_type}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{computer.ram_size}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{computer.device["status"]}}
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
+
                             <Link :href="`/computers/show/${computer.device_id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
 
                             <Link :href="`/computers/edit/${computer.device_id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
                 
                             <button type="buttton" @click="destroy(computer.device_id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
 
-                        
                         </td>
                     </tr>
                 </tbody>
@@ -76,8 +88,7 @@
 
         
         <Pagination :links="computers.links" class="mt-6" />
-
-            
+        
         </Layout>
 
         

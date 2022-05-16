@@ -21,10 +21,14 @@ class MonitorController extends Controller
 
             return Inertia::render('Devices/Monitors/Index',[
 
-                'monitors' => Monitor::with('device')
+                'monitors' => Monitor::with('device')->join('devices', 'devices.id', '=', 'monitors.device_id')
                 ->when(RequestFacade::input('search'), function ($query,$search){
         
-                    $query->where('inventory_number','like','%'.$search.'%');
+                    $query->where('inventory_number','like','%'.$search.'%')
+                    ->where('inches','like','%'.$search.'%')
+                    ->orWhere('mark','like','%'.$search.'%')
+                    ->orWhere('family','like','%'.$search.'%')
+                    ->orWhere('status','like','%'.$search.'%');
         
                 })
                 ->paginate(10)
@@ -43,7 +47,7 @@ class MonitorController extends Controller
 
             return Inertia::render('Devices/Monitors/Show',[
     
-                'monitor' => Monitor::with('device')->find($id),
+                'monitor' => Monitor::with('device')->where('device_id',$id)->first(),
     
             ]);
         }
@@ -123,7 +127,7 @@ class MonitorController extends Controller
                 
             return Inertia::render('Devices/Monitors/Edit',[
         
-                'monitor' => Monitor::find($id),
+                'monitor' => Monitor::where('device_id',$id)->first(),
                 'device' => Device::find($id),
                 'marks' => Mark::all(),
                 'families' => Family::all(),
@@ -156,7 +160,7 @@ class MonitorController extends Controller
 
 
 
-               $device = Device::findorFail($id);
+               $device = Device::find($id);
 
                $device->update([
 
@@ -168,7 +172,7 @@ class MonitorController extends Controller
                 'mark' => $request->mark,
                ]);
 
-                $monitor = Monitor::findorFail($id);
+                $monitor = Monitor::where('device_id',$id);
 
                 $monitor->update([
                     'inches' => $request->inches,
@@ -186,7 +190,7 @@ class MonitorController extends Controller
 
         public function destroy($id){
             
-            Monitor::findOrFail($id)->delete();
+            Device::where('id',$id)->delete();
 
             return redirect('/monitors')->with('message','Monitor deleted successfully');
 

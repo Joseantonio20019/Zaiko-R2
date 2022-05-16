@@ -110,7 +110,7 @@
                     Edit MAC Address
                 </label>
 
-                <input v-model="form.mac" class="border border-gray-400 p-2 w-full" type="number" name="mac">
+                <input v-model="form.mac" class="border border-gray-400 p-2 w-full" type="text" name="mac">
                 <div v-if="form.errors.mac" v-text="form.errors.mac" class="text-red-500 text-xs italic mt-2"></div>
                 
 
@@ -143,7 +143,7 @@
 
               <div class="mb-6">
 
-                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Create</button>
+                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Edit</button>
 
             </div>
     </form>
@@ -185,10 +185,12 @@
 
     let submit = () => {
 
-        form.put(`/pdas/edit/${props.pda.id}`);
+        form.put(`/pdas/edit/${props.pda.device_id}`);
 
 
     }
+
+    console.log(props.pda.MAC)
 
 
 </script>

@@ -185,10 +185,11 @@
 
     let submit = () => {
 
-        form.put(`/phones/edit/${props.phone.id}`);
+        form.put(`/phones/edit/${props.phone.device_id}`);
 
 
     }
+
 
 
 </script>

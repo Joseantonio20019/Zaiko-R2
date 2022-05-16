@@ -185,7 +185,7 @@
 
     let submit = () => {
 
-        form.put(`/monitors/edit/${props.monitor.id}`);
+        form.put(`/monitors/edit/${props.monitor.device_id}`);
 
 
     }

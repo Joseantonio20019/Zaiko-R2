@@ -21,10 +21,19 @@ class NetworkDeviceController extends Controller
 
             return Inertia::render('Devices/NetworkDevices/Index',[
 
-                'networkdevices' => NetworkDevice::with('device')
+                'networkdevices' => NetworkDevice::with('device')->join('devices', 'devices.id', '=', 'network_devices.device_id')
+
+                    
                 ->when(RequestFacade::input('search'), function ($query,$search){
         
-                    $query->where('inventory_number','like','%'.$search.'%');
+                    $query->where('inventory_number','like','%'.$search.'%')
+                    ->orWhere('mark','like','%'.$search.'%')
+                    ->orWhere('status','like','%'.$search.'%')
+                    ->orWhere('POE','like','%'.$search.'%')
+                    ->orWhere('manageable','like','%'.$search.'%')
+                    ->orWhere('fiber_ports_number','like','%'.$search.'%')
+                    ->orWhere('ethernet_ports_number_free','like','%'.$search.'%')
+                    ->orWhere('Speed','like','%'.$search.'%');
         
                 })
                 ->paginate(10)
@@ -43,7 +52,7 @@ class NetworkDeviceController extends Controller
 
             return Inertia::render('Devices/NetworkDevices/Show',[
     
-                'networkdevice' => NetworkDevice::with('device')->find($id),
+                'networkdevice' => NetworkDevice::with('device')->where('device_id',$id)->first(),
     
             ]);
         }
@@ -123,7 +132,7 @@ class NetworkDeviceController extends Controller
                 
             return Inertia::render('Devices/NetworkDevices/Edit',[
         
-                'networkdevice' => NetworkDevice::find($id),
+                'networkdevice' => NetworkDevice::where('device_id',$id)->first(),
                 'device' => Device::find($id),
                 'marks' => Mark::all(),
                 'families' => Family::all(),
@@ -169,7 +178,7 @@ class NetworkDeviceController extends Controller
 
                ]);
 
-                $networkdevice = NetworkDevice::findorFail($id);
+                $networkdevice = NetworkDevice::where('device_id',$id);
 
                 $networkdevice->update([
                     
@@ -188,7 +197,7 @@ class NetworkDeviceController extends Controller
 
         public function destroy($id){
             
-            NetworkDevice::findOrFail($id)->delete();
+            Device::find($id)->delete();
 
             return redirect('/network-devices')->with('message','Network Device deleted successfully');
 

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('DisplayPort')->nullable(false);
             $table->timestamps();
 
-            $table->foreign('device_id')->references('id')->on('devices');
+            $table->foreign('device_id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
 
 
         });

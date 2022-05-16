@@ -196,6 +196,8 @@ Route::put('/departments/edit/{id}',[DepartmentController::class,'update']);
 Route::delete('/departments/delete/{id}',[DepartmentController::class,'destroy']);
 
 
+
+
 //Computers Routes
 
 Route::get('/computers', [ComputerController::class, 'index']);
@@ -209,6 +211,8 @@ Route::get('/computers/edit/{id}',[ComputerController::class,'edit']);
 Route::put('/computers/edit/{id}',[ComputerController::class,'update']);
 
 Route::delete('/computers/delete/{id}',[ComputerController::class,'destroy']);
+
+Route::get('/computers/show/{id}',[ComputerController::class,'show']);
 
 
 //Monitors Routes

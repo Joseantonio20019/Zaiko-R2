@@ -36,5 +36,17 @@ class Device extends Model
         return $this->hasMany(NetworkDevice::class);
     }
 
+    public function phones(){
+        return $this->hasMany(Phone::class);
+    }
+
+    public function computers(){
+        return $this->hasMany(Computer::class);
+    }
+
+    public function pdas(){
+        return $this->hasMany(Pda::class);
+    }
+
 
 }

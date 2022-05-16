@@ -21,11 +21,17 @@ class PrinterController extends Controller
 
             return Inertia::render('Devices/Printers/Index',[
 
-                'printers' => Printer::with('device')
+                'printers' => Printer::with('device')->join('devices', 'devices.id', '=', 'printers.device_id')
                 ->when(RequestFacade::input('search'), function ($query,$search){
         
-                    $query->where('inventory_number','like','%'.$search.'%');
-        
+                    $query->where('inventory_number','like','%'.$search.'%')
+                    ->orWhere('ink','like','%'.$search.'%')
+                    ->orWhere('mark','like','%'.$search.'%')
+                    ->orWhere('status','like','%'.$search.'%')
+                    ->orWhere('USB','like','%'.$search.'%')
+                    ->orWhere('WIFI','like','%'.$search.'%')
+                    ->orWhere('COM','like','%'.$search.'%')
+                    ->orWhere('Ethernet','like','%'.$search.'%');
                 })
                 ->paginate(10)
                 ->withQueryString(),
@@ -43,7 +49,7 @@ class PrinterController extends Controller
 
             return Inertia::render('Devices/Printers/Show',[
     
-                'printer' => Printer::with('device')->find($id),
+                'printer' => Printer::with('device')->where('device_id',$id)->first(),
     
             ]);
         }
@@ -122,7 +128,7 @@ class PrinterController extends Controller
                 
             return Inertia::render('Devices/Printers/Edit',[
         
-                'printer' => Printer::find($id),
+                'printer' => Printer::where('device_id',$id)->first(),
                 'device' => Device::find($id),
                 'marks' => Mark::all(),
                 'families' => Family::all(),
@@ -149,7 +155,6 @@ class PrinterController extends Controller
                 'wifi' => ['nullable'],
                 'ethernet' => ['nullable'],
                 
-                
                ]);
 
 
@@ -167,7 +172,7 @@ class PrinterController extends Controller
                 'mark' => $request->mark,
                ]);
 
-                $printer = Printer::findorFail($id);
+                $printer = Printer::where('device_id',$id);
 
                 $printer->update([
 
@@ -186,7 +191,7 @@ class PrinterController extends Controller
 
         public function destroy($id){
             
-            Printer::findOrFail($id)->delete();
+            Device::find($id)->delete();
 
             return redirect('/printers')->with('message','Printer deleted successfully');
 

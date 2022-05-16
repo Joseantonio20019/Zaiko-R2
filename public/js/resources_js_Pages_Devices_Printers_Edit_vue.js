@@ -42,7 +42,7 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var submit = function submit() {
-      form.put("/printers/edit/".concat(props.printer.id));
+      form.put("/printers/edit/".concat(props.printer.device_id));
     };
 
     var __returned__ = {

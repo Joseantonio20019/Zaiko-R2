@@ -42,7 +42,7 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var submit = function submit() {
-      form.put("/network-devices/edit/".concat(props.networkdevice.id));
+      form.put("/network-devices/edit/".concat(props.networkdevice.device_id));
     };
 
     var __returned__ = {

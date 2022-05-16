@@ -40,9 +40,10 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var submit = function submit() {
-      form.put("/pdas/edit/".concat(props.pda.id));
+      form.put("/pdas/edit/".concat(props.pda.device_id));
     };
 
+    console.log(props.pda.MAC);
     var __returned__ = {
       props: props,
       form: form,
@@ -333,7 +334,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.mac = $event;
     }),
     "class": "border border-gray-400 p-2 w-full",
-    type: "number",
+    type: "text",
     name: "mac"
   }, null, 512
   /* NEED_PATCH */
@@ -377,7 +378,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "submit",
     "class": "bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500",
     disabled: $setup.form.processing
-  }, "Create", 8
+  }, "Edit", 8
   /* PROPS */
   , _hoisted_35)])], 32
   /* HYDRATE_EVENTS */

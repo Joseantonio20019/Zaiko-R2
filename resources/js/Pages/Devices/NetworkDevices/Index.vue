@@ -32,7 +32,10 @@
                                 INVENTORY NUMBER
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                MODEL
+                                MANAGEABLE
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                POE
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 FAMILY
@@ -46,12 +49,15 @@
                         </tr>
                     </thead>
                 <tbody>
-                    <tr v-for="networkdevice in networkdevices.data" :key="networkdevice.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
+                    <tr v-for="networkdevice in networkdevices.data" :key="networkdevice.device_id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
                             {{ networkdevice.device['inventory_number'] }}
                         </th>
                         <td class="px-6 py-4">
-                            {{networkdevice.device['model']}}
+                            {{networkdevice.manageable}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{networkdevice.POE}}
                         </td>
                         <td class="px-6 py-4">
                             {{networkdevice.device['family']}}
@@ -61,11 +67,11 @@
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
 
-                            <Link :href="`/network-devices/show/${networkdevice.id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
+                            <Link :href="`/network-devices/show/${networkdevice.device_id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
 
-                            <Link :href="`/network-devices/edit/${networkdevice.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
+                            <Link :href="`/network-devices/edit/${networkdevice.device_id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
                 
-                            <button type="buttton" @click="destroy(networkdevice.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                            <button type="buttton" @click="destroy(networkdevice.device_id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
 
                         </td>
                     </tr>

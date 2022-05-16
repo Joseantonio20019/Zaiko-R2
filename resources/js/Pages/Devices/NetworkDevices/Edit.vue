@@ -248,7 +248,7 @@
 
     let submit = () => {
 
-        form.put(`/network-devices/edit/${props.networkdevice.id}`);
+        form.put(`/network-devices/edit/${props.networkdevice.device_id}`);
 
 
     }

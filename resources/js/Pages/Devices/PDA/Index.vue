@@ -32,7 +32,10 @@
                                 INVENTORY NUMBER
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                MODEL
+                                MAC ADDRESS
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                SERIAL NUMBER
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 FAMILY
@@ -46,12 +49,15 @@
                         </tr>
                     </thead>
                 <tbody>
-                    <tr v-for="pda in pdas.data" :key="pda.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
+                    <tr v-for="pda in pdas.data" :key="pda.device_id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
                             {{ pda.device['inventory_number'] }}
                         </th>
                         <td class="px-6 py-4">
-                            {{pda.device['model']}}
+                            {{pda.MAC}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{pda.serial_number}}
                         </td>
                         <td class="px-6 py-4">
                             {{pda.device['family']}}
@@ -61,11 +67,11 @@
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
 
-                            <Link :href="`/pdas/show/${pda.id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
+                            <Link :href="`/pdas/show/${pda.device_id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
 
-                            <Link :href="`/pdas/edit/${pda.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
+                            <Link :href="`/pdas/edit/${pda.device_id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
                 
-                            <button type="buttton" @click="destroy(pda.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                            <button type="buttton" @click="destroy(pda.device_id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
 
                         </td>
                     </tr>

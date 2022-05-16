@@ -18,10 +18,14 @@ class PdaController extends Controller
     public function index(){
         return Inertia::render('Devices/PDA/Index',[
 
-            'pdas' => Pda::with('device')
+            'pdas' => Pda::with('device')->join('devices', 'devices.id', '=', 'pdas.device_id')
                 ->when(RequestFacade::input('search'), function ($query,$search){
         
-                    $query->where('inventory_number','like','%'.$search.'%');
+                    $query->where('inventory_number','like','%'.$search.'%')
+                    ->orWhere('serial_number','like','%'.$search.'%')
+                    ->orWhere('MAC','like','%'.$search.'%')
+                    ->orWhere('mark','like','%'.$search.'%')
+                    ->orWhere('status','like','%'.$search.'%');
         
                 })
                 ->paginate(10)
@@ -39,7 +43,7 @@ class PdaController extends Controller
 
         return Inertia::render('Devices/PDA/Show',[
 
-            'pda' => Pda::with('device')->find($id),
+            'pda' => Pda::with('device')->where('device_id',$id)->first(),
 
         ]);
     }
@@ -90,7 +94,7 @@ class PdaController extends Controller
 
         ]);
 
-        $pda= Pda::create([
+            Pda::create([
             'device_id' => $device->id,
             'MAC' => $data['mac'],
             'serial_number' => $data['serial_number'],
@@ -107,7 +111,7 @@ class PdaController extends Controller
 
         return Inertia::render('Devices/PDA/Edit',[
 
-            'pda' => Pda::find($id),
+            'pda' => Pda::where('device_id',$id)->first(),
             'device' => Device::find($id),
             'marks' => Mark::all(),
             'statuses' => Status::all(),
@@ -122,7 +126,7 @@ class PdaController extends Controller
 
         $request->validate([
 
-            'inventory_number' => ['required','unique:devices,inventory_number,'.$id],
+            'inventory_number' => ['required'],
             'comment' => ['nullable'],
             'model' => ['required'],
             'family' => ['required'],
@@ -147,9 +151,10 @@ class PdaController extends Controller
 
         ]);
 
-        $pda = Pda::find($id);
+        $pda=pda::where('device_id',$id);
 
         $pda->update([
+            
             'MAC' => $request->mac,
             'serial_number' => $request->serial_number,
             'imei' => $request->imei,
@@ -164,7 +169,7 @@ class PdaController extends Controller
 
     public function destroy($id){
 
-        Pda::find($id)->delete();
+        Device::find($id)->delete();
 
         return redirect('/pdas')->with('success','Pda deleted successfully');
 

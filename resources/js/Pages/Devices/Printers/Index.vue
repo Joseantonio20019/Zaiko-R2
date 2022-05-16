@@ -32,7 +32,7 @@
                                 INVENTORY NUMBER
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                MODEL
+                                INK
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 FAMILY
@@ -46,12 +46,12 @@
                         </tr>
                     </thead>
                 <tbody>
-                    <tr v-for="printer in printers.data" :key="printer.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
+                    <tr v-for="printer in printers.data" :key="printer.device_id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
                             {{ printer.device['inventory_number'] }}
                         </th>
                         <td class="px-6 py-4">
-                            {{printer.device['model']}}
+                            {{printer.ink}}
                         </td>
                         <td class="px-6 py-4">
                             {{printer.device['family']}}
@@ -60,11 +60,11 @@
                             {{printer.device['status']}}
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
-                            <Link :href="`/printers/show/${printer.id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
+                            <Link :href="`/printers/show/${printer.device_id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
 
-                            <Link :href="`/printers/edit/${printer.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
+                            <Link :href="`/printers/edit/${printer.device_id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
                 
-                            <button type="buttton" @click="destroy(printer.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                            <button type="buttton" @click="destroy(printer.device_id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
 
                         
                         </td>

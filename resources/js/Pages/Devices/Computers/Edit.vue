@@ -278,10 +278,12 @@
 
     let submit = () => {
 
-        form.put(`/computers/edit/${props.computer.id}`);
+        form.put(`/computers/edit/${props.computer.device_id}`);
 
 
     }
+
+    console.log(props.computer.device_id);
 
 
 </script>

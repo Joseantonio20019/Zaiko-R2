@@ -21,10 +21,17 @@ class ComputerController extends Controller
     {
         return Inertia::render('Devices/Computers/Index',[
 
-            'computers' => Computer::with('device')
-            ->when(RequestFacade::input('search'), function ($query,$search){
+            'computers' => Computer::with('device')->join('devices', 'devices.id', '=', 'computers.device_id')
+             ->when(RequestFacade::input('search'), function ($query,$search){
     
-                $query->where('cpu','like','%'.$search.'%')->orWhere('cpu_model','like','%'.$search.'%')->orWhere('ram','like','%'.$search.'%');
+                $query->where('cpu','like','%'.$search.'%')
+                ->orWhere('ram_type','like','%'.$search.'%')
+                ->orWhere('ram_size','like','%'.$search.'%')
+                ->orWhere('os','like','%'.$search.'%')
+                ->orWhere('inventory_number','like','%'.$search.'%')
+                ->orWhere('mark','like','%'.$search.'%')
+                ->orWhere('model','like','%'.$search.'%')
+                ->orWhere('status','like','%'.$search.'%');
     
             })
             ->paginate(10)
@@ -42,7 +49,11 @@ class ComputerController extends Controller
 
         return Inertia::render('Devices/Computers/Show',[
 
-            'computer' => Computer::with('device')->find($id),
+            //dd(Computer::with('device')->where('device_id',$id)->get()),
+
+            'computer' => Computer::with('device')->where('device_id',$id)->first(),
+            'harddrive1' => HardDrive::where('pc_id',$id)->get()->first(),
+            'harddrive2' => HardDrive::where('pc_id',$id)->get()->last(),
 
         ]);
     }
@@ -140,7 +151,9 @@ class ComputerController extends Controller
 
        return Inertia::render('Devices/Computers/Edit',[
 
-                'computer' => Computer::find($id),
+
+
+                'computer' => Computer::with('device')->where('device_id',$id)->get()->first(),
                 'device' => Device::find($id),
                 'marks' => Mark::all(),
                 'families' => Family::all(),
@@ -188,7 +201,7 @@ class ComputerController extends Controller
 
         ]);
 
-        $computer = Computer::find($id);
+        $computer = Computer::where('device_id',$id);
 
         $computer->update([
             'cpu' => $request->cpu,
@@ -221,7 +234,8 @@ class ComputerController extends Controller
 
   public function destroy($id)
   {
-        Computer::find($id)->delete();
+       
+        Device::where('id',$id)->delete();
 
         return redirect('/computers')->with('message','Computer deleted successfully');
 

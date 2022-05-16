@@ -42,7 +42,7 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var submit = function submit() {
-      form.put("/monitors/edit/".concat(props.monitor.id));
+      form.put("/monitors/edit/".concat(props.monitor.device_id));
     };
 
     var __returned__ = {

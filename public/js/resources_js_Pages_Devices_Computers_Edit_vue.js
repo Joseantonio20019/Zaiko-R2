@@ -48,9 +48,10 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var submit = function submit() {
-      form.put("/computers/edit/".concat(props.computer.id));
+      form.put("/computers/edit/".concat(props.computer.device_id));
     };
 
+    console.log(props.computer.device_id);
     var __returned__ = {
       props: props,
       form: form,

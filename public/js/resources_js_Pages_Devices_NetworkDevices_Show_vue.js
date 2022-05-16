@@ -163,11 +163,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, "Ethernet Ports Number: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.networkdevice.ethernet_ports_number), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, "Speed: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.networkdevice.speed), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, "Speed: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.networkdevice.Speed), 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, "Fiber Ports Number: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.networkdevice.fiber_ports_number), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, "POE: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.networkdevice.poe), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, "POE: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.networkdevice.POE), 1
       /* TEXT */
       )]), _hoisted_14];
     }),
