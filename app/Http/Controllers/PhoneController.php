@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Device;
 use App\Models\Family;
 use App\Models\Mark;
 use App\Models\ModelDevice;
 use App\Models\Phone;
+use App\Models\Register;
+use App\Models\RegisterDepartment;
+use App\Models\RegisterUbication;
 use App\Models\Status;
+use App\Models\Ubication;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request as RequestFacade;
 use Inertia\Inertia;
@@ -36,7 +42,7 @@ class PhoneController extends Controller
                 ->withQueryString(),
         
         
-                'filters' => RequestFacade::only(['search']),
+            'filters' => RequestFacade::only(['search']),
 
 
             ]);
@@ -45,12 +51,18 @@ class PhoneController extends Controller
 
     public function show($id){
 
+        //dd(Register::where('device_id',$id)->select('registers.*')->get());
+
         return Inertia::render('Devices/Phones/Show',[
 
             'phone' => Phone::with('device')->where('device_id',$id)->first(),
+            'register' =>RegisterUbication::query()->join('registers','registers.id','=','register_ubications.register_id')->join('devices','registers.device_id','=','devices.id')->first(),
+            'registers' => Register::where('device_id',$id)->get(),
 
         ]);
     }
+
+    
 
     public function create(){
 
@@ -64,6 +76,10 @@ class PhoneController extends Controller
              
             'marks' => Mark::all(),
 
+            'ubications' => Ubication::all(),
+
+            'departments' => Department::all(),
+
 
 
         ]);
@@ -73,7 +89,8 @@ class PhoneController extends Controller
     public function store (){
 
         $data = RequestFacade::validate([
-            'inventory_number' => ['required|unique:devices'],
+
+            'inventory_number' => 'required|unique:devices',
             'comment' => ['nullable'],
             'model' => ['required'],
             'family' => ['required'],
@@ -82,6 +99,11 @@ class PhoneController extends Controller
             'extension' => ['required'],
             'serial_number' => ['required'],
             'imei' => ['required'],
+            'user' => ['required'],
+            'register_comment' => ['nullable'],
+            'ubication' => ['required'],
+            'department' => ['required'],
+            'modification_date' => ['nullable'],
         ]);
 
 
@@ -98,11 +120,44 @@ class PhoneController extends Controller
 
         ]);
 
+        $register = Register::create([
+
+            'user' => $data['user'],
+            'comment' => $data['register_comment'],
+            'device_id' => $device->id
+        ]);
+
         Phone::create([
             'device_id' => $device->id,
             'extension' => $data['extension'],
             'serial_number' => $data['serial_number'],
             'imei' => $data['imei'],
+
+        ]);
+
+
+            if($data['modification_date'] == ''){
+
+
+                $date = Carbon::now()->format('Y-m-d');
+                $data['modification_date'] = $date;
+
+            }
+
+            
+         RegisterUbication::create([
+
+            'ubications_id' => $data['ubication'],
+            'register_id' => $register->id,
+            'modification_date' => $data['modification_date']
+
+        ]); 
+
+        RegisterDepartment::create([
+
+            'departments_id' => $data['department'],
+            'register_id' => $register->id,
+            'modification_date' => $data['modification_date']
 
         ]);
 

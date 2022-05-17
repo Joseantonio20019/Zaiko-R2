@@ -153,17 +153,17 @@ Route::delete('/model/delete/{id}',[ModelDeviceController::class,'destroy']);
 
 //Register Routes
 
-Route::get('/register', [RegisterController::class, 'index']);
 
-Route::get('/register/create', [RegisterController::class, 'create']);
+Route::get('/register/create/{id}', [RegisterController::class, 'create']);
 
-Route::post('/register/create',[RegisterController::class,'store']);
+Route::post('/register/create/{id}',[RegisterController::class,'store']);
 
 Route::get('/register/edit/{id}',[RegisterController::class,'edit']);
 
 Route::put('/register/edit/{id}',[RegisterController::class,'update']);
 
 Route::delete('/register/delete/{id}',[RegisterController::class,'destroy']);
+
 
 
 //Devices Routes

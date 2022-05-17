@@ -139,7 +139,72 @@
                 
 
             </div>
+
+            <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    User
+                </label>
+
+                <input v-model="form.user" class="border border-gray-400 p-2 w-full" type="text" name="user">
+                <div v-if="form.errors.user" v-text="form.errors.user" class="text-red-500 text-xs italic mt-2"></div>
+                
+
+            </div>
+
+            <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    Register Comment
+                </label>
+
+                <input v-model="form.register_comment" class="border border-gray-400 p-2 w-full" type="text" name="registercomment">
+                <div v-if="form.errors.serial_number" v-text="form.errors.register_comment" class="text-red-500 text-xs italic mt-2"></div>
+            </div>
+
+            <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    Modification Date (Optional)
+                </label>
+
+                <input v-model="form.modification_date" class="border border-gray-400 p-2 w-full" type="date" name="modificationdate">
+                <div v-if="form.errors.modification_date" v-text="form.errors.modification_date" class="text-red-500 text-xs italic mt-2"></div>
+            </div>
         
+
+            <div class="mb-6">
+
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    Ubication
+                </label>
+                <div class="mb-3 xl:w-96">
+                    
+                    <select v-model="form.ubication" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option v-for="ubication in ubications" :value="ubication.id" :key="ubication.id">{{ubication.name}}</option>
+                    </select>
+                </div>
+
+                <div v-if="form.errors.ubication" v-text="form.errors.ubication" class="text-red-500 text-xs italic mt-2"></div>
+
+            </div>
+
+            <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    Department
+                </label>
+                <div class="mb-3 xl:w-96">
+                    
+                    <select v-model="form.department" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option v-for="department in departments" :value="department.id" :key="department.id">{{department.name}}</option>
+                    </select>
+                </div>
+
+                <div v-if="form.errors.department" v-text="form.errors.department" class="text-red-500 text-xs italic mt-2"></div>
+
+            </div>
 
               <div class="mb-6">
 
@@ -164,6 +229,8 @@
         models: Object,
         statuses: Object,
         marks: Object,
+        ubications: Object,
+        departments: Object,
 
     });
     
@@ -177,7 +244,12 @@
         mark:'',
         extension:'',
         serial_number:'',
-        imei:''
+        imei:'',
+        user:'',
+        register_comment:'',
+        ubication:'',
+        department:'',
+        modification_date:'',
     
     })
 

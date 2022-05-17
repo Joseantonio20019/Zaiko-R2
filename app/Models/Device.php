@@ -49,4 +49,15 @@ class Device extends Model
     }
 
 
+    public function ubications(){
+        return $this->belongsToMany(Ubication::class);
+    }
+
+    public function register(){
+
+        return $this->belongsTo(Register::class);
+    }
+
+
+
 }

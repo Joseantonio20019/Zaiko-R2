@@ -11,11 +11,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Shared_Notification_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Shared/Notification.vue */ "./resources/js/Shared/Notification.vue");
+/* harmony import */ var _Shared_Notification_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../Shared/Notification.vue */ "./resources/js/Shared/Notification.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    phone: Object
+    phone: Object,
+    register: Object,
+    registers: Object
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
@@ -89,30 +91,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
+  key: 0,
+  "class": "absolute top-20 left-10 z-10"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Add a Register");
+
+var _hoisted_3 = {
   "class": "p-6 w-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
   "class": "mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
 }, "Phone View", -1
 /* HOISTED */
 );
 
-var _hoisted_3 = {
-  "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
-};
-var _hoisted_4 = {
-  key: 0,
-  "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
-};
 var _hoisted_5 = {
-  key: 1,
   "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
 };
 var _hoisted_6 = {
+  key: 0,
   "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
 };
 var _hoisted_7 = {
+  key: 1,
   "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
 };
 var _hoisted_8 = {
@@ -127,15 +130,61 @@ var _hoisted_10 = {
 var _hoisted_11 = {
   "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
 };
+var _hoisted_12 = {
+  "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
+};
+var _hoisted_13 = {
+  "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
+};
+var _hoisted_14 = {
+  "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
+};
+var _hoisted_15 = {
+  key: 2,
+  "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
+};
+var _hoisted_16 = {
+  key: 3,
+  "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
+};
+var _hoisted_17 = {
+  "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
+};
+var _hoisted_18 = {
+  "class": "mb-3 font-normal text-gray-700 dark:text-gray-400"
+};
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "mb-6"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, "Last Registers")], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, "Last Registers"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "shadow-md sm:rounded-lg"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", {
+  "class": "w-full mt-1 text-sm text-left"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+  "class": "text-xs text-gray-300 uppercase bg-gray-50 dark:bg-blue-700 dark:text-amber-500"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col",
+  "class": "px-6 py-3"
+}, " ID "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, " EXTENSION "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col",
+  "class": "px-6 py-3"
+}, " MODIFICATION DATE "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col",
+  "class": "px-6 py-3"
+}, " FAMILY "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col",
+  "class": "px-6 py-3"
+}, " STATUS "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col",
+  "class": "px-10 py-3 text-center"
+}, " CONFIGURATION ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <tr v-for=\"registersearch in registers.data\" :key=\"registersearch.device_id\" class=\"bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200\"></tr>\r\n                    <th>\r\n                        {{registersearch.id}}\r\n                    </th>\r\n                    <th>\r\n                        {{registersearch.modification_date}}\r\n                    </th>  ")])])])], -1
 /* HOISTED */
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
+
+  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   var _component_Layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Layout");
 
@@ -143,23 +192,46 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     title: "Phone View"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Layout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, "Inventory Number: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.device["inventory_number"]), 1
+      return [_ctx.$page.props.flash.message ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Notification"], {
+        message: _ctx.$page.props.flash.message
+      }, null, 8
+      /* PROPS */
+      , ["message"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+        href: "/register/create/".concat($props.register.device_id)
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_2];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
+      /* PROPS */
+      , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, "Inventory Number: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.device["inventory_number"]), 1
       /* TEXT */
-      ), $props.phone.device['comment'] != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_4, "Comment: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.device["comment"]), 1
+      ), $props.phone.device['comment'] != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_6, "Comment: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.device["comment"]), 1
       /* TEXT */
-      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_5, "Comment: No comment")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, "Family: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.device["family"]), 1
+      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_7, "Comment: No comment")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, "Family: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.device["family"]), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, "Model: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.device["model"]), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, "Model: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.device["model"]), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, "Status: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.device["status"]), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, "Status: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.device["status"]), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, "Extension: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.extension), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, "Extension: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.extension), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, "Serial Number: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.serial_number), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, "Serial Number: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.serial_number), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, "IMEI: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.imei), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, "IMEI: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.phone.imei), 1
       /* TEXT */
-      )]), _hoisted_12];
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_14, "User: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.register.user), 1
+      /* TEXT */
+      ), $props.register.comment != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_15, "Register Comment: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.register.comment), 1
+      /* TEXT */
+      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_16, "Register Comment: No comment")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_17, "Register Date: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.register.modification_date), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_18, "Register Date: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.registers), 1
+      /* TEXT */
+      )]), _hoisted_19];
     }),
     _: 1
     /* STABLE */

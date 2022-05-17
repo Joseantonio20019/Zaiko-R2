@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('registers_ubications', function (Blueprint $table) {
+        Schema::create('register_ubications', function (Blueprint $table) {
             $table->unsignedBigInteger('register_id')->index();
             $table->foreign('register_id')->references('id')->on('registers')->onUpdate('restrict')->onDelete('restrict');
-            $table->unsignedBigInteger('ubication_id')->index();
-            $table->foreign('ubication_id')->references('id')->on('ubications')->onUpdate('restrict')->onDelete('restrict');
-            $table->dateTime('ModificationDate')->nullable(false);
+            $table->unsignedBigInteger('ubications_id')->index();
+            $table->foreign('ubications_id')->references('id')->on('ubications')->onUpdate('restrict')->onDelete('restrict');
+            $table->dateTime('modification_date')->nullable(false);
+            $table->timestamps();
         });
     }
 

@@ -1357,6 +1357,22 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Models_Index_vue"
 	],
+	"./Registers/Create": [
+		"./resources/js/Pages/Registers/Create.vue",
+		"resources_js_Pages_Registers_Create_vue"
+	],
+	"./Registers/Create.vue": [
+		"./resources/js/Pages/Registers/Create.vue",
+		"resources_js_Pages_Registers_Create_vue"
+	],
+	"./Registers/Edit": [
+		"./resources/js/Pages/Registers/Edit.vue",
+		"resources_js_Pages_Registers_Edit_vue"
+	],
+	"./Registers/Edit.vue": [
+		"./resources/js/Pages/Registers/Edit.vue",
+		"resources_js_Pages_Registers_Edit_vue"
+	],
 	"./Settings": [
 		"./resources/js/Pages/Settings.vue",
 		"resources_js_Pages_Settings_vue"

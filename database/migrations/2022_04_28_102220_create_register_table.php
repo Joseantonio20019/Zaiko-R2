@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('registers', function (Blueprint $table) {
-            $table->id()->unique()->autoIncrement();
+            $table->id()->unique();
             $table->string('user')->nullable(false);
             $table->string('comment')->nullable(true);
             $table->timestamps();
-            $table->unsignedBigInteger('devices_id');
+            $table->unsignedBigInteger('device_id');
 
-            $table->foreign('devices_id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('device_id')->references('id')->on('devices')->onUpdate('cascade')->onDelete('cascade');
 
         });
     }
