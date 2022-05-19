@@ -71,7 +71,7 @@
 
                             <Link :href="`/phones/edit/${phone.device_id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
                 
-                            <button type="buttton" @click="destroy(phone.device_id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                            <button type="button" @click="destroy(phone.device_id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
 
                         </td>
                     </tr>

@@ -12,7 +12,6 @@ class UbicationController extends Controller
 {
     
 
-
     public function index(){
 
 
@@ -24,7 +23,6 @@ class UbicationController extends Controller
     
                 $query->where('name','like','%'.$search.'%');
                 
-    
             })
             ->paginate(10)
             ->withQueryString()
@@ -35,11 +33,6 @@ class UbicationController extends Controller
     
         ]);   
 
-        
-
-
-
-    
     }
 
     public function create(){

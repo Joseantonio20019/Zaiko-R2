@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <!-- Links de FlowBite y a app.css -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
+    <link  rel="icon" type="image/png" href="/R2Hotels-Logo.png"/>
 
     <!-- Scripts de TailWind y FlowBite -->
     <script src="https://cdn.tailwindcss.com"></script>

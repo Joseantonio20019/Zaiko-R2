@@ -4,7 +4,8 @@
         <header class="flex justify-between">
             <div class="flex items-center">
 
-            <h1 class="font-bold text-3xl"> Zaiko </h1>
+            <h1 class="font-bold text-3xl mr-3"> Zaiko </h1>
+            <img src="../../img/R2Hotels-Horizontal.png" alt="R2Hotels" class="h-8 w-auto">
 
             <!-- <p class="text-xl ml-4">Welcome back, {{ username }}</p> -->
         </div>

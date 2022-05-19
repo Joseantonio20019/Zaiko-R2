@@ -158,10 +158,6 @@ Route::get('/register/create/{id}', [RegisterController::class, 'create']);
 
 Route::post('/register/create/{id}',[RegisterController::class,'store']);
 
-Route::get('/register/edit/{id}',[RegisterController::class,'edit']);
-
-Route::put('/register/edit/{id}',[RegisterController::class,'update']);
-
 Route::delete('/register/delete/{id}',[RegisterController::class,'destroy']);
 
 

@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('register_ubications', function (Blueprint $table) {
             $table->unsignedBigInteger('register_id')->index();
-            $table->foreign('register_id')->references('id')->on('registers')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreign('register_id')->references('id')->on('registers')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('ubications_id')->index();
-            $table->foreign('ubications_id')->references('id')->on('ubications')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreign('ubications_id')->references('id')->on('ubications')->onUpdate('cascade')->onDelete('cascade');
             $table->dateTime('modification_date')->nullable(false);
             $table->timestamps();
         });

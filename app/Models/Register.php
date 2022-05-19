@@ -18,7 +18,9 @@ class Register extends Model
 
     public function devices(){
         
-        return $this->hasOne(Device::class);
+        return $this->hasMany(Device::class);
     }
+
+
 
 }

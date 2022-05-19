@@ -51,13 +51,37 @@ class PhoneController extends Controller
 
     public function show($id){
 
-        //dd(Register::where('device_id',$id)->select('registers.*')->get());
-
+    
         return Inertia::render('Devices/Phones/Show',[
 
-            'phone' => Phone::with('device')->where('device_id',$id)->first(),
-            'register' =>RegisterUbication::query()->join('registers','registers.id','=','register_ubications.register_id')->join('devices','registers.device_id','=','devices.id')->first(),
-            'registers' => Register::where('device_id',$id)->get(),
+            'id' => $id,
+            'phone' => Phone::with('device')
+            ->where('device_id',$id)
+            ->first(),
+
+            'registerubication' =>RegisterUbication::query()
+            ->join('sites','sites.id','=','register_ubications.ubications_id')
+            ->join('ubications','ubications.id','=','register_ubications.ubications_id')
+            ->join('registers','registers.id','=','register_ubications.register_id')
+            ->join('devices','registers.device_id','=','devices.id')
+            ->where('device_id',$id)->first(),
+
+            'registerdepartment' =>RegisterDepartment::query()
+            ->join('registers','registers.id','=','register_departments.register_id')
+            ->join('departments','departments.id','=','register_departments.departments_id')
+            ->first(),
+
+
+             'registers' => Register::query()
+             
+             //->join('register_ubications','register_ubications.register_id','=','registers.id')
+            //->join('ubications','ubications.id','=','register_ubications.ubications_id')
+            //->join('sites','sites.id','=','register_ubications.ubications_id')
+            ->join('register_departments','register_departments.register_id','=','registers.id')
+            //->join('departments','departments.id','=','register_departments.departments_id') */
+            //->select('register_departments.*','register_ubications.*','sites.*','sites.alias as sitealias','departments.*','departments.alias as departmentalias')
+            ->where('device_id',$id)
+            ->get(),
 
         ]);
     }
@@ -194,28 +218,30 @@ class PhoneController extends Controller
             'extension' => ['required'],
             'serial_number' => ['required'],
             'imei' => ['required'],
+            'department' => ['required'],
+            'ubication' => ['required'],
         ]);
 
         $device = Device::find($id);
 
-        $device->update([
+            $device->update([
 
-            'inventory_number' => $request->inventory_number,
-            'comment' => $request->comment,
-            'model' => $request->model,
-            'family' => $request->family,
-            'status' => $request->status,
-            'mark' => $request->mark,
+                'inventory_number' => $request->inventory_number,
+                'comment' => $request->comment,
+                'model' => $request->model,
+                'family' => $request->family,
+                'status' => $request->status,
+                'mark' => $request->mark,
 
-        ]);
+            ]);
 
             $phone=Phone::where('device_id',$id);
 
             $phone->update([
-            'extension' => $request->extension,
-            'serial_number' => $request->serial_number,
-            'imei' => $request->imei,
-        ]);
+                'extension' => $request->extension,
+                'serial_number' => $request->serial_number,
+                'imei' => $request->imei,
+            ]);
 
 
         return redirect('/phones')->with('success','Phone updated successfully');

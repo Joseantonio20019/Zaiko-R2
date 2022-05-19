@@ -497,6 +497,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _img_R2Hotels_Horizontal_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../img/R2Hotels-Horizontal.png */ "./resources/img/R2Hotels-Horizontal.png");
+
 
 var _hoisted_1 = {
   "class": "p-6 bg-blue-200"
@@ -508,8 +510,12 @@ var _hoisted_2 = {
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex items-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "font-bold text-3xl"
-}, " Zaiko "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p class=\"text-xl ml-4\">Welcome back, {{ username }}</p> ")], -1
+  "class": "font-bold text-3xl mr-3"
+}, " Zaiko "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _img_R2Hotels_Horizontal_png__WEBPACK_IMPORTED_MODULE_1__["default"],
+  alt: "R2Hotels",
+  "class": "h-8 w-auto"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p class=\"text-xl ml-4\">Welcome back, {{ username }}</p> ")], -1
 /* HOISTED */
 );
 
@@ -700,6 +706,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   }
 });
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__.InertiaProgress.init();
+
+/***/ }),
+
+/***/ "./resources/img/R2Hotels-Horizontal.png":
+/*!***********************************************!*\
+  !*** ./resources/img/R2Hotels-Horizontal.png ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/R2Hotels-Horizontal.png?e370033163d1a70139ccdc7b10825de1");
 
 /***/ }),
 
@@ -1205,10 +1226,12 @@ var map = {
 	],
 	"./Devices/Phones/Create": [
 		"./resources/js/Pages/Devices/Phones/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_Phones_Create_vue"
 	],
 	"./Devices/Phones/Create.vue": [
 		"./resources/js/Pages/Devices/Phones/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_Phones_Create_vue"
 	],
 	"./Devices/Phones/Edit": [
@@ -1359,10 +1382,12 @@ var map = {
 	],
 	"./Registers/Create": [
 		"./resources/js/Pages/Registers/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Registers_Create_vue"
 	],
 	"./Registers/Create.vue": [
 		"./resources/js/Pages/Registers/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Registers_Create_vue"
 	],
 	"./Registers/Edit": [

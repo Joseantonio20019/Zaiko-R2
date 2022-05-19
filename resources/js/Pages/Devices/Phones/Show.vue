@@ -2,7 +2,7 @@
     
     <div>
 
-        <Head title="Phone View"/> 
+        <Head title="Register View"/> 
 
 
         <Layout>
@@ -12,28 +12,29 @@
             </div>
 
 
-            <Link :href="`/register/create/${register.device_id}`">Add a Register</Link>
-            <div class="p-6 w-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <Link class=" mb-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" :href="`/register/create/${phone.device_id}`">Add a Register</Link>
+            <div class=" mt-6 p-6 w-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Phone View</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Inventory Number: {{phone.device["inventory_number"]}}</p>
-                <p v-if="phone.device['comment'] != ''" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: {{phone.device["comment"] }}</p>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Device: {{registerubication.alias}} - {{registerdepartment.alias}} - {{registerubication.inventory_number}}</h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Inventory Number: {{registerubication.inventory_number}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ubication: {{registerubication.name}}</p>
+                <p v-if="phone.device['comment'] != ''" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: {{phone.device['comment']}}</p>
                 <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Family: {{phone.device["family"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Model: {{phone.device["model"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Status: {{phone.device["status"]}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Family: {{registerubication.family}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Model: {{registerubication.model}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Status: {{registerubication.status}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Extension: {{phone.extension}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Serial Number: {{phone.serial_number}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">IMEI: {{phone.imei}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">User: {{register.user}}</p>
-                <p v-if="register.comment != ''" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register Comment: {{register.comment}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">User: {{registerubication.user}}</p>
+                <p v-if="registerubication.comment != ''" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register Comment: {{registerubication.comment}}</p>
                 <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register Comment: No comment</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register Date: {{register.modification_date}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register Date: {{registers}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Last Modification: {{registerubication.modification_date}}</p>
+                
     
             </div>
 
-            <div class="mb-6">
+             <div class="mb-6">
 
                 <h2>Last Registers</h2>
 
@@ -45,39 +46,44 @@
                                 ID
                             </th>
                             <th>
-                                EXTENSION
+                                USER
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                MODIFICATION DATE
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                FAMILY
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                STATUS
+                            <th>
+                                CREATION DATE
                             </th>
                             <th scope="col" class="px-10 py-3 text-center">
                                 CONFIGURATION
                             </th>
                         </tr>
 
-
                     </thead>
-                <tbody>
+                     <tbody>
 
-                     <!-- <tr v-for="registersearch in registers.data" :key="registersearch.device_id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200"></tr>
-                    <th>
-                        {{registersearch.id}}
-                    </th>
-                    <th>
-                        {{registersearch.modification_date}}
-                    </th>  -->
+                      <tr v-for="lastregister in registers" :key="lastregister.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
+                                {{lastregister.id}}
+                        </th> 
+                        <td>
+                            {{lastregister.user}}
+                        </td>
+                        <td>
+                            {{lastregister.created_at}}
+                        </td>
+                        <td class="px-6 py-4 text-center">
 
-                </tbody>
+                            <button type="button" @click="destroy(lastregister.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                    
+                        </td>
+                      </tr>
+            
+                     </tbody>
                 </table>
             
-                </div>
             </div>
+            </div>
+
+            
+             
             
         </Layout>
 
@@ -87,17 +93,32 @@
 
 <script setup>
 
-import Notification from './../../../Shared/Notification.vue'
+import { onMounted } from '@vue/runtime-core';
+import Notification from './../../../Shared/Notification.vue';
 
 
-defineProps({
+    let props = defineProps({
 
+        registerdepartment: Object,
+        registerubication: Object,
+        registers: Object,
         phone: Object,
-        register: Object,
-        registers: Object
         
         
     });
+
+    let destroy = async function (id) {
+
+        Inertia.delete(`/register/delete/${id}`,{
+
+            onBefore: () => confirm('Are you sure you want to delete this register?')
+
+        });
+
+
+    }
+
+
 
 
 </script>
