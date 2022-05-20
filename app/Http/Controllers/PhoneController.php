@@ -15,6 +15,7 @@ use App\Models\Status;
 use App\Models\Ubication;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request as RequestFacade;
 use Inertia\Inertia;
 
@@ -51,6 +52,8 @@ class PhoneController extends Controller
 
     public function show($id){
 
+        
+
     
         return Inertia::render('Devices/Phones/Show',[
 
@@ -64,25 +67,29 @@ class PhoneController extends Controller
             ->join('ubications','ubications.id','=','register_ubications.ubications_id')
             ->join('registers','registers.id','=','register_ubications.register_id')
             ->join('devices','registers.device_id','=','devices.id')
-            ->where('device_id',$id)->first(),
+            ->where('device_id',$id)
+            ->orderBy('registers.id','desc')
+            ->first(),
 
             'registerdepartment' =>RegisterDepartment::query()
             ->join('registers','registers.id','=','register_departments.register_id')
             ->join('departments','departments.id','=','register_departments.departments_id')
+            ->where('device_id',$id)
+            ->orderBy('registers.id','desc')
             ->first(),
 
 
-             'registers' => Register::query()
-             
-             //->join('register_ubications','register_ubications.register_id','=','registers.id')
-            //->join('ubications','ubications.id','=','register_ubications.ubications_id')
-            //->join('sites','sites.id','=','register_ubications.ubications_id')
-            ->join('register_departments','register_departments.register_id','=','registers.id')
-            //->join('departments','departments.id','=','register_departments.departments_id') */
-            //->select('register_departments.*','register_ubications.*','sites.*','sites.alias as sitealias','departments.*','departments.alias as departmentalias')
-            ->where('device_id',$id)
-            ->get(),
-
+              'registers' => Register::query()
+             ->join('register_ubications','register_ubications.register_id','=','registers.id')
+             ->join('ubications','ubications.id','=','register_ubications.ubications_id')
+             ->join('sites','sites.id','=','register_ubications.ubications_id')
+             ->join('devices','devices.id','=','registers.device_id')
+             ->join('register_departments','register_departments.register_id','=','registers.id')
+             ->join('departments','departments.id','=','register_departments.departments_id')
+             ->select('registers.user','registers.comment','registers.id as registerid','sites.alias as sitealias','departments.alias as departmentalias','registers.created_at','devices.inventory_number','devices.id as deviceid')
+             ->where('device_id',$id)->orderBy('registers.id','desc')
+             ->get(),
+ 
         ]);
     }
 

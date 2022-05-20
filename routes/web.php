@@ -166,16 +166,6 @@ Route::delete('/register/delete/{id}',[RegisterController::class,'destroy']);
 
 Route::get('/devices', [DeviceController::class, 'index']);
 
-Route::get('/devices/create', [DeviceController::class, 'create']);
-
-Route::post('/devices/create',[DeviceController::class,'store']);
-
-Route::get('/devices/edit/{id}',[DeviceController::class,'edit']);
-
-Route::put('/devices/edit/{id}',[DeviceController::class,'update']);
-
-Route::delete('/devices/delete/{id}',[DeviceController::class,'destroy']);
-
 
 //Department Routes
 

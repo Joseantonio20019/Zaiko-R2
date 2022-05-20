@@ -15,4 +15,5 @@ class ModelDevice extends Model
 
     ];
 
+
 }

@@ -25,4 +25,6 @@ class NetworkDevice extends Model
     {
         return $this->belongsTo(Device::class,'device_id');
     }
+
+    
 }

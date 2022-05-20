@@ -65,7 +65,8 @@ class RegisterController extends Controller
 
         }
 
-            Register::create([
+     
+             Register::create([
 
             'user' => $data['user'],
             'comment' => $data['comment'],
@@ -74,33 +75,35 @@ class RegisterController extends Controller
         ])->where('device_id',$id);
 
         
-        $lastregister=Register::where('registers.device_id','=',$id)->first();
+        $lastregister=Register::where('device_id','=',$id)->orderBy('id','desc')->first();
 
+        
         $lastregister->update([
 
             'user' => $data['user'],
+            'comment' => $data['comment'],
         
         ]);
 
-        $registerubication= RegisterUbication::where('register_id',$lastregister->id);
+        
+        RegisterUbication::create([
+       
+                'register_id' => $lastregister->id,
+                'modification_date' => $data['modification_date'],
+                'ubications_id' => $data['ubication'],
+        ])->where('register_id',$lastregister->id);
 
-        $registerubication->update([
 
-            'modification_date' => $data['modification_date'],
-            'ubications_id' => $data['ubication'],
-        ]);
-
-        $registerdepartment = RegisterDepartment::where('register_id',$lastregister->id);
-
-        $registerdepartment->update([
-
+        RegisterDepartment::create([
+ 
+            'register_id' => $lastregister->id,
             'modification_date' => $data['modification_date'],
             'departments_id' => $data['department'],
-        ]);
+        ])->where('register_id',$lastregister->id);
 
         
 
-        return back();
+        return redirect()->back()->with('success','Regiser created successfully');
     }
 
 

@@ -55,7 +55,7 @@ class Device extends Model
 
     public function register(){
 
-        return $this->belongsTo(Register::class);
+        return $this->hasMany(Register::class);
     }
 
 

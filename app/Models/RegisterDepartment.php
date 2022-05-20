@@ -16,4 +16,13 @@ class RegisterDepartment extends Model
         'modification_date'
 
     ];
+
+    protected $casts = [
+
+        'created_at' => 'datetime: d-m-Y',
+        'updated_at' => 'datetime: d-m-Y',
+        'modification_date' => 'datetime: d-m-Y',
+    ];
+
+    
 }

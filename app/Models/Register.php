@@ -16,11 +16,15 @@ class Register extends Model
         'device_id',
     ];
 
+    protected $casts = [
+
+        'created_at' => 'datetime: d-m-Y',
+        'updated_at' => 'datetime: d-m-Y',
+    ];
+
     public function devices(){
         
-        return $this->hasMany(Device::class);
+        return $this->belongsTo(Device::class);
     }
-
-
 
 }
