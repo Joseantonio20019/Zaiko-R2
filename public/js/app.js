@@ -1390,14 +1390,6 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Registers_Create_vue"
 	],
-	"./Registers/Edit": [
-		"./resources/js/Pages/Registers/Edit.vue",
-		"resources_js_Pages_Registers_Edit_vue"
-	],
-	"./Registers/Edit.vue": [
-		"./resources/js/Pages/Registers/Edit.vue",
-		"resources_js_Pages_Registers_Edit_vue"
-	],
 	"./Settings": [
 		"./resources/js/Pages/Settings.vue",
 		"resources_js_Pages_Settings_vue"

@@ -11,12 +11,22 @@ class Device extends Model
 
 
     protected $fillable = [
+        
         'inventory_number',
         'comment',
         'model',
         'family',
         'status',
-        'mark'
+        'mark',
+        'site',
+        'ubication',
+        'department',
+    ];
+
+    protected $casts = [
+
+        'created_at' => 'datetime: d-m-Y',
+        'updated_at' => 'datetime: d-m-Y',
     ];
 
 

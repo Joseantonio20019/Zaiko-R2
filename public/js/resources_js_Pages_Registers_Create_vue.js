@@ -263,7 +263,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.comment = $event;
     }),
     "class": "border border-gray-400 p-2 w-full",
-    type: "text",
+    type: "textarea",
     name: "comment"
   }, null, 512
   /* NEED_PATCH */

@@ -11,6 +11,7 @@ use App\Models\Phone;
 use App\Models\Register;
 use App\Models\RegisterDepartment;
 use App\Models\RegisterUbication;
+use App\Models\Site;
 use App\Models\Status;
 use App\Models\Ubication;
 use Carbon\Carbon;
@@ -63,12 +64,12 @@ class PhoneController extends Controller
             ->first(),
 
             'registerubication' =>RegisterUbication::query()
-            ->join('sites','sites.id','=','register_ubications.ubications_id')
             ->join('ubications','ubications.id','=','register_ubications.ubications_id')
+            ->join('sites','sites.id','=','ubications.site_id')
             ->join('registers','registers.id','=','register_ubications.register_id')
-            ->join('devices','registers.device_id','=','devices.id')
             ->where('device_id',$id)
             ->orderBy('registers.id','desc')
+            ->select('register_ubications.*','ubications.name as ubicationname','sites.alias as alias','sites.name as sitename','registers.*')
             ->first(),
 
             'registerdepartment' =>RegisterDepartment::query()
@@ -79,16 +80,16 @@ class PhoneController extends Controller
             ->first(),
 
 
-              'registers' => Register::query()
-             ->join('register_ubications','register_ubications.register_id','=','registers.id')
-             ->join('ubications','ubications.id','=','register_ubications.ubications_id')
-             ->join('sites','sites.id','=','register_ubications.ubications_id')
-             ->join('devices','devices.id','=','registers.device_id')
-             ->join('register_departments','register_departments.register_id','=','registers.id')
-             ->join('departments','departments.id','=','register_departments.departments_id')
-             ->select('registers.user','registers.comment','registers.id as registerid','sites.alias as sitealias','departments.alias as departmentalias','registers.created_at','devices.inventory_number','devices.id as deviceid')
-             ->where('device_id',$id)->orderBy('registers.id','desc')
-             ->get(),
+            'registers' => Register::query()
+            ->join('register_ubications','register_ubications.register_id','=','registers.id')
+            ->join('ubications','ubications.id','=','register_ubications.ubications_id')
+            ->join('sites','sites.id','=','ubications.site_id')
+            ->join('devices','devices.id','=','registers.device_id')
+            ->join('register_departments','register_departments.register_id','=','registers.id')
+            ->join('departments','departments.id','=','register_departments.departments_id')
+            ->select('registers.user','registers.comment','registers.id as registerid','ubications.name as ubicationname','sites.name as sitename','departments.name as departmentname','registers.created_at','devices.inventory_number','devices.id as deviceid')
+            ->where('device_id',$id)->orderBy('registers.id','desc')
+            ->get(), 
  
         ]);
     }
@@ -137,6 +138,12 @@ class PhoneController extends Controller
             'modification_date' => ['nullable'],
         ]);
 
+       
+
+        $ubication = Ubication::where('id',$data['ubication'])->first();
+        $site =  Site::where('id',$data['ubication'])->first();
+        $department = Department::where('id',$data['department'])->first();
+
 
         $device = Device::create([
 
@@ -147,8 +154,10 @@ class PhoneController extends Controller
             'family' => $data['family'],
             'status' => $data['status'],
             'mark' => $data['mark'],
+            'site' =>$site->name,
+            'ubication'=>$ubication->name,
+            'department' => $department->name,
             
-
         ]);
 
         $register = Register::create([

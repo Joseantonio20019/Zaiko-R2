@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MarkController;
 use App\Http\Controllers\UserController;
@@ -18,22 +17,19 @@ use App\Http\Controllers\NetworkDeviceController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PdaController;
 
-
-
-
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-
-
+//Auth Routes 
 
 Route::get('login',[LoginController::class, 'create'])->name('login');
 Route::post('login',[LoginController::class, 'authenticate']);
 Route::post('logout',[LoginController::class, 'destroy'])->middleware('auth');
 
 
+//Middleware to make more secure the app 
 
-/* Route::middleware('auth')->group(function () { */
+//Route::middleware('auth')->group(function () { 
 
 
 Route::get('/', function () {
@@ -107,7 +103,6 @@ Route::delete('/marks/delete/{id}',[MarkController::class,'destroy']);
 
 //Status Routes
 
-
 Route::get('/status', [StatusController::class, 'index']);
 
 Route::get('/status/create', [StatusController::class, 'create']);
@@ -160,11 +155,11 @@ Route::post('/register/create/{id}',[RegisterController::class,'store']);
 
 Route::delete('/register/delete/{id}',[RegisterController::class,'destroy']);
 
-
-
 //Devices Routes
 
 Route::get('/devices', [DeviceController::class, 'index']);
+
+Route::get('/devices/excel', [DeviceController::class, 'export']);
 
 
 //Department Routes
@@ -180,8 +175,6 @@ Route::get('/departments/edit/{id}',[DepartmentController::class,'edit']);
 Route::put('/departments/edit/{id}',[DepartmentController::class,'update']);
 
 Route::delete('/departments/delete/{id}',[DepartmentController::class,'destroy']);
-
-
 
 
 //Computers Routes
@@ -281,5 +274,4 @@ Route::delete('/pdas/delete/{id}',[PdaController::class,'destroy']);
 
 Route::get('/pdas/show/{id}',[PdaController::class,'show']);
 
-
-/*  });  */
+//});  

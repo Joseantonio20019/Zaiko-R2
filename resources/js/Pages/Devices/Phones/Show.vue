@@ -11,18 +11,19 @@
             <Notification :message="$page.props.flash.message" />
             </div>
 
-
             <Link class=" mb-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" :href="`/register/create/${phone.device_id}`">Add a Register</Link>
             <div class=" mt-6 p-6 w-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Device: {{registerubication.alias}} - {{registerdepartment.alias}} - {{registerubication.inventory_number}}</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Inventory Number: {{registerubication.inventory_number}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ubication: {{registerubication.name}}</p>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Device: {{registerubication.alias}} - {{registerdepartment.alias}} - {{phone.device["inventory_number"]}}</h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Inventory Number: {{phone.device["inventory_number"]}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Site: {{registerubication.sitename}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ubication: {{registerubication.ubicationname}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Department: {{registerdepartment.name}}</p>
                 <p v-if="phone.device['comment'] == null" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment </p>
                 <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: {{phone.device['comment']}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Family: {{registerubication.family}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Model: {{registerubication.model}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Status: {{registerubication.status}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Family: {{phone.device["family"]}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Model: {{phone.device["model"]}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Status: {{phone.device["status"]}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Extension: {{phone.extension}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Serial Number: {{phone.serial_number}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">IMEI: {{phone.imei}}</p>
@@ -46,7 +47,13 @@
                                 ID
                             </th>
                             <th>
-                                DEVICE UBICATION
+                                SITE
+                            </th>
+                             <th>
+                                 DEPARTMENT
+                            </th>
+                            <th>
+                                UBICATION
                             </th>
                             <th>
                                 USER
@@ -69,21 +76,39 @@
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
 
                             {{lastregister.registerid}}
+
                         </th> 
+
                         <td>
 
-                            {{lastregister.sitealias}} - {{lastregister.departmentalias}}
+                            {{lastregister.sitename}}
 
                         </td>
+
+                        <td>
+                            {{lastregister.departmentname}}
+                        </td>
+
+                        <td>
+                            {{lastregister.ubicationname}}
+                        </td>
+
                         <td>
                             {{lastregister.user}}
                         </td>
+
                         <td>
                             {{lastregister.created_at}}
                         </td>
-                        <td>
-                            {{lastregister.comment}}
+
+                        <td v-if="lastregister.comment == null ||lastregister.comment == '' ">
+                            No comment
                         </td>
+
+                        <td v-else>
+                            {{lastregister.comment}}    
+                        </td>
+
                         <td class="px-6 py-4 text-center">
 
                             <button type="button" @click="destroy(lastregister.deviceid)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
@@ -97,9 +122,6 @@
             </div>
             </div>
 
-            
-             
-            
         </Layout>
 
 
@@ -133,8 +155,5 @@ import {Inertia} from "@inertiajs/inertia"
 
 
     }
-
-
-
 
 </script>

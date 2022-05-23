@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\Device;
 use App\Models\Register;
 use App\Models\RegisterDepartment;
 use App\Models\RegisterUbication;
@@ -32,6 +33,7 @@ class RegisterController extends Controller
     return $ubications;
     
 }
+
 
     public function create(Request $request){
 
@@ -99,13 +101,26 @@ class RegisterController extends Controller
             'register_id' => $lastregister->id,
             'modification_date' => $data['modification_date'],
             'departments_id' => $data['department'],
+
         ])->where('register_id',$lastregister->id);
 
-        
+        $ubication = Ubication::where('id',$data['ubication'])->first();
+        $site = Site::where('id',$data['ubication'])->first();
+        $department = Department::where('id',$data['department'])->first();
 
-        return redirect()->back()->with('success','Regiser created successfully');
+
+        $device = Device::where('id',$id)->first();
+
+        $device->update([
+
+            'site' => $site->name,
+            'ubication'=>$ubication->name,
+            'department' => $department->name,
+
+        ]);
+
+        return redirect()->back()->with('success','Register created successfully');
     }
-
 
     public function edit($id){
 

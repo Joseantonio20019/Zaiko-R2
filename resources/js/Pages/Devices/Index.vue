@@ -15,6 +15,8 @@
         
             <div class="flex items-center">
             <h1 class="text-3xl">Devices</h1>
+            <a href="/devices/excel" class=" ml-3 bg-transparent hover:bg-green-500 text-blue-green font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded align-middle">Export in Excel </a>
+
             </div>
             
 
@@ -28,29 +30,50 @@
                             <th scope="col" class="px-6 py-3">
                                 INVENTORY Nº
                             </th>
+                           <th scope="col" class="px-6 py-3">
+                                SITE
+                            </th>
+
                             <th scope="col" class="px-6 py-3">
-                                ID
+                                UBICATION
+                            </th>
+
+                            <th scope="col" class="px-6 py-3">
+                                DEPARTMENT
                             </th>
 
                             <th scope="col" class="px-6 py-3">
                                 COMMENT
                             </th>
+
                             <th scope="col" class="px-6 py-3">
                                 CREATED DATE
                             </th>
+
                             <th scope="col" class="px-6 py-3">
                                 STATUS
                             </th>
+
                         </tr>
                     </thead>
                 <tbody>
                     <tr v-for="device in devices.data" :key="device.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
-                        <td class="px-6 py-4">
+                        <td class="align-center">
                             {{device.inventory_number}}
                         </td>
-                        <td class="px-6 py-4">
-                            {{device.id}}
+                        <td>
+                            {{device.site}}
                         </td>
+
+                        <td>
+                            {{device.ubication}}
+                        </td>
+
+                        <td>
+                            {{device.department}}
+
+                        </td>
+
                         <td class="px-6 py-4">
                             {{device.comment}}
                         </td>
@@ -104,7 +127,6 @@ import Notification from '../../Shared/Notification.vue';
             replace:true
 
         });
-
 
     },300));
 

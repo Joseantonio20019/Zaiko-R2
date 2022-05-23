@@ -9,16 +9,15 @@
 
     <form @submit.prevent="submit" action="/" class="max-w-md mx-auto mt-8">
   
-        <div class="mb-6">
+            <div class="mb-6">
 
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
-                    User
-                </label>
+                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                        User
+                    </label>
 
-                <input v-model="form.user" class="border border-gray-400 p-2 w-full" type="text" name="user">
-                <div v-if="form.errors.user" v-text="form.errors.user" class="text-red-500 text-xs italic mt-2"></div>
+                    <input v-model="form.user" class="border border-gray-400 p-2 w-full" type="text" name="user">
+                    <div v-if="form.errors.user" v-text="form.errors.user" class="text-red-500 text-xs italic mt-2"></div>
                 
-
             </div>
 
             <div class="mb-6">
@@ -27,7 +26,7 @@
                     Comment(Optional)
                 </label>
 
-                <input v-model="form.comment" class="border border-gray-400 p-2 w-full" type="text" name="comment">
+                <input v-model="form.comment" class="border border-gray-400 p-2 w-full" type="textarea" name="comment">
                 <div v-if="form.errors.comment" v-text="form.errors.comment" class="text-red-500 text-xs italic mt-2"></div>
             </div>
 
@@ -58,7 +57,6 @@
             </div>
 
             <div class="mb-6">
-
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
                     Ubication
