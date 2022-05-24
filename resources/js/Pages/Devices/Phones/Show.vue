@@ -2,8 +2,7 @@
     
     <div>
 
-        <Head title="Register View"/> 
-
+        <Head title="Phone View"/> 
 
         <Layout>
 
@@ -32,7 +31,6 @@
                 <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register Comment: {{registerdepartment.comment}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Last Modification: {{registerubication.modification_date}}</p>
                 
-    
             </div>
 
              <div class="mb-6">
@@ -101,7 +99,7 @@
                             {{lastregister.created_at}}
                         </td>
 
-                        <td v-if="lastregister.comment == null ||lastregister.comment == '' ">
+                        <td v-if="lastregister.comment == null || lastregister.comment == '' ">
                             No comment
                         </td>
 
@@ -130,7 +128,7 @@
 
 <script setup>
 
-import { onMounted } from '@vue/runtime-core';
+
 import Notification from './../../../Shared/Notification.vue';
 import {Inertia} from "@inertiajs/inertia"
 

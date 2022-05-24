@@ -7,7 +7,7 @@
     <h1 class="text-3xl text-center">Create a New Register</h1>
 
 
-    <form @submit.prevent="submit" action="/" class="max-w-md mx-auto mt-8">
+    <form @submit.prevent="submit" class="max-w-md mx-auto mt-8">
   
             <div class="mb-6">
 
@@ -90,7 +90,7 @@
 
              <div class="mb-6">
 
-                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Create</button>
+                <button type="submit" onclick="history.back()" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Create Register</button>
 
         </div>
     </form>

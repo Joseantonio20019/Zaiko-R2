@@ -119,7 +119,7 @@ class RegisterController extends Controller
 
         ]);
 
-        return redirect()->back()->with('success','Register created successfully');
+        return back()->with('message','Register created successfully');
     }
 
     public function edit($id){
@@ -139,7 +139,7 @@ class RegisterController extends Controller
 
         $register->delete();
 
-        return back()->with('success','Register deleted successfully');
+        return back()->with('message','Register deleted successfully');
 
     }
 

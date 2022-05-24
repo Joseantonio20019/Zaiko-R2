@@ -5,9 +5,9 @@
             <div class="flex items-center">
 
             <h1 class="font-bold text-3xl mr-3"> Zaiko </h1>
-            <img src="../../img/R2Hotels-Horizontal.png" alt="R2Hotels" class="h-8 w-auto">
+            <img src="../../img/R2Hotels-Logo.png" alt="R2Hotels" class="h-8 w-auto">
 
-            <!-- <p class="text-xl ml-4">Welcome back, {{ username }}</p> -->
+             <p class="text-xl ml-4">Welcome back, {{ username }}</p>
         </div>
 
         <Nav />

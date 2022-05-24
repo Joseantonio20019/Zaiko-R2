@@ -51,7 +51,7 @@ class UserController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        return redirect('/users')->with('message','User created successfully');
+        return redirect('users')->with('message','User created successfully');
 
     }
 

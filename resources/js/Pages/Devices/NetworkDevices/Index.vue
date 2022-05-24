@@ -16,7 +16,9 @@
             <div class="flex items-center">
             <h1 class="text-3xl">Network Devices</h1>
 
-            <Link href="/network-devices/create" class="text-blue-500 text-sm ml-2"  >Create New Network Device </Link>
+            <Link href="/network-devices/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
+                Create New Network Device
+            </Link>
 
             </div>
             
@@ -99,8 +101,6 @@ import {Inertia} from "@inertiajs/inertia"
 import debounce from 'lodash/throttle';
 import Notification from '../../../Shared/Notification.vue';
 
-
-
     let props = defineProps({
 
         networkdevices: Object,
@@ -130,9 +130,6 @@ import Notification from '../../../Shared/Notification.vue';
             onBefore: () => confirm('Are you sure you want to delete this Network Device?')
 
         });
-
-        
-
     }
 
 </script>

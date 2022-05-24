@@ -497,7 +497,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _img_R2Hotels_Horizontal_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../img/R2Hotels-Horizontal.png */ "./resources/img/R2Hotels-Horizontal.png");
+/* harmony import */ var _img_R2Hotels_Logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../img/R2Hotels-Logo.png */ "./resources/img/R2Hotels-Logo.png");
 
 
 var _hoisted_1 = {
@@ -506,29 +506,39 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "flex justify-between"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_3 = {
   "class": "flex items-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold text-3xl mr-3"
-}, " Zaiko "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _img_R2Hotels_Horizontal_png__WEBPACK_IMPORTED_MODULE_1__["default"],
-  alt: "R2Hotels",
-  "class": "h-8 w-auto"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p class=\"text-xl ml-4\">Welcome back, {{ username }}</p> ")], -1
+}, " Zaiko ", -1
 /* HOISTED */
 );
 
-var _hoisted_4 = {
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _img_R2Hotels_Logo_png__WEBPACK_IMPORTED_MODULE_1__["default"],
+  alt: "R2Hotels",
+  "class": "h-8 w-auto"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_6 = {
+  "class": "text-xl ml-4"
+};
+var _hoisted_7 = {
   "class": "p-6"
 };
-var _hoisted_5 = {
+var _hoisted_8 = {
   "class": "max-w-1xl mx-auto ml-6"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Nav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Nav");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Nav)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, "Welcome back, " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.username), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Nav)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
 }
 
 /***/ }),
@@ -709,10 +719,10 @@ _inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__.InertiaProgress.init();
 
 /***/ }),
 
-/***/ "./resources/img/R2Hotels-Horizontal.png":
-/*!***********************************************!*\
-  !*** ./resources/img/R2Hotels-Horizontal.png ***!
-  \***********************************************/
+/***/ "./resources/img/R2Hotels-Logo.png":
+/*!*****************************************!*\
+  !*** ./resources/img/R2Hotels-Logo.png ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -720,7 +730,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/R2Hotels-Horizontal.png?e370033163d1a70139ccdc7b10825de1");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/R2Hotels-Logo.png?3b90de4e669af109d6945909472ce8d4");
 
 /***/ }),
 
@@ -1158,10 +1168,12 @@ var map = {
 	],
 	"./Devices/NetworkDevices/Create": [
 		"./resources/js/Pages/Devices/NetworkDevices/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_NetworkDevices_Create_vue"
 	],
 	"./Devices/NetworkDevices/Create.vue": [
 		"./resources/js/Pages/Devices/NetworkDevices/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_NetworkDevices_Create_vue"
 	],
 	"./Devices/NetworkDevices/Edit": [
@@ -1192,10 +1204,12 @@ var map = {
 	],
 	"./Devices/PDA/Create": [
 		"./resources/js/Pages/Devices/PDA/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_PDA_Create_vue"
 	],
 	"./Devices/PDA/Create.vue": [
 		"./resources/js/Pages/Devices/PDA/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_PDA_Create_vue"
 	],
 	"./Devices/PDA/Edit": [

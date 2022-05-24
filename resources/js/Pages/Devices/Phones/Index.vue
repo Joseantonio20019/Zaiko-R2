@@ -16,7 +16,9 @@
             <div class="flex items-center">
             <h1 class="text-3xl">Phones</h1>
 
-            <Link href="/phones/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle"  >Create New Phone </Link>
+            <Link href="/phones/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
+            Create New Phone
+            </Link>
 
             </div>
             
@@ -85,10 +87,8 @@
 
             
         </Layout>
-
-        
-
     </div>
+
 </template>
 
 <script setup>
@@ -98,8 +98,6 @@ import Pagination from '../../../Shared/Pagination.vue';
 import {Inertia} from "@inertiajs/inertia"
 import debounce from 'lodash/throttle';
 import Notification from '../../../Shared/Notification.vue';
-
-
 
     let props = defineProps({
 

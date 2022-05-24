@@ -1,4 +1,6 @@
 <?php
+//Controllers 
+
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MarkController;
 use App\Http\Controllers\UserController;
@@ -16,7 +18,18 @@ use App\Http\Controllers\PrinterController;
 use App\Http\Controllers\NetworkDeviceController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PdaController;
+use App\Http\Controllers\HomeController;
 
+//Models
+
+use App\Models\Computer;
+use App\Models\Device;
+use App\Models\Monitor;
+use App\Models\NetworkDevice;
+use App\Models\Pda;
+use App\Models\Phone;
+use App\Models\Printer;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -29,15 +42,10 @@ Route::post('logout',[LoginController::class, 'destroy'])->middleware('auth');
 
 //Middleware to make more secure the app 
 
-//Route::middleware('auth')->group(function () { 
+Route::middleware('auth')->group(function () { 
 
 
-Route::get('/', function () {
-
-    return Inertia::render('Home');
-    
-    
-});    
+Route::get('/',[HomeController::class, 'index']);    
 
 
 //Users Routes
@@ -274,4 +282,4 @@ Route::delete('/pdas/delete/{id}',[PdaController::class,'destroy']);
 
 Route::get('/pdas/show/{id}',[PdaController::class,'show']);
 
-//});  
+});  

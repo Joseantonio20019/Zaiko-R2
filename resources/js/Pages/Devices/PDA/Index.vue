@@ -14,9 +14,9 @@
             <div class="flex justify-between mb-6">
         
             <div class="flex items-center">
-            <h1 class="text-3xl">Pdas</h1>
+            <h1 class="text-3xl">PDAS</h1>
 
-            <Link href="/pdas/create" class="text-blue-500 text-sm ml-2"  >Create New Pda </Link>
+            <Link href="/pdas/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle"  >Create New PDA </Link>
 
             </div>
             

@@ -16,18 +16,18 @@ use App\Models\Status;
 use App\Models\Ubication;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request as RequestFacade;
 use Inertia\Inertia;
 
 class PhoneController extends Controller
+
 {
 
     public function index(){
+
+
         return Inertia::render('Devices/Phones/Index',[
 
-
-            
 
             'phones' => Phone::with('device')->join('devices', 'devices.id', '=', 'phones.device_id')
 
@@ -176,13 +176,13 @@ class PhoneController extends Controller
         ]);
 
 
-            if($data['modification_date'] == ''){
+        if($data['modification_date'] == ''){
 
 
-                $date = Carbon::now()->format('Y-m-d');
-                $data['modification_date'] = $date;
+            $date = Carbon::now()->format('Y-m-d');
+            $data['modification_date'] = $date;
 
-            }
+        }
 
             
          RegisterUbication::create([
@@ -191,7 +191,7 @@ class PhoneController extends Controller
             'register_id' => $register->id,
             'modification_date' => $data['modification_date']
 
-        ]); 
+         ]); 
 
         RegisterDepartment::create([
 
@@ -201,7 +201,7 @@ class PhoneController extends Controller
 
         ]);
 
-        return redirect('/phones')->with('success','Phone created successfully');
+        return redirect('/phones')->with('message','Phone created successfully');
 
 
     }
@@ -234,8 +234,6 @@ class PhoneController extends Controller
             'extension' => ['required'],
             'serial_number' => ['required'],
             'imei' => ['required'],
-            'department' => ['required'],
-            'ubication' => ['required'],
         ]);
 
         $device = Device::find($id);
