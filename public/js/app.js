@@ -1276,10 +1276,12 @@ var map = {
 	],
 	"./Devices/Printers/Create": [
 		"./resources/js/Pages/Devices/Printers/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_Printers_Create_vue"
 	],
 	"./Devices/Printers/Create.vue": [
 		"./resources/js/Pages/Devices/Printers/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_Printers_Create_vue"
 	],
 	"./Devices/Printers/Edit": [

@@ -16,11 +16,12 @@
             <div class="flex items-center">
             <h1 class="text-3xl">Printers</h1>
 
-            <Link href="/printers/create" class="text-blue-500 text-sm ml-2"  >Create New Printer </Link>
+            <Link href="/printers/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
+            Create New Printer
+            </Link>
 
             </div>
             
-
            <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
            </div>
 

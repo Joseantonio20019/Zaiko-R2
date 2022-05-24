@@ -101,18 +101,11 @@ class PhoneController extends Controller
         return Inertia::render('Devices/Phones/Create',[
 
             'statuses' => Status::all(),
-
             'families' => Family::all(),
-
             'models' => ModelDevice::all(),
-             
             'marks' => Mark::all(),
-
             'ubications' => Ubication::all(),
-
             'departments' => Department::all(),
-
-
 
         ]);
 
@@ -137,9 +130,7 @@ class PhoneController extends Controller
             'department' => ['required'],
             'modification_date' => ['nullable'],
         ]);
-
-       
-
+        
         $ubication = Ubication::where('id',$data['ubication'])->first();
         $site =  Site::where('id',$data['ubication'])->first();
         $department = Department::where('id',$data['department'])->first();
