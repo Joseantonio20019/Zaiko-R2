@@ -1,6 +1,6 @@
 <?php
-//Controllers 
 
+//Controllers 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MarkController;
 use App\Http\Controllers\UserController;
@@ -21,7 +21,6 @@ use App\Http\Controllers\PdaController;
 use App\Http\Controllers\HomeController;
 
 //Models
-
 use App\Models\Computer;
 use App\Models\Device;
 use App\Models\Monitor;
@@ -42,7 +41,7 @@ Route::post('logout',[LoginController::class, 'destroy'])->middleware('auth');
 
 //Middleware to make more secure the app 
 
-Route::middleware('auth')->group(function () { 
+//Route::middleware('auth')->group(function () { 
 
 
 Route::get('/',[HomeController::class, 'index']);    
@@ -264,7 +263,7 @@ Route::put('/phones/edit/{id}',[PhoneController::class,'update']);
 
 Route::delete('/phones/delete/{id}',[PhoneController::class,'destroy']);
 
-Route::get('/phones/show/{id}',[PhoneController::class,'show']);
+Route::get('/phones/show/{id}',[PhoneController::class,'show'])->name('phones.show');
 
 //PDAS Routes
 
@@ -282,4 +281,4 @@ Route::delete('/pdas/delete/{id}',[PdaController::class,'destroy']);
 
 Route::get('/pdas/show/{id}',[PdaController::class,'show']);
 
-});  
+//});  

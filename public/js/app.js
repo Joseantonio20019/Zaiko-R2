@@ -506,39 +506,29 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "flex justify-between"
 };
-var _hoisted_3 = {
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex items-center"
-};
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold text-3xl mr-3"
-}, " Zaiko ", -1
-/* HOISTED */
-);
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+}, " Zaiko "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _img_R2Hotels_Logo_png__WEBPACK_IMPORTED_MODULE_1__["default"],
   alt: "R2Hotels",
   "class": "h-8 w-auto"
-}, null, -1
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" \r\n             <p class=\"text-xl ml-4\">Welcome back, {{ username }}</p>  ")], -1
 /* HOISTED */
 );
 
-var _hoisted_6 = {
-  "class": "text-xl ml-4"
-};
-var _hoisted_7 = {
+var _hoisted_4 = {
   "class": "p-6"
 };
-var _hoisted_8 = {
+var _hoisted_5 = {
   "class": "max-w-1xl mx-auto ml-6"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Nav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Nav");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, "Welcome back, " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.username), 1
-  /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Nav)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Nav)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
 }
 
 /***/ }),
@@ -1090,10 +1080,12 @@ var map = {
 	],
 	"./Devices/Computers/Create": [
 		"./resources/js/Pages/Devices/Computers/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_Computers_Create_vue"
 	],
 	"./Devices/Computers/Create.vue": [
 		"./resources/js/Pages/Devices/Computers/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_Computers_Create_vue"
 	],
 	"./Devices/Computers/Edit": [
@@ -1134,10 +1126,12 @@ var map = {
 	],
 	"./Devices/Monitors/Create": [
 		"./resources/js/Pages/Devices/Monitors/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_Monitors_Create_vue"
 	],
 	"./Devices/Monitors/Create.vue": [
 		"./resources/js/Pages/Devices/Monitors/Create.vue",
+		"/js/vendor",
 		"resources_js_Pages_Devices_Monitors_Create_vue"
 	],
 	"./Devices/Monitors/Edit": [

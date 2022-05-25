@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <!-- Links de FlowBite y a app.css -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
-    <link  rel="icon" type="image/png" href="/R2Hotels-Logo.png"/>
+    <link  rel="icon" type="image/png" href="images/R2Hotels-Logo.png"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
     <!-- Scripts de TailWind y FlowBite -->
@@ -19,7 +19,7 @@
     
       @inertia
 
-      
+
   </body>
   
 </html>

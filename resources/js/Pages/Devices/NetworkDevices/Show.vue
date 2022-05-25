@@ -14,11 +14,11 @@
             <Link class=" mb-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" :href="`/register/create/${networkdevice.device_id}`">Add a Register</Link>
             <div class=" mt-6 p-6 w-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Device: {{registerubication.alias}} - {{registerdepartment.alias}} - {{networkdevice.device["inventory_number"]}}</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Device: {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{networkdevice.device["inventory_number"]}}</h5>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Inventory Number: {{networkdevice.device["inventory_number"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Site: {{registerubication.sitename}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ubication: {{registerubication.ubicationname}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Department: {{registerdepartment.name}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Site: {{registerdevice.sitename}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ubication: {{registerdevice.ubicationname}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Department: {{registerdevice.departmentname}}</p>
                 <p v-if="networkdevice.device['comment'] != ''" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: {{networkdevice.device["comment"] }}</p>
                 <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Family: {{networkdevice.device["family"]}}</p>
@@ -29,10 +29,10 @@
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Speed: {{networkdevice.Speed}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Fiber Ports Number: {{networkdevice.fiber_ports_number}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">POE: {{networkdevice.POE}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">User: {{registerubication.user}}</p>
-                <p v-if="registerdepartment.comment != null" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment </p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register Comment: {{registerdepartment.comment}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Last Modification: {{registerubication.modification_date}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">User: {{registerdevice.user}}</p>
+                <p v-if="registerdevice.comment != null" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register Comment: {{registerdevice.comment}} </p>
+                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Last Modification: {{registerdevice.modification_date}}</p>
     
             </div>
 
@@ -73,46 +73,46 @@
                     </thead>
                      <tbody>
 
-                      <tr v-for="lastregister in registers" :key="lastregister.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
+                      <tr v-for="register in registers" :key="register.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
                         <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
 
-                            {{lastregister.registerid}}
+                            {{register.registerid}}
 
                         </th> 
 
                         <td>
 
-                            {{lastregister.sitename}}
+                            {{register.sitename}}
 
                         </td>
 
                         <td>
-                            {{lastregister.departmentname}}
+                            {{register.departmentname}}
                         </td>
 
                         <td>
-                            {{lastregister.ubicationname}}
+                            {{register.ubicationname}}
                         </td>
 
                         <td>
-                            {{lastregister.user}}
+                            {{register.user}}
                         </td>
 
                         <td>
-                            {{lastregister.created_at}}
+                            {{register.created_at}}
                         </td>
 
-                        <td v-if="lastregister.comment == null ||lastregister.comment == '' ">
+                        <td v-if="register.comment == null ||register.comment == '' ">
                             No comment
                         </td>
 
                         <td v-else>
-                            {{lastregister.comment}}    
+                            {{register.comment}}    
                         </td>
 
                         <td class="px-6 py-4 text-center">
 
-                            <button type="button" @click="destroy(lastregister.deviceid)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                            <button type="button" @click="destroy(register.deviceid)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
                     
                         </td>
                       </tr>
@@ -136,8 +136,7 @@
 
     let props = defineProps({
 
-        registerdepartment: Object,
-        registerubication: Object,
+        registerdevice: Object,
         registers: Object,
         networkdevice: Object,
         

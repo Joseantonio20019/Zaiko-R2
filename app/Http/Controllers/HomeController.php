@@ -9,6 +9,7 @@ use App\Models\NetworkDevice;
 use App\Models\Pda;
 use App\Models\Phone;
 use App\Models\Printer;
+use App\Models\Register;
 use App\Models\User;
 use Inertia\Inertia;
 
@@ -17,7 +18,7 @@ class HomeController extends Controller
 
     public function index()
     {
-
+    
         return Inertia::render('Home', [
 
             'devices' => Device::count(),
@@ -28,9 +29,7 @@ class HomeController extends Controller
             'printers' => Printer::count(),
             'pdas' => Pda::count(),
             'networkdevices' => NetworkDevice::count(),
-
-
-
+            'registers'=> Register::join('devices','devices.id','=','registers.device_id')->get(),
         ]);
     }
 }

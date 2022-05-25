@@ -16,11 +16,12 @@
             <div class="flex items-center">
             <h1 class="text-3xl">Monitors</h1>
 
-            <Link href="/monitors/create" class="text-blue-500 text-sm ml-2"  >Create New Monitor </Link>
+            <Link href="/monitors/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
+            Create New Monitor
+            </Link>
 
             </div>
             
-
            <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
            </div>
 
@@ -92,7 +93,6 @@ import Pagination from '../../../Shared/Pagination.vue';
 import {Inertia} from "@inertiajs/inertia"
 import debounce from 'lodash/throttle';
 import Notification from '../../../Shared/Notification.vue';
-
 
 
     let props = defineProps({

@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Computer;
+use App\Models\Department;
 use App\Models\Device;
 use App\Models\Family;
-use App\Models\HardDrive;
 use App\Models\Mark;
 use App\Models\ModelDevice;
+use App\Models\Computer;
+use App\Models\HardDrive;
+use App\Models\Register;
+use App\Models\RegisterDepartment;
+use App\Models\RegisterUbication;
+use App\Models\Site;
 use App\Models\Status;
+use App\Models\Ubication;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request as RequestFacade;
 use Inertia\Inertia;
@@ -21,7 +28,8 @@ class ComputerController extends Controller
     {
         return Inertia::render('Devices/Computers/Index',[
 
-            'computers' => Computer::with('device')->join('devices', 'devices.id', '=', 'computers.device_id')
+            'computers' => Computer::with('device.register')
+            ->join('devices', 'devices.id', '=', 'computers.device_id')
              ->when(RequestFacade::input('search'), function ($query,$search){
     
                 $query->where('cpu','like','%'.$search.'%')
@@ -49,11 +57,43 @@ class ComputerController extends Controller
 
         return Inertia::render('Devices/Computers/Show',[
 
-            //dd(Computer::with('device')->where('device_id',$id)->get()),
+            'computer' => Computer::with('device')
+            ->where('device_id',$id)
+            ->first(),
 
-            'computer' => Computer::with('device')->where('device_id',$id)->first(),
-            'harddrive1' => HardDrive::where('pc_id',$id)->get()->first(),
-            'harddrive2' => HardDrive::where('pc_id',$id)->get()->last(),
+            'harddrive1' => HardDrive::where('pc_id',$id)
+            ->get()
+            ->first(),
+            
+            'harddrive2' => HardDrive::where('pc_id',$id)
+            ->get()
+            ->last(),
+
+            'registerdevice' => Register::query()
+            ->join('register_ubications','register_ubications.register_id','=','registers.id')
+            ->join('ubications','ubications.id','=','register_ubications.ubications_id')
+            ->join('sites','sites.id','=','ubications.site_id')
+            ->join('devices','devices.id','=','registers.device_id')
+            ->join('register_departments','register_departments.register_id','=','registers.id')
+            ->join('departments','departments.id','=','register_departments.departments_id')
+            ->select('registers.user','registers.comment','registers.id as registerid',
+                     'ubications.name as ubicationname','sites.name as sitename',
+                     'sites.alias as sitealias','departments.alias as departmentalias','departments.name as departmentname',
+                     'devices.inventory_number','devices.id as deviceid','register_ubications.modification_date')
+            ->where('device_id',$id)->orderBy('registers.id','desc')
+            ->first(), 
+
+
+            'registers' => Register::query()
+            ->join('register_ubications','register_ubications.register_id','=','registers.id')
+            ->join('ubications','ubications.id','=','register_ubications.ubications_id')
+            ->join('sites','sites.id','=','ubications.site_id')
+            ->join('devices','devices.id','=','registers.device_id')
+            ->join('register_departments','register_departments.register_id','=','registers.id')
+            ->join('departments','departments.id','=','register_departments.departments_id')
+            ->select('registers.user','registers.comment','registers.id as registerid','ubications.name as ubicationname','sites.name as sitename','departments.name as departmentname','registers.created_at','devices.inventory_number','devices.id as deviceid')
+            ->where('device_id',$id)->orderBy('registers.id','desc')
+            ->get(), 
 
         ]);
     }
@@ -64,12 +104,10 @@ class ComputerController extends Controller
         return Inertia::render('Devices/Computers/Create',[
 
             'statuses' => Status::all(),
-
             'families' => Family::all(),
-
             'models' => ModelDevice::all(),
-             
             'marks' => Mark::all(),
+            'departments' => Department::all(),
 
         ]);
 
@@ -77,7 +115,6 @@ class ComputerController extends Controller
 
 
     public function store (){
-
 
         $data = RequestFacade::validate([
      
@@ -96,8 +133,17 @@ class ComputerController extends Controller
             'type' => ['required'],
             'size1'=> ['nullable'],
             'type1'=> ['nullable'],
+            'user' => ['required'],
+            'register_comment' => ['nullable'],
+            'ubication' => ['required'],
+            'department' => ['required'],
+            'modification_date' => ['nullable'],
 
         ]);
+
+        $ubication = Ubication::where('id',$data['ubication'])->first();
+        $site =  Site::where('id',$data['ubication'])->first();
+        $department = Department::where('id',$data['department'])->first();
 
         $device = Device::create([
 
@@ -107,8 +153,18 @@ class ComputerController extends Controller
             'family' => $data['family'],
             'status' => $data['status'],
             'mark' => $data['mark'],
+            'site' =>$site->name,
+            'ubication'=>$ubication->name,
+            'department' => $department->name,
 
 
+        ]);
+
+        $register = Register::create([
+
+            'user' => $data['user'],
+            'comment' => $data['register_comment'],
+            'device_id' => $device->id
         ]);
 
        $computer = Computer::create([
@@ -121,7 +177,7 @@ class ComputerController extends Controller
             'os' => $data['os'],
         ]);
 
-        $hard1= HardDrive::create([
+         HardDrive::create([
 
             'size' => $data['size'],
             'type' => $data['type'],
@@ -131,7 +187,7 @@ class ComputerController extends Controller
 
         if($data['size1'] != null && $data['type1'] != null){
 
-            $hard2= HardDrive::create([
+             HardDrive::create([
 
                 'size' => $data['size1'],
                 'type' => $data['type1'],
@@ -140,6 +196,30 @@ class ComputerController extends Controller
             ]);
 
         }
+
+        if($data['modification_date'] == ''){
+
+
+            $date = Carbon::now()->format('Y-m-d');
+            $data['modification_date'] = $date;
+
+        }
+
+        RegisterUbication::create([
+
+            'ubications_id' => $data['ubication'],
+            'register_id' => $register->id,
+            'modification_date' => $data['modification_date']
+
+         ]); 
+
+         RegisterDepartment::create([
+
+            'departments_id' => $data['department'],
+            'register_id' => $register->id,
+            'modification_date' => $data['modification_date']
+
+        ]);
 
 
         return redirect('/computers')->with('message','Computer created successfully');
@@ -235,7 +315,7 @@ class ComputerController extends Controller
   public function destroy($id)
   {
        
-        Device::where('id',$id)->delete();
+        Device::find($id)->delete();
 
         return redirect('/computers')->with('message','Computer deleted successfully');
 

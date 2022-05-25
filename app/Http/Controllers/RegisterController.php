@@ -72,20 +72,14 @@ class RegisterController extends Controller
 
             'user' => $data['user'],
             'comment' => $data['comment'],
-            'device_id' => $id
+            'device_id' => $id,
+            'user' => $data['user'],
+            'comment' => $data['comment'],
 
         ])->where('device_id', $id);
 
 
         $lastregister = Register::where('device_id', '=', $id)->orderBy('id', 'desc')->first();
-
-
-        $lastregister->update([
-
-            'user' => $data['user'],
-            'comment' => $data['comment'],
-
-        ]);
 
 
         RegisterUbication::create([
@@ -119,18 +113,7 @@ class RegisterController extends Controller
 
         ]);
 
-        return redirect()->back()->with('message', 'Register created successfully');
-    }
-
-    public function edit($id)
-    {
-
-        return Inertia::render('Registers/Edit', [
-
-
-            'register' => Register::where('device_id', $id)->first(),
-
-        ]);
+        return back()->with('message', 'Register created successfully');
     }
 
     public function destroy($id)

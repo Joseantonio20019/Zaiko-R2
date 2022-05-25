@@ -146,11 +146,9 @@
     })
 
     
-    const number = parseInt(props.id);
-
      let submit = () => {
 
-        form.post(`/register/create/${number}`);
+        form.post(`/register/create/${props.id}`);
 
     }
 

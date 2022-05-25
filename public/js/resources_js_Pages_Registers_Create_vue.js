@@ -96,10 +96,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       department: '',
       ubication: ''
     });
-    var number = parseInt(props.id);
 
     var submit = function submit() {
-      form.post("/register/create/".concat(number));
+      form.post("/register/create/".concat(props.id));
     };
 
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
@@ -114,7 +113,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       getUbications: getUbications,
       props: props,
       form: form,
-      number: number,
       submit: submit,
       axios: (axios__WEBPACK_IMPORTED_MODULE_1___default()),
       useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.useForm,

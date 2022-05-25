@@ -54,14 +54,19 @@ class PdaController extends Controller
                 ->where('device_id', $id)
                 ->first(),
 
-            'registerubication' => RegisterUbication::query()
-                ->join('ubications', 'ubications.id', '=', 'register_ubications.ubications_id')
-                ->join('sites', 'sites.id', '=', 'ubications.site_id')
-                ->join('registers', 'registers.id', '=', 'register_ubications.register_id')
-                ->where('device_id', $id)
-                ->orderBy('registers.id', 'desc')
-                ->select('register_ubications.*', 'ubications.name as ubicationname', 'sites.alias as alias', 'sites.name as sitename', 'registers.*')
-                ->first(),
+            'registerdevice' => Register::query()
+            ->join('register_ubications','register_ubications.register_id','=','registers.id')
+            ->join('ubications','ubications.id','=','register_ubications.ubications_id')
+            ->join('sites','sites.id','=','ubications.site_id')
+            ->join('devices','devices.id','=','registers.device_id')
+            ->join('register_departments','register_departments.register_id','=','registers.id')
+            ->join('departments','departments.id','=','register_departments.departments_id')
+            ->select('registers.user','registers.comment','registers.id as registerid',
+                     'ubications.name as ubicationname','sites.name as sitename',
+                     'sites.alias as sitealias','departments.alias as departmentalias','departments.name as departmentname',
+                     'devices.inventory_number','devices.id as deviceid','register_ubications.modification_date')
+            ->where('device_id',$id)->orderBy('registers.id','desc')
+            ->first(),
 
             'registerdepartment' => RegisterDepartment::query()
                 ->join('registers', 'registers.id', '=', 'register_departments.register_id')
