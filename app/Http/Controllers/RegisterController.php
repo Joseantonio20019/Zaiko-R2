@@ -113,7 +113,7 @@ class RegisterController extends Controller
 
         ]);
 
-        return back()->with('message', 'Register created successfully');
+        return redirect()->back()->with('message', 'Register created successfully');
     }
 
     public function destroy($id)

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ComputerExport;
 use App\Models\Department;
 use App\Models\Device;
 use App\Models\Family;
@@ -19,6 +20,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request as RequestFacade;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ComputerController extends Controller
 {
@@ -97,6 +99,13 @@ class ComputerController extends Controller
 
         ]);
     }
+
+    public function export(){
+
+        return Excel::download(new ComputerExport, 'computers.xlsx');
+
+    }
+
 
 
     public function create()

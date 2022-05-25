@@ -131,6 +131,8 @@
 
 import Notification from './../../../Shared/Notification.vue';
 import {Inertia} from "@inertiajs/inertia"
+import { watch } from '@vue/runtime-core';
+import { usePage } from '@inertiajs/inertia-vue3';
 
 
     let props = defineProps({
@@ -151,7 +153,7 @@ import {Inertia} from "@inertiajs/inertia"
 
         });
 
-
     }
+
 
 </script>

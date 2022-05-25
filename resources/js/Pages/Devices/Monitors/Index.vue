@@ -19,6 +19,10 @@
             <Link href="/monitors/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
             Create New Monitor
             </Link>
+            <a href="/monitors/excel" class=" ml-3 bg-transparent hover:bg-green-500 text-blue-green font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded align-middle">
+            Export in Excel 
+            </a>
+
 
             </div>
             

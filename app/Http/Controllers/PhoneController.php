@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PhonesExport;
 use App\Models\Department;
 use App\Models\Device;
 use App\Models\Family;
@@ -18,6 +19,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request as RequestFacade;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PhoneController extends Controller
 
@@ -88,6 +90,12 @@ class PhoneController extends Controller
         ]);
     }
 
+
+    public function export(){
+
+        return Excel::download(new PhonesExport, 'phones.xlsx');
+
+    }
     
 
     public function create(){

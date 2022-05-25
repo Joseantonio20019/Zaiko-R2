@@ -162,13 +162,6 @@ Route::post('/register/create/{id}',[RegisterController::class,'store']);
 
 Route::delete('/register/delete/{id}',[RegisterController::class,'destroy']);
 
-//Devices Routes
-
-Route::get('/devices', [DeviceController::class, 'index']);
-
-Route::get('/devices/excel', [DeviceController::class, 'export']);
-
-
 //Department Routes
 
 Route::get('/departments', [DepartmentController::class, 'index']);
@@ -183,6 +176,11 @@ Route::put('/departments/edit/{id}',[DepartmentController::class,'update']);
 
 Route::delete('/departments/delete/{id}',[DepartmentController::class,'destroy']);
 
+//Devices Routes
+
+Route::get('/devices', [DeviceController::class, 'index']);
+
+Route::get('/devices/excel', [DeviceController::class, 'export']);
 
 //Computers Routes
 
@@ -199,6 +197,8 @@ Route::put('/computers/edit/{id}',[ComputerController::class,'update']);
 Route::delete('/computers/delete/{id}',[ComputerController::class,'destroy']);
 
 Route::get('/computers/show/{id}',[ComputerController::class,'show']);
+
+Route::get('/computers/excel', [ComputerController::class, 'export']);
 
 
 //Monitors Routes
@@ -217,6 +217,8 @@ Route::delete('/monitors/delete/{id}',[MonitorController::class,'destroy']);
 
 Route::get('/monitors/show/{id}',[MonitorController::class,'show']);
 
+Route::get('/monitors/excel', [MonitorController::class, 'export']);
+
 //Printers Routes
 
 Route::get('/printers', [PrinterController::class, 'index']);
@@ -232,6 +234,8 @@ Route::put('/printers/edit/{id}',[PrinterController::class,'update']);
 Route::delete('/printers/delete/{id}',[PrinterController::class,'destroy']);
 
 Route::get('/printers/show/{id}',[PrinterController::class,'show']);
+
+Route::get('/printers/excel', [PrinterController::class, 'export']);
 
 //Network Devices Routes
 
@@ -249,6 +253,8 @@ Route::delete('/network-devices/delete/{id}',[NetworkDeviceController::class,'de
 
 Route::get('/network-devices/show/{id}',[NetworkDeviceController::class,'show']);
 
+Route::get('/network-devices/excel', [NetworkDeviceController::class, 'export']);
+
 //Phones Routes
 
 Route::get('/phones', [PhoneController::class, 'index']);
@@ -263,7 +269,9 @@ Route::put('/phones/edit/{id}',[PhoneController::class,'update']);
 
 Route::delete('/phones/delete/{id}',[PhoneController::class,'destroy']);
 
-Route::get('/phones/show/{id}',[PhoneController::class,'show'])->name('phones.show');
+Route::get('/phones/show/{id}',[PhoneController::class,'show']);
+
+Route::get('/phones/excel', [PhoneController::class, 'export']);
 
 //PDAS Routes
 
@@ -280,5 +288,8 @@ Route::put('/pdas/edit/{id}',[PdaController::class,'update']);
 Route::delete('/pdas/delete/{id}',[PdaController::class,'destroy']);
 
 Route::get('/pdas/show/{id}',[PdaController::class,'show']);
+
+Route::get('/pdas/excel', [PdaController::class, 'export']);
+
 
 //});  

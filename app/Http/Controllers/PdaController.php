@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PdaExport;
 use App\Models\Department;
 use App\Models\Device;
 use App\Models\Family;
@@ -18,6 +19,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request as RequestFacade;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PdaController extends Controller
 {
@@ -87,6 +89,12 @@ class PdaController extends Controller
                 ->get(),
 
         ]);
+    }
+
+    public function export(){
+
+        return  Excel::download(new PdaExport , 'pdas.xlsx');
+
     }
 
     public function create()
