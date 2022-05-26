@@ -28,25 +28,24 @@ class ComputerController extends Controller
 
     public function index()
     {
+
         return Inertia::render('Devices/Computers/Index',[
 
-            'computers' => Computer::with('device.register')
+            'computers' => Computer::with('device')
             ->join('devices', 'devices.id', '=', 'computers.device_id')
              ->when(RequestFacade::input('search'), function ($query,$search){
     
-                $query->where('cpu','like','%'.$search.'%')
-                ->orWhere('ram_type','like','%'.$search.'%')
-                ->orWhere('ram_size','like','%'.$search.'%')
-                ->orWhere('os','like','%'.$search.'%')
-                ->orWhere('inventory_number','like','%'.$search.'%')
-                ->orWhere('mark','like','%'.$search.'%')
-                ->orWhere('model','like','%'.$search.'%')
-                ->orWhere('status','like','%'.$search.'%');
+                $query->where('site','like','%'.$search.'%')
+                ->orWhere('department','like','%'.$search.'%')
+                ->orWhere('ubication','like','%'.$search.'%')
+                ->orWhere('user','like','%'.$search.'%')
+                ->orWhere('status','like','%'.$search.'%')
+                ->orWhere('family','like','%'.$search.'%')
+                ->orWhere('inventory_number','like','%'.$search.'%');
     
             })
             ->paginate(10)
             ->withQueryString(),
-    
     
             'filters' => RequestFacade::only(['search'])
     

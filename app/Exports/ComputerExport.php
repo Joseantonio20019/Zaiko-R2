@@ -14,9 +14,11 @@ class ComputerExport implements FromCollection,WithHeadings
     public function collection()
     {
         return Computer::join('devices','devices.id','=','computers.device_id')
+        ->join('hard_drives','hard_drives.pc_id','=','computers.device_id')
         ->select(
             'computers.device_id','computers.cpu','computers.cpu_model','computers.ram_type','computers.ram_size','computers.os',
-            'devices.inventory_number','devices.comment','devices.model','devices.family','devices.status','devices.mark','devices.site','devices.ubication','devices.department','devices.created_at'
+            'devices.inventory_number','devices.comment','devices.model','devices.family','devices.status','devices.mark','devices.site','devices.ubication','devices.department','devices.created_at',
+            'hard_drives.type'
         )->get();
     }
 
@@ -42,7 +44,7 @@ class ComputerExport implements FromCollection,WithHeadings
             'Ubication',
             'Department',
             'Created At',
-            'Updated At',
+            'Hard Drive Size',
         ];
     }
 }

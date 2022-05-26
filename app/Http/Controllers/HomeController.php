@@ -18,7 +18,8 @@ class HomeController extends Controller
 
     public function index()
     {
-    
+
+        
         return Inertia::render('Home', [
 
             'devices' => Device::count(),
@@ -29,7 +30,7 @@ class HomeController extends Controller
             'printers' => Printer::count(),
             'pdas' => Pda::count(),
             'networkdevices' => NetworkDevice::count(),
-            'registers'=> Register::join('devices','devices.id','=','registers.device_id')->get(),
+            'registers'=> Device::join('registers','devices.id','=','registers.device_id')->orderBy('devices.id','desc')->get()->take(10),
         ]);
     }
 }

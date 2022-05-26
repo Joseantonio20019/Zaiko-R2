@@ -37,18 +37,33 @@
                             <th scope="col" class="px-6 py-3">
                                 INVENTORY NUMBER
                             </th>
-                            <th>
-                                EXTENSION
-                            </th>
                             <th scope="col" class="px-6 py-3">
-                                SERIAL NUMBER
+                                SITE
+                            </th>
+                             <th scope="col" class="px-6 py-3">
+                                DEPARTMENT
+                            </th>
+                             <th scope="col" class="px-6 py-3">
+                                UBICATION
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 FAMILY
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                MODEL
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                MARK
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                USER
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 STATUS
                             </th>
+                             <th scope="col" class="px-6 py-3">
+                                LAST MODIFICATION
+                            </th>                            
                             <th scope="col" class="px-10 py-3 text-center">
                                 CONFIGURATION
                             </th>
@@ -60,16 +75,31 @@
                             {{ phone.device["inventory_number"] }}
                         </th>
                         <td class="px-6 py-4">
-                            {{phone.extension}}
+                            {{phone.device["site"]}}
                         </td>
                         <td class="px-6 py-4">
-                            {{phone.serial_number}}
+                            {{phone.device["department"]}}
                         </td>
                         <td class="px-6 py-4">
-                            {{phone.device["family"]}}
+                            {{phone.device["ubication"]}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{phone.family}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{phone.model}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{phone.mark}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{phone.user}}
                         </td>
                         <td class="px-6 py-4">
                             {{phone.device["status"]}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{phone.device["updated_at"]}}
                         </td>
                         <td class="px-6 py-4 flex justify-evenly text-center">
 

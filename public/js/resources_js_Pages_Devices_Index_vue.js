@@ -337,7 +337,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: link.id,
       href: link.url,
       innerHTML: link.label,
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-black bg-white hover:bg-amber-500 focus:ring-4 border-0 border-b-2 border-amber-500 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-white dark:hover:bg-white focus:outline-none dark:focus:ring-amber-500", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-black bg-white hover:bg-blue-500 focus:ring-4 border-0 border-b-2 border-blue-500 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-white dark:hover:bg-white focus:outline-none dark:focus:ring-blue-500", {
         'text-gray-500': !link.url,
         'font-bold, text-blue-500': link.active
       }])

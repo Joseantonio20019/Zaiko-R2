@@ -31,14 +31,17 @@ class PhoneController extends Controller
         return Inertia::render('Devices/Phones/Index',[
 
 
-            'phones' => Phone::with('device')->join('devices', 'devices.id', '=', 'phones.device_id')
-
-                ->when(RequestFacade::input('search'), function ($query,$search){
+            'phones' => Phone::with('device.register')
+            ->join('devices', 'devices.id', '=', 'phones.device_id')
+            ->when(RequestFacade::input('search'), function ($query,$search){
         
-                    $query->where('inventory_number','like','%'.$search.'%')
-                    ->orWhere('serial_number','like','%'.$search.'%')
-                    ->orWhere('extension','like','%'.$search.'%')
+                    $query->where('site','like','%'.$search.'%')
+                    ->orWhere('department','like','%'.$search.'%')
+                    ->orWhere('ubication','like','%'.$search.'%')
+                    ->orWhere('family','like','%'.$search.'%')
+                    ->orWhere('model','like','%'.$search.'%')
                     ->orWhere('mark','like','%'.$search.'%')
+                    ->orWhere('user','like','%'.$search.'%')
                     ->orWhere('status','like','%'.$search.'%');
         
                 })
