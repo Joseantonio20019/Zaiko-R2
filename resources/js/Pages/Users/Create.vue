@@ -4,7 +4,7 @@
 
         <Head title="Create User" />
 
-        <h1 class="text-3xl text-center">Create a New User</h1>
+        <h1 class="text-3xl text-center font-bold">Create a New User</h1>
 
         <form @submit.prevent="submit" action="/" class="max-w-md mx-auto mt-8">
         
@@ -16,8 +16,7 @@
                     Name
                 </label>
 
-
-                <input v-model="form.name" class="border border-gray-400 p-2 w-full" type="text" name="name" id="name" autofocus> 
+                <input v-model="form.name" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="text" name="name" id="name" autofocus> 
 
                 <div v-if="form.errors.name" v-text="form.errors.name" class="text-red-500 text-xs italic mt-2"></div>
 
@@ -32,7 +31,7 @@
                 </label>
 
 
-                <input v-model="form.email" class="border border-gray-400 p-2 w-full" type="text" name="email" id="email" autofocus> 
+                <input v-model="form.email" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="text" name="email" id="email" autofocus> 
                 <div v-if="form.errors.email" v-text="form.errors.email" class="text-red-500 text-xs italic mt-2"></div>
                 
 
@@ -46,7 +45,7 @@
                 </label>
 
 
-                <input v-model="form.password" class="border border-gray-400 p-2 w-full" type="password" name="password" id="password" autofocus > 
+                <input v-model="form.password" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="password" name="password" id="password" autofocus > 
                 <div v-if="form.errors.password" v-text="form.errors.password" class="text-red-500 text-xs bold mt-2"></div>
 
             </div>
