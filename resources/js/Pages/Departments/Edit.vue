@@ -17,7 +17,7 @@
                 </label>
 
 
-                <input v-model="form.name" class="border border-gray-400 p-2 w-full" type="text" name="name" id="name" autofocus> 
+                <input v-model="form.name" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="text" name="name" id="name" autofocus> 
 
                 <div v-if="form.errors.name" v-text="form.errors.name" class="text-red-500 text-xs italic mt-2"></div>
 
@@ -30,7 +30,7 @@
                     Edit Alias
                 </label>
 
-                <input v-model="form.alias" class="border border-gray-400 p-2 w-full" type="text" name="alias" id="alias" autofocus> 
+                <input v-model="form.alias" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="text" name="alias" id="alias" autofocus> 
 
                 <div v-if="form.errors.alias" v-text="form.errors.alias" class="text-red-500 text-xs italic mt-2"></div>
 
@@ -39,7 +39,7 @@
 
             <div class="mb-6">
 
-                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Edit Department</button>
+                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Edit</button>
 
             </div>
         
