@@ -4,7 +4,7 @@
     <Head title="Create Ubication" />
 
 
-    <h1 class="text-3xl text-center">Create a New Ubication</h1>
+    <h1 class="text-3xl text-center font-bold">Create a New Ubication</h1>
 
 
     <form @submit.prevent="submit" class="max-w-md mx-auto mt-8">
@@ -18,7 +18,7 @@
                 </label>
 
 
-                <input v-model="form.name" class="border border-gray-400 p-2 w-full" type="text" name="name" id="name" autofocus> 
+                <input v-model="form.name" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="text" name="name" id="name" autofocus> 
 
                 <div v-if="form.errors.name" v-text="form.errors.name" class="text-red-500 text-xs italic mt-2"></div>
 
@@ -30,12 +30,11 @@
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
                     Site
                 </label>
-                <div class="mb-3 xl:w-96">
-                    
+                
                     <select v-model="form.select" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
                         <option v-for="site in sites" :key="site.id" :value="site.id" >{{site.name}}</option>
                     </select>
-                </div>
+                
 
                 <div v-if="form.errors.select" v-text="form.errors.select" class="text-red-500 text-xs italic mt-2"></div>
 
