@@ -11,10 +11,10 @@
             </div>
 
             <div class="text-center w-auto place-items-stretch">
-            <Link class=" mb-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" :href="`/register/create/${computer.device_id}`">
-            <i class="fa-solid fa-circle-plus"></i>
-            Add a Register
-            </Link>
+                <Link class=" mb-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" :href="`/register/create/${computer.device_id}`">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    Add a Register
+                </Link>
             </div>
 
     <div class="flex justify-between px-4 mt-6">
@@ -106,7 +106,7 @@
                 </div>
                 <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
                     <p class="text-gray-600">
-                        Comment
+                        Register Comment
                     </p>
                     <p v-if="registerdevice.comment != null">
 

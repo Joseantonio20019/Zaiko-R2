@@ -19,6 +19,12 @@ class Monitor extends Model
         'DisplayPort',
     ];
 
+    protected $casts = [
+
+        'created_at' => 'datetime: d-m-Y',
+        'updated_at' => 'datetime: d-m-Y',
+    ];
+
     public function device()
     {
         return $this->belongsTo(Device::class,'device_id');

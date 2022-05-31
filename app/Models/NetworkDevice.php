@@ -20,6 +20,12 @@ class NetworkDevice extends Model
         'fiber_ports_number'
     ];
 
+    protected $casts = [
+
+        'created_at' => 'datetime: d-m-Y',
+        'updated_at' => 'datetime: d-m-Y',
+    ];
+
 
     public function device()
     {

@@ -269,7 +269,7 @@ var _hoisted_30 = {
 
 var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-gray-600"
-}, " Comment ", -1
+}, " Register Comment ", -1
 /* HOISTED */
 );
 

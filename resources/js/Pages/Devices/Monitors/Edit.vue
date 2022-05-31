@@ -4,7 +4,7 @@
     <Head title="Edit Monitor" />
 
 
-    <h1 class="text-3xl text-center">Edit a Monitor</h1>
+    <h1 class="text-3xl text-center font-bold">Edit a Monitor</h1>
 
 
     <form @submit.prevent="submit" action="/" class="max-w-md mx-auto mt-8">
@@ -14,11 +14,11 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Inventory Number
+                    Inventory Number
                 </label>
 
 
-                <input v-model="form.inventory_number" class="border border-gray-400 p-2 w-full" type="text" name="inventory_number" id="inventory_number" autofocus> 
+                <input v-model="form.inventory_number" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="text" name="inventory_number" id="inventory_number" autofocus> 
 
                 <div v-if="form.errors.inventory_number" v-text="form.errors.inventory_number" class="text-red-500 text-xs italic mt-2"></div>
 
@@ -28,30 +28,14 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Comment(Optional)
+                    Comment(Optional)
                 </label>
 
 
-                <input v-model="form.comment" class="border border-gray-400 p-2 w-full" type="text" name="comment" id="comment" autofocus> 
+                <textarea v-model="form.comment" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="text" name="comment" id="comment" autofocus>
+                </textarea>
 
                 <div v-if="form.errors.comment" v-text="form.errors.comment" class="text-red-500 text-xs italic mt-2"></div>
-
-            </div>
-
-             <div class="mb-6">
-
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Model
-                </label>
-                <div class="mb-3 xl:w-96">
-                    
-                    <select v-model="form.model" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option :selected="form.model" v-for="model in models" :key="model.id">{{model.name}}</option>
-                    </select>
-                </div>
-
-                <div v-if="form.errors.model" v-text="form.errors.model" class="text-red-500 text-xs italic mt-2"></div>
 
             </div>
 
@@ -59,12 +43,12 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Family
+                    Family
                 </label>
-                <div class="mb-3 xl:w-96">
+                <div>
                     
                     <select v-model="form.family" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option :selected="form.family" v-for="family in families" :key="family.id">{{family.name}}</option>
+                        <option v-for="family in families" :key="family.id">{{family.name}}</option>
                     </select>
                 </div>
 
@@ -76,12 +60,45 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Status
+                    Mark
                 </label>
-                <div class="mb-3 xl:w-96">
+                <div>
+                    
+                    <select v-model="form.mark" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option v-for="mark in marks" :key="mark.id" :value="mark.name" >{{mark.name}}</option>
+                    </select>
+                </div>
+
+                <div v-if="form.errors.mark" v-text="form.errors.mark" class="text-red-500 text-xs italic mt-2"></div>
+
+            </div>
+
+             <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
+                    Model
+                </label>
+                <div>
+                    
+                    <select v-model="form.model" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option v-for="model in models" :key="model.id">{{model.name}}</option>
+                    </select>
+                </div>
+
+                <div v-if="form.errors.model" v-text="form.errors.model" class="text-red-500 text-xs italic mt-2"></div>
+
+            </div>
+
+             <div class="mb-6">
+
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
+                    Status
+                </label>
+                <div>
                     
                     <select v-model="form.status" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option :selected="form.status" v-for="status in statuses" :key="status.id">{{status.name}}</option>
+                        <option v-for="status in statuses" :key="status.id">{{status.name}}</option>
                     </select>
                 </div>
 
@@ -93,42 +110,29 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Mark
-                </label>
-                <div class="mb-3 xl:w-96">
-                    
-                    <select v-model="form.mark" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option :selected="form.mark_id" v-for="mark in marks" :key="mark.id" :value="mark.name" >{{mark.name}}</option>
-                    </select>
-                </div>
-
-                <div v-if="form.errors.mark" v-text="form.errors.mark" class="text-red-500 text-xs italic mt-2"></div>
-
-            </div>
-
-            <div class="mb-6">
-
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Inches
+                    Inches
                 </label>
 
-                <input v-model="form.inches" class="border border-gray-400 p-2 w-full" type="number" name="inches" id="inches" autofocus> 
+                <input v-model="form.inches" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="number" name="inches" id="inches" autofocus> 
 
                 <div v-if="form.errors.inches" v-text="form.errors.inches" class="text-red-500 text-xs italic mt-2"></div>
 
             </div>
 
-            <div class="mb-6 flex justify-evenly">
+            <div class="mb-6">
 
+                <input type="checkbox" v-model="form.hdmi" true-value="1" false-value="0" name="hdmi" id="hdmi" class="mr-2"> 
                 <label>HDMI</label>
-                <input type="checkbox"  v-model="form.hdmi" true-value="1" false-value="0" name="hdmi" id="hdmi"> 
+                <br>
+                <input type="checkbox"  v-model="form.vga" true-value="1" false-value="0" name="vga" id="vga" class="mr-2"> 
                 <label>VGA</label>
-                <input type="checkbox"  v-model="form.vga" true-value="1" false-value="0" name="vga" id="vga"> 
+                <br>
+                <input type="checkbox"  v-model="form.dvi" true-value="1" false-value="0" name="dvi" id="dvi" class="mr-2"> 
                 <label>DVI</label>
-                <input type="checkbox"  v-model="form.dvi" true-value="1" false-value="0" name="dvi" id="dvi"> 
+                <br>
+                <input type="checkbox" v-model="form.displayport" true-value="1" false-value="0" name="displayport" id="displayport" class="mr-2" > 
                 <label>DisplayPort</label>
-                <input type="checkbox" v-model="form.displayport" true-value="1" false-value="0" name="displayport" id="displayport" > 
+                
 
                 
             </div>      

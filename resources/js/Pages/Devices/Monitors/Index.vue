@@ -55,6 +55,12 @@
                                 INCHES
                             </th>
                             <th class="px-4 py-3">
+                                VGA
+                            </th>
+                            <th class="px-4 py-3">
+                                DISPLAYPORT
+                            </th>
+                            <th class="px-4 py-3">
                                 DVI
                             </th>
                             <th class="px-4 py-3">
@@ -92,6 +98,18 @@
                         </td>
                          <td class="px-4 py-3">
                             {{monitor.inches}}
+                        </td>
+                        <td v-if="monitor.VGA == 1" class="px-4 py-3">
+                            Yes
+                        </td>
+                        <td v-else class="px-4 py-3">
+                            No
+                        </td>
+                        <td v-if="monitor.DisplayPort == 1" class="px-4 py-3">
+                            Yes
+                        </td>
+                        <td v-else class="px-4 py-3">
+                            No
                         </td>
                        <td v-if="monitor.DVI == 1" class="px-4 py-3">
                             Yes
