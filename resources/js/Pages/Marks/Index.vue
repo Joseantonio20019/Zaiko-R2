@@ -41,7 +41,7 @@
                             </th>
                         </tr>
                     <tbody>
-                    <tr v-for="mark in marks.data" :key="mark.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
+                    <tr v-for="mark in marks.data" :key="mark.id" class="bg-gray-100 border-b border-gray-200">
                         <td class="px-4 py-3">
                             {{ mark.id}}
                         </td>
