@@ -18,7 +18,8 @@ class UserController extends Controller
             'users' => User::query()
             ->when(RequestFacade::input('search'), function ($query,$search){
     
-                $query->where('name','like','%'.$search.'%')->orWhere('email','like','%'.$search.'%');
+                $query->where('name','like','%'.$search.'%')
+                ->orWhere('email','like','%'.$search.'%');
     
             })
             ->paginate(10)

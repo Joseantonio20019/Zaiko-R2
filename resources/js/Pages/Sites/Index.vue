@@ -12,61 +12,69 @@
             
             <div class="flex justify-between mb-6">
         
-            <div class="flex items-center">
-            <h1 class="text-3xl">Sites</h1>
+                
+                    <h1 class="text-3xl font-bold">Sites</h1>
 
-            <Link href="/sites/create" class="text-blue-500 text-sm ml-2"  >Create New site </Link>
+                    <div class="flex w-auto place-items-stretch">
+                        <Link href="/sites/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
+                            <i class="fa-solid fa-circle-plus"></i>
+                            Create New Site
+                        </Link>
 
-            </div>
-
-            <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
+                </div>
+                <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
+                
            </div>
 
 
-           <div class=" shadow-md sm:rounded-lg">
-                <table class="w-full mt-1 text-sm text-left">
-                    <thead class="text-xs text-gray-300 uppercase bg-gray-50 dark:bg-blue-700 dark:text-amber-500">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
+           <div class="mb-6">
+                <table class="rounded-t-lg m-5 w-full mx-auto bg-gray-200 text-gray-800">
+                    <tr class="text-left border-b-2 border-gray-300">
+                            <th class="px-4 py-3">
                                 ID
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th  class="px-4 py-3">
                                 NAME
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th  class="px-4 py-3">
                                 ALIAS
                             </th>
-                            <th scope="col" class="px-10 py-3 text-center">
+                            <th class="px-4 py-3 text-center">
                                 CONFIGURATION
                             </th>
                         </tr>
-                    </thead>
-                  <tbody>
-                    <tr v-for="site in sites.data" :key="site.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
-                            {{ site.id}}
-                        </th>
-                        <td class="px-6 py-4">
-                            {{site.name}}
-                        </td>
-                         <td class="px-6 py-4">
-                            {{site.alias}}
-                        </td>
-                        <td class="px-6 py-4 flex justify-evenly text-center">
-                            <Link :href="`/sites/edit/${site.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
-                
-                            <button type="buttton" @click="destroy(site.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                    <tbody>
+                        <tr v-for="site in sites.data" :key="site.id" class="bg-gray-100 border-b border-gray-200">
+                            <td class="px-4 py-3">
+                                {{ site.id}}
+                            </td>
+                            <td class="px-4 py-3">
+                                {{site.name}}
+                            </td>
+                            <td class="px-4 py-3">
+                                {{site.alias}}
+                            </td>
+                            <div class="flex justify-center text-center mt-4 mb-4 ">
+                                <div class="w-4 transform mr-8 relative hover:text-green-500 hover:scale-110">
+                                    <Link :href="`/sites/edit/${site.id}`">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </Link>
+                                </div>
+                                <div class="w-4 transform hover:text-red-500 hover:scale-110">
+                                    <button type="buttton" @click="destroy(site.id)">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </div>
 
-                        </td>
-                    </tr>
-                </tbody>
-                
+                            </div>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
 
         </Layout>
 
-        <Pagination :links="sites.links" class="mt-6" />
+        <Pagination :links="sites.links" class="fixed bottom-0 left-10 mb-16" />
         
 
 

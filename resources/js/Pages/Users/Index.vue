@@ -16,64 +16,71 @@
 
             <div class="flex justify-between mb-6">
         
-            <h1 class="text-3xl font-bold">Users</h1>
-        
-            <div class="flex w-auto place-items-stretch">
-                
-                <Link href="/users/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
-                <i class="fa-solid fa-circle-plus"></i>
-                Create New User
-                </Link>
-
-            </div>
+                <h1 class="text-3xl font-bold">Users</h1>
             
-           <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
-           </div>
+                <div class="flex w-auto place-items-stretch">
+                    
+                    <Link href="/users/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    Create New User
+                    </Link>
 
-           <div class="mb-6">
-                <table class="rounded-t-lg m-5 w-full mx-auto bg-gray-200 text-gray-800">
-                    <tr class="text-left border-b-2 border-gray-300">
-                            <th class="px-4 py-3">
-                                ID
-                            </th>
-                            <th  class="px-4 py-3">
-                                NAME
-                            </th>
-                            <th  class="px-4 py-3">
-                                EMAIL
-                            </th>
-                            <th class="px-4 py-3 text-center">
-                                CONFIGURATION
-                            </th>
-                    </tr>
-                <tbody>
-                    <tr v-for="user in users.data" :key="user.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
-                        <td class="px-4 py-3">
-                            {{user.id}}
-                        </td>
-                        <td class="px-4 py-3">                           
-                            {{user.name}}
-                        </td>
-                        <td class="px-4 py-3">
-                            {{user.email}}
-                        </td>
-                        <div class="flex justify-center text-center mt-4 mb-4 ">
-                            <div class="w-4 transform mr-8 relative hover:text-green-500 hover:scale-110">
-                                    <Link :href="`/users/edit/${user.id}`" >
-                                    <i class="fa-solid fa-pencil"></i>
-                                    </Link>
-                            </div>
-                            <div class="w-4 transform hover:text-red-500 hover:scale-110">
-                                    <button type="buttton" @click="destroy(user.id)">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                            </div>
-                        </div>
-                    </tr>
-                </tbody>
-                
-                </table>
+                </div>
+            
+                <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
             </div>
+
+            <div class="mb-6">
+                    <table class="rounded-t-lg m-5 w-full mx-auto bg-gray-200 text-gray-800">
+                        <tr class="text-left border-b-2 border-gray-300">
+                                <th class="px-4 py-3">
+                                    ID
+                                </th>
+                                <th  class="px-4 py-3">
+                                    NAME
+                                </th>
+                                <th  class="px-4 py-3">
+                                    EMAIL
+                                </th>
+                                <th  class="px-4 py-3">
+                                    CREATION DATE
+                                </th>
+                                
+                                <th class="px-4 py-3 text-center">
+                                    CONFIGURATION
+                                </th>
+                        </tr>
+                    <tbody>
+                        <tr v-for="user in users.data" :key="user.id" class="bg-gray-100 border-b border-gray-200">
+                            <td class="px-4 py-3">
+                                {{user.id}}
+                            </td>
+                            <td class="px-4 py-3">                           
+                                {{user.name}}
+                            </td>
+                            <td class="px-4 py-3">
+                                {{user.email}}
+                            </td>
+                            <td class="px-4 py-3">
+                                {{user.created_at}}
+                            </td>
+                            <div class="flex justify-center text-center mt-4 mb-4 ">
+                                <div class="w-4 transform mr-8 relative hover:text-green-500 hover:scale-110">
+                                        <Link :href="`/users/edit/${user.id}`" >
+                                        <i class="fa-solid fa-pencil"></i>
+                                        </Link>
+                                </div>
+                                <div class="w-4 transform hover:text-red-500 hover:scale-110">
+                                        <button type="buttton" @click="destroy(user.id)">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                </div>
+                            </div>
+                        </tr>
+                    </tbody>
+                    
+                    </table>
+                </div>
 
         
         <Pagination :links="users.links" class="fixed bottom-0 left-10 mb-16" />

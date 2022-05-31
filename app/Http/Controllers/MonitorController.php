@@ -42,8 +42,7 @@ class MonitorController extends Controller
                     ->orWhere('status','like','%'.$search.'%')
                     ->orWhere('family','like','%'.$search.'%')
                     ->orWhere('inventory_number','like','%'.$search.'%')
-                    ->orWhere('inches','like','%'.$search.'%')
-                    ->orWhere('HDMI','like','%'.$search.'%');
+                    ->orWhere('inches','like','%'.$search.'%');
                 })
                 ->paginate(10)
                 ->withQueryString(),
