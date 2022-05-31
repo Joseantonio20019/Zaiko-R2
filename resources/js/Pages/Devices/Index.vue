@@ -14,64 +14,66 @@
             <div class="flex justify-between mb-6">
         
             <div class="flex items-center">
-            <h1 class="text-3xl">Devices</h1>
-            <a href="/devices/excel" class=" ml-3 bg-transparent hover:bg-green-500 text-blue-green font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded align-middle">Export in Excel </a>
-
+            <h1 class="text-3xl font-bold">Devices</h1>
+            <a href="/devices/excel" class=" ml-3 bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded align-middle">
+                    <i class="fa-solid fa-file-excel"></i>
+                    Export in Excel
+                </a>
             </div>
             
 
            <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
            </div>
 
-           <div class=" shadow-md sm:rounded-lg">
-                <table class="w-full mt-1 text-sm text-left">
-                    <thead class="text-xs text-gray-300 uppercase bg-gray-50 dark:bg-blue-700 dark:text-amber-500">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                INVENTORY Nº
+          <div class="mb-6">
+                <table class="rounded-t-lg m-5 w-full mx-auto bg-gray-200 text-gray-800">
+                    <tr class="text-left border-b-2 border-gray-300">
+                            <th class="px-4 py-3">
+                                INVENTORY NUMBER
                             </th>
-                           <th scope="col" class="px-6 py-3">
+                            <th class="px-4 py-3">
                                 SITE
                             </th>
-
-                            <th scope="col" class="px-6 py-3">
-                                UBICATION
-                            </th>
-
-                            <th scope="col" class="px-6 py-3">
+                            <th class="px-4 py-3">
                                 DEPARTMENT
                             </th>
-
-                            <th scope="col" class="px-6 py-3">
+                            <th class="px-4 py-3">
+                                UBICATION
+                            </th>
+                            <th class="px-4 py-3">
+                                USER
+                            </th>
+                            <th class="px-4 py-3">
                                 COMMENT
                             </th>
-
-                            <th scope="col" class="px-6 py-3">
-                                CREATED DATE
+                            <th class="px-4 py-3">
+                                LAST MODIFICATION 
                             </th>
-
-                            <th scope="col" class="px-6 py-3">
+                            <th class="px-4 py-3">
                                 STATUS
                             </th>
-
-                        </tr>
-                    </thead>
+                            
+                    </tr>
                 <tbody>
-                    <tr v-for="device in devices.data" :key="device.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
-                        <td class="align-center">
+                    <tr v-for="device in devices.data" :key="device.id" class="bg-gray-100 border-b border-gray-200">
+                        <td class="px-4 py-3">
                             {{device.inventory_number}}
                         </td>
-                        <td>
+
+                        <td class="px-4 py-3">
                             {{device.site}}
                         </td>
 
-                        <td>
+                         <td class="px-4 py-3">
+                            {{device.department}}
+                        </td>
+
+                        <td class="px-4 py-3">
                             {{device.ubication}}
                         </td>
 
-                        <td>
-                            {{device.department}}
-
+                        <td class="px-6 py-4">
+                            {{device.user}}
                         </td>
 
                         <td class="px-6 py-4">

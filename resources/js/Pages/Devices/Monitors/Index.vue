@@ -13,80 +13,129 @@
 
             <div class="flex justify-between mb-6">
         
-            <div class="flex items-center">
-            <h1 class="text-3xl">Monitors</h1>
+            <h1 class="text-3xl font-bold">Monitors</h1>
+            <div class="flex w-auto place-items-stretch">
 
-            <Link href="/monitors/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
-            Create New Monitor
-            </Link>
-            <a href="/monitors/excel" class=" ml-3 bg-transparent hover:bg-green-500 text-blue-green font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded align-middle">
-            Export in Excel 
-            </a>
-
+                <Link href="/monitors/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
+                <i class="fa-solid fa-circle-plus"></i>
+                Create New Monitor
+                </Link>
+                <a href="/monitors/excel" class=" ml-3 bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded align-middle">
+                    <i class="fa-solid fa-file-excel"></i>
+                    Export in Excel
+                </a>
 
             </div>
             
            <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
            </div>
 
-           <div class=" shadow-md sm:rounded-lg">
-                <table class="w-full mt-1 text-sm text-left">
-                    <thead class="text-xs text-gray-300 uppercase bg-gray-50 dark:bg-blue-700 dark:text-amber-500">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
+           <div class="mb-6">
+                <table class="rounded-t-lg m-5 w-full mx-auto bg-gray-200 text-gray-800">
+                    <tr class="text-left border-b-2 border-gray-300">
+                            <th class="px-4 py-3">
                                 INVENTORY NUMBER
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th class="px-4 py-3">
+                                SITE
+                            </th>
+                            <th class="px-4 py-3">
+                                DEPARTMENT
+                            </th>
+                            <th class="px-4 py-3">
+                                UBICATION
+                            </th>
+                            <th class="px-4 py-3">
+                                USER
+                            </th>
+                            <th class="px-4 py-3">
+                                STATUS
+                            </th>
+                             <th class="px-4 py-3">
                                 INCHES
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th class="px-4 py-3">
+                                DVI
+                            </th>
+                            <th class="px-4 py-3">
+                                HDMI
+                            </th>
+                            <th class="px-4 py-3">
                                 FAMILY
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                STATUS
+                            <th class="px-4 py-3">
+                                LAST MODIFICATION 
                             </th>
                             <th scope="col" class="px-10 py-3 text-center">
                                 CONFIGURATION
                             </th>
                         </tr>
-                    </thead>
                 <tbody>
-                    <tr v-for="monitor in monitors.data" :key="monitor.device_id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
-                            {{ monitor.device['inventory_number'] }}
-                        </th>
-                        <td class="px-6 py-4">
+                    <tr v-for="monitor in monitors.data" :key="monitor.id" class="bg-gray-100 border-b border-gray-200">
+                       <td class="px-4 py-3">
+                            {{ monitor.inventory_number}}
+                        </td>
+                       <td class="px-4 py-3">
+                            {{monitor.site}}
+                        </td>
+                       <td class="px-4 py-3">
+                            {{monitor.department}}
+                        </td>
+                       <td class="px-4 py-3">
+                            {{monitor.ubication}}
+                        </td>
+                       <td class="px-4 py-3">
+                            {{monitor.user}}
+                        </td>
+                       <td class="px-4 py-3">
+                            {{monitor.status}}
+                        </td>
+                         <td class="px-4 py-3">
                             {{monitor.inches}}
                         </td>
-                        <td class="px-6 py-4">
-                            {{monitor.device['family']}}
+                       <td v-if="monitor.DVI == 1" class="px-4 py-3">
+                            Yes
                         </td>
-                        <td class="px-6 py-4">
-                            {{monitor.device['status']}}
+                        <td v-else class="px-4 py-3">
+                            No
                         </td>
-                        <td class="px-6 py-4 flex justify-evenly text-center">
-                            <Link :href="`/monitors/show/${monitor.device_id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
+                       <td v-if="monitor.HDMI == 1" class="px-4 py-3">
+                            Yes
+                        </td>
+                        <td v-else class="px-4 py-3">
+                            No
+                        </td>
+                       <td class="px-4 py-3">
+                            {{monitor.family}}
+                        </td>
+                         <td class="px-4 py-3">
+                            {{monitor.updated_at}}
+                        </td>
 
-                            <Link :href="`/monitors/edit/${monitor.device_id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
-                
-                            <button type="buttton" @click="destroy(monitor.device_id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
-
-                        
-                        </td>
+                        <div class="flex item-center justify-evenly text-center mt-4 mb-4 ">
+                                        <div class="w-4 transform hover:text-blue-500 hover:scale-110">
+                                            <Link :href="`/monitors/show/${monitor.device_id}`">
+                                            <i class="fa-regular fa-eye"></i>
+                                            </Link>
+                                        </div>
+                                        <div class="w-4 transform hover:text-green-500 hover:scale-110">
+                                            <Link :href="`/monitors/edit/${monitor.device_id}`" >
+                                            <i class="fa-solid fa-pencil"></i>
+                                            </Link>
+                                        </div>
+                                        <div class="w-4 transform hover:text-red-500 hover:scale-110">
+                                            <button type="buttton" @click="destroy(monitor.device_id)">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
+                        </div>
                     </tr>
                 </tbody>
-                
                 </table>
-            </div>
-
+                <Pagination :links="monitors.links" class="fixed bottom-0 left-10 mb-16" />
+            </div>        
         
-        <Pagination :links="monitors.links" class="mt-6" />
-
-            
         </Layout>
-
-        
-
     </div>
 </template>
 

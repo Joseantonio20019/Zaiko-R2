@@ -4,7 +4,7 @@
     <Head title="Edit Computer" />
 
 
-    <h1 class="text-3xl text-center">Edit Computer</h1>
+    <h1 class="text-3xl text-center font-bold">Edit Computer</h1>
 
 
     <form @submit.prevent="submit" action="/" class="max-w-md mx-auto mt-8">
@@ -171,15 +171,17 @@
 
             </div>
 
-            <div class="mb-6">
+             <div class="mb-6">
 
 
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700 " for="name">
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700">
                     Edit Hard Drive 1 Size
                 </label>
 
-                <input v-model="form.size" class="form-select appearance-none block w-80 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="number" name="size" id="size" autofocus>
-                <label for="size">GB</label> 
+            <div class="flex">
+                <input v-model="form.size" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="number" name="size" id="size" autofocus>
+                <label for="size" class="align-middle ml-2">GB</label> 
+            </div>
 
                 <div v-if="form.errors.size" v-text="form.errors.size" class="text-red-500 text-xs italic mt-2"></div>
 
@@ -187,7 +189,7 @@
             
             <div class="mb-6">
 
-                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
+                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700">
                     Edit Hard Drive 1 Type
                 </label>
 
@@ -200,13 +202,15 @@
 
             <div class="mb-6">
 
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700">
                     Edit Hard Drive 2 Size (Optional)
                 </label>
 
-                <input v-model="form.size1" class="form-select appearance-none block w-96 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="number" name="size1" id="size1" autofocus>
-                <label for="size">GB</label> 
+            <div class="flex">
+                <input v-model="form.size1" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="number" name="size1" id="size1" autofocus>
+                <label for="size" class="align-middle ml-2">GB</label>
+                
+            </div>
 
                 <div v-if="form.errors.size1" v-text="form.errors.size1" class="text-red-500 text-xs italic mt-2"></div>
 
@@ -214,7 +218,7 @@
             
             <div class="mb-6">
 
-                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
+                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700">
                     Edit Hard Drive 2 Type (Optional)
                 </label>
 

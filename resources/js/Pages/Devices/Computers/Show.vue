@@ -2,7 +2,7 @@
     
     <div>
 
-        <Head title="computer View"/> 
+        <Head title="Computer View"/> 
 
         <Layout>
 
@@ -10,130 +10,291 @@
             <Notification :message="$page.props.flash.message" />
             </div>
 
-            <Link class=" mb-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" :href="`/register/create/${computer.device_id}`">Add a Register</Link>
-            <div class=" mt-6 p-6 w-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Device: {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{computer.device["inventory_number"]}}</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Inventory Number: {{computer.device["inventory_number"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Site: {{registerdevice.sitename}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ubication: {{registerdevice.ubicationname}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Department: {{registerdevice.name}}</p>
-                <p v-if="computer.device['comment'] != null" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: {{computer.device["comment"]}}</p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Family: {{computer.device["family"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Model: {{computer.device["model"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Status: {{computer.device["status"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">CPU: {{computer.cpu}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">CPU Model: {{computer.cpu_model}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">RAM Type: {{computer.ram_type}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">RAM Size: {{computer.ram_size}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">OS: {{computer.os}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Hard Drive 1:</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Size: {{harddrive1.size}} GB</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Type: {{harddrive1.type}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Hard Drive 2:</p>
-                <p v-if="harddrive2 != '' || harddrive2 != null" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Size: {{harddrive2.size}} GB</p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Size:-</p>
-                <p v-if="harddrive2 != '' || harddrive2 != null" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Type: {{harddrive2.type}}</p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Type:-</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">User: {{registerdevice.user}}</p>
-                <p v-if="registerdevice.comment != null" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register Comment: {{registerdevice.comment}} </p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Last Modification: {{registerdevice.modification_date}}</p>
-    
+            <div class="text-center w-auto place-items-stretch">
+            <Link class=" mb-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" :href="`/register/create/${computer.device_id}`">
+            <i class="fa-solid fa-circle-plus"></i>
+            Add a Register
+            </Link>
             </div>
 
-            <div class="mb-6">
+    <div class="flex justify-between px-4 mt-6">
+        <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl">
+            <div class="p-4 border-b">
+                <h2 class="text-2xl font-bold">
+                    Device Information
+                </h2>
+                <p class="text-sm text-gray-500">
+                    {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{computer.device["inventory_number"]}}
+                </p>
+            </div>
+            <div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                     <p class="text-gray-600">
+                        Inventory Number
+                    </p>
+                    <p>
+                        {{computer.device["inventory_number"]}}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Site
+                    </p>
+                    <p>
+                        {{registerdevice.sitename}}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Ubication
+                    </p>
+                    <p>
+                        {{registerdevice.ubicationname}}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Department
+                    </p>
+                    <p>
+                        {{registerdevice.departmentname}}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Comment
+                    </p>
+                    <p v-if="computer.device['comment'] != null">
 
-                <h4 class="font-medium leading-tight text-2xl mt-3 mb-3 text-blue-600">Last Registers</h4>
+                        {{computer.device["comment"]}}                    
+                    </p>
+                    <p v-else>
+                        No Comment
+                    </p>
+                </div>
+                 <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Family
+                    </p>
+                    <p>
+                        {{computer.device["family"]}}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Model
+                    </p>
+                    <p>
+                        {{computer.device["model"]}}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Status
+                    </p>
+                    <p>
+                        {{computer.device["status"]}}
+                    </p>
+                </div>
+                 <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        User
+                    </p>
+                    <p>
+                        {{registerdevice.user}}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Comment
+                    </p>
+                    <p v-if="registerdevice.comment != null">
 
-                <div class=" shadow-md sm:rounded-lg">
-                <table class="w-full mt-1 text-sm text-left">
-                    <thead class="text-xs text-gray-300 uppercase bg-gray-50 dark:bg-blue-700 dark:text-amber-500">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                ID
-                            </th>
-                            <th>
+                        {{registerdevice.comment}}                    
+                    </p>
+                    <p v-else>
+                        No Comment
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Last Modification
+                    </p>
+                    <p>
+                        {{registerdevice.modification_date}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-4xl bg-white w-full rounded-lg shadow-xl">
+            <div class="p-4 border-b">
+                <h2 class="text-2xl font-bold">
+                    Device Specs
+                </h2>
+                <p class="text-sm text-gray-500">
+                    {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{computer.device["inventory_number"]}}
+                </p>
+            </div>
+            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                <p class="text-gray-600">
+                    CPU
+                </p>
+                <p>
+                    {{computer.cpu}}
+                </p>
+            </div>
+            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                <p class="text-gray-600">
+                    CPU Model
+                </p>
+                <p>
+                    {{computer.cpu_model}}
+                </p>
+            </div>
+                 <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        RAM Type
+                    </p>
+                    <p>
+                        {{computer.ram_type}}
+                    </p>
+                </div>
+                 <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        RAM Size
+                    </p>
+                    <p>
+                        {{computer.ram_size}}
+                    </p>
+                </div>
+                 <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        OS
+                    </p>
+                    <p>
+                        {{computer.os}}
+                    </p>
+                </div>
+                 <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Hard Drive 1 Size
+                    </p>
+                    <p>
+                        {{harddrive1.size}} GB
+                    </p>
+                </div>
+                 <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Hard Drive 1 Type
+                    </p>
+                    <p>
+                        {{harddrive1.type}}
+                    </p>
+                </div>
+                 <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Hard Drive 2 Size
+                    </p>
+                    <p>
+                        {{harddrive2.size}} GB
+                    </p>
+                </div>
+                 <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Hard Drive 2 Type
+                    </p>
+                    <p>
+                        {{harddrive2.type}}
+                    </p>
+                </div>
+               
+            </div>
+        </div>
+
+
+        <div class="mb-6">
+                <h4 class="text-lg text-center font-bold m-5">Last Registers</h4>
+                <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
+                        <tr class="text-left border-b-2 border-gray-300">
+                            <th class="px-4 py-3">
                                 SITE
                             </th>
-                             <th>
+                             <th class="px-4 py-3">
                                  DEPARTMENT
                             </th>
-                            <th>
+                            <th class="px-4 py-3">
                                 UBICATION
                             </th>
-                            <th>
+                            <th class="px-4 py-3">
                                 USER
                             </th>
-                            <th>
+                            <th class="px-4 py-3">
                                 CREATION DATE
                             </th>
-                            <th>
+                            <th class="px-4 py-3">
                                  COMMENT
                             </th>
-                            <th scope="col" class="px-10 py-3 text-center">
-                                CONFIGURATION
+                            <th class="px-4 py-3">
+                                 CONFIGURATION
                             </th>
                         </tr>
+                    <tbody>
 
-                    </thead>
-                     <tbody>
+                      <tr v-for="register in registers" :key="register.id" class="bg-gray-100 border-b border-gray-200">
 
-                      <tr v-for="register in registers" :key="register.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
 
-                            {{register.registerid}}
+                            <td class="px-4 py-3">
 
-                        </th> 
+                                {{register.sitename}}
 
-                        <td>
+                            </td>
 
-                            {{register.sitename}}
+                            <td class="px-4 py-3">
 
-                        </td>
+                                {{register.departmentname}}
+                            </td>
 
-                        <td>
-                            {{register.departmentname}}
-                        </td>
+                            <td class="px-4 py-3">
 
-                        <td>
-                            {{register.ubicationname}}
-                        </td>
+                                {{register.ubicationname}}
+                            </td>
 
-                        <td>
-                            {{register.user}}
-                        </td>
+                            <td class="px-4 py-3">
 
-                        <td>
-                            {{register.created_at}}
-                        </td>
+                                {{register.user}}
+                            </td>
 
-                        <td v-if="register.comment == null || register.comment == '' ">
-                            No comment
-                        </td>
+                            <td class="px-4 py-3">
 
-                        <td v-else>
-                            {{register.comment}}    
-                        </td>
+                                {{register.created_at}}
+                            </td>
 
-                        <td class="px-6 py-4 text-center">
+                            <td   class="px-4 py-3" v-if="register.comment == null || register.comment == '' ">
+                                No comment
+                            </td>
 
-                            <button type="button" @click="destroy(register.deviceid)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                            <td v-else  class="px-4 py-3">
+                                {{register.comment}}    
+                            </td>
+                            <td class="px-4 py-3">
+
+                                <button type="button" @click="destroy(register.deviceid)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
                     
-                        </td>
-                      </tr>
-            
+                            </td>
+                        </tr>
+
                      </tbody>
+                     
                 </table>
-            
-            </div>
+
             </div>
 
         </Layout>
 
 
     </div>
+
 </template>
 
 <script setup>

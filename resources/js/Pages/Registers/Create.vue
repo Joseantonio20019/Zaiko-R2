@@ -4,43 +4,12 @@
     <Head title="Create New Register" />
 
 
-    <h1 class="text-3xl text-center">Create a New Register</h1>
+    <h1 class="text-3xl text-center font-bold">Create a New Register</h1>
 
 
     <form @submit.prevent="submit" class="max-w-md mx-auto mt-8">
-  
-            <div class="mb-6">
 
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
-                        User
-                    </label>
-
-                    <input v-model="form.user" class="border border-gray-400 p-2 w-full" type="text" name="user">
-                    <div v-if="form.errors.user" v-text="form.errors.user" class="text-red-500 text-xs italic mt-2"></div>
-                
-            </div>
-
-            <div class="mb-6">
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
-                    Comment(Optional)
-                </label>
-
-                <input v-model="form.comment" class="border border-gray-400 p-2 w-full" type="textarea" name="comment">
-                <div v-if="form.errors.comment" v-text="form.errors.comment" class="text-red-500 text-xs italic mt-2"></div>
-            </div>
-
-            <div class="mb-6">
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
-                    Modification Date (Optional)
-                </label>
-
-                <input v-model="form.modification_date" class="border border-gray-400 p-2 w-full" type="date" name="modificationdate">
-                <div v-if="form.errors.modification_date" v-text="form.errors.modification_date" class="text-red-500 text-xs italic mt-2"></div>
-            </div>
-
-             <div class="mb-6">
+    <div class="mb-6">
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
                     Sites
@@ -87,10 +56,51 @@
                 <div v-if="form.errors.department" v-text="form.errors.department" class="text-red-500 text-xs italic mt-2"></div>
 
             </div>
+  
+            <div class="mb-6">
+
+                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >                        
+                        User
+                    </label>
+
+                    <div class="mb-3 xl:w-96">
+                    <input v-model="form.user" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="text" name="user">
+                    </div>
+
+                    <div v-if="form.errors.user" v-text="form.errors.user" class="text-red-500 text-xs italic mt-2"></div>
+                
+            </div>
+
+            <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    Comment(Optional)
+                </label>
+
+                
+                <div class="mb-3 xl:w-96">
+                <input v-model="form.comment" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="textarea" name="comment">
+                <div v-if="form.errors.comment" v-text="form.errors.comment" class="text-red-500 text-xs italic mt-2"></div>
+                </div>
+            </div>
+
+            <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    Modification Date (Optional)
+                </label>
+
+
+                <div class="mb-3 xl:w-96">
+                <input v-model="form.modification_date" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="date" name="modificationdate">
+                <div v-if="form.errors.modification_date" v-text="form.errors.modification_date" class="text-red-500 text-xs italic mt-2"></div>
+
+                </div>
+            </div>
 
              <div class="mb-6">
 
-                <button type="submit" onclick="history.back()" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Create Register</button>
+                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500 text-center" :disabled="form.processing">Create Register</button>
 
         </div>
     </form>

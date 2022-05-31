@@ -7,7 +7,7 @@
     
     <Layout>
 
-        <h1 class="text-3xl font-bold">Dashboard of Devices</h1>
+        <h1 class="text-3xl font-bold">Summary</h1>
 
         <div class="flex flex-wrap mt-6">
 
@@ -98,7 +98,7 @@
                                 <div class="rounded-full p-5 bg-yellow-300"><i class="fa-solid fa-print text-xl"></i></div>
                             </div>
                             <div class="flex-1 text-right md:text-center">
-                                <h2 class="font-bold uppercase text-gray-600">Total Printers:</h2>
+                                <h2 class="font-bold uppercase text-gray-600">Total Printers</h2>
                                 <p class="font-bold text-3xl">{{printers}}<span class="text-yellow-500"></span></p>
                             </div>
                             <a :href="`/printers/create`" type="button" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">

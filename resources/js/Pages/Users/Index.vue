@@ -16,53 +16,59 @@
 
             <div class="flex justify-between mb-6">
         
-            <div class="flex items-center">
-            <h1 class="text-3xl">Users</h1>
-
-            <Link href="/users/create" class="text-blue-500 text-sm ml-2"  >Create New User </Link>
+            <h1 class="text-3xl font-bold">Users</h1>
+        
+            <div class="flex w-auto place-items-stretch">
+                
+                <Link href="/users/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
+                <i class="fa-solid fa-circle-plus"></i>
+                Create New User
+                </Link>
 
             </div>
             
-
            <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
            </div>
 
-           <div class=" shadow-md sm:rounded-lg">
-                <table class="w-full mt-1 text-sm text-left">
-                    <thead class="text-xs text-gray-300 uppercase bg-gray-50 dark:bg-blue-700 dark:text-amber-500">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
+           <div class="mb-6">
+                <table class="rounded-t-lg m-5 w-full mx-auto bg-gray-200 text-gray-800">
+                    <tr class="text-left border-b-2 border-gray-300">
+                            <th class="px-4 py-3">
                                 ID
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th  class="px-4 py-3">
                                 NAME
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th  class="px-4 py-3">
                                 EMAIL
                             </th>
-                            <th scope="col" class="px-10 py-3 text-center">
+                            <th class="px-4 py-3 text-center">
                                 CONFIGURATION
                             </th>
-                        </tr>
-                    </thead>
+                    </tr>
                 <tbody>
                     <tr v-for="user in users.data" :key="user.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
-                            {{ user.id}}
-                        </th>
-                        <td class="px-6 py-4">
+                        <td class="px-4 py-3">
+                            {{user.id}}
+                        </td>
+                        <td class="px-4 py-3">                           
                             {{user.name}}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-4 py-3">
                             {{user.email}}
                         </td>
-                        <td class="px-6 py-4 flex justify-evenly text-center">
-                            <Link :href="`/users/edit/${user.id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
-                
-                            <button type="buttton" @click="destroy(user.id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
-
-                        
-                        </td>
+                        <div class="flex justify-center text-center mt-4 mb-4 ">
+                            <div class="w-4 transform mr-8 relative hover:text-green-500 hover:scale-110">
+                                    <Link :href="`/users/edit/${user.id}`" >
+                                    <i class="fa-solid fa-pencil"></i>
+                                    </Link>
+                            </div>
+                            <div class="w-4 transform hover:text-red-500 hover:scale-110">
+                                    <button type="buttton" @click="destroy(user.id)">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                            </div>
+                        </div>
                     </tr>
                 </tbody>
                 
@@ -70,7 +76,7 @@
             </div>
 
         
-        <Pagination :links="users.links" class="mt-6" />
+        <Pagination :links="users.links" class="fixed bottom-0 left-10 mb-16" />
 
             
         </Layout>

@@ -35,11 +35,15 @@ class MonitorController extends Controller
                 ->join('devices', 'devices.id', '=', 'monitors.device_id')
                 ->when(RequestFacade::input('search'), function ($query, $search) {
 
-                    $query->where('inventory_number', 'like', '%' . $search . '%')
-                        ->where('inches', 'like', '%' . $search . '%')
-                        ->orWhere('mark', 'like', '%' . $search . '%')
-                        ->orWhere('family', 'like', '%' . $search . '%')
-                        ->orWhere('status', 'like', '%' . $search . '%');
+                    $query->where('site','like','%'.$search.'%')
+                    ->orWhere('department','like','%'.$search.'%')
+                    ->orWhere('ubication','like','%'.$search.'%')
+                    ->orWhere('user','like','%'.$search.'%')
+                    ->orWhere('status','like','%'.$search.'%')
+                    ->orWhere('family','like','%'.$search.'%')
+                    ->orWhere('inventory_number','like','%'.$search.'%')
+                    ->orWhere('inches','like','%'.$search.'%')
+                    ->orWhere('HDMI','like','%'.$search.'%');
                 })
                 ->paginate(10)
                 ->withQueryString(),

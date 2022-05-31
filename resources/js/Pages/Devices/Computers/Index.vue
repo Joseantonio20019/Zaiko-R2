@@ -12,7 +12,7 @@
 
             <div class="flex justify-between mb-6">
 
-            <h1 class="text-3xl">Computers</h1>
+            <h1 class="text-3xl font-bold">Computers</h1>
         
             <div class="flex w-auto place-items-stretch">
                 

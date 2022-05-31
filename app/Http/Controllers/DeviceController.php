@@ -26,6 +26,7 @@ class DeviceController extends Controller
                 ->orWhere('ubication','like','%'.$search.'%')
                 ->orWhere('department','like','%'.$search.'%')
                 ->orWhere('comment','like','%'.$search.'%')
+                ->orWhere('user','like','%'.$search.'%')
                 ->orWhere('status','like','%'.$search.'%');
     
             })

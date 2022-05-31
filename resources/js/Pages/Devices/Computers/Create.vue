@@ -3,12 +3,88 @@
 
     <Head title="Create Computer" />
 
-
-    <h1 class="text-3xl text-center">Create a New Computer</h1>
+    <h1 class="text-3xl text-center font-bold">Create a New Computer</h1>
 
 
     <form @submit.prevent="submit" action="/" class="max-w-md mx-auto mt-8">
         
+            <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    Site
+                </label>
+                
+                    <select v-model="selectedsite" @change="getUbications()" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option v-for="site in sites" :value="site.id" :key="site.id">{{site.name}}</option>
+                    </select>
+                
+
+            </div>
+        
+
+            <div class="mb-6">
+
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    Ubication
+                </label>
+                
+                    <select v-model="form.ubication" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option v-for="ubication in ubications" :value="ubication.id" :key="ubication.id">{{ubication.name}}</option>
+                    </select>
+                
+
+                <div v-if="form.errors.ubication" v-text="form.errors.ubication" class="text-red-500 text-xs italic mt-2"></div>
+
+            </div>
+
+            <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    Department
+                </label>
+                
+                    <select v-model="form.department" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option v-for="department in departments" :value="department.id" :key="department.id">{{department.name}}</option>
+                    </select>
+               
+
+                <div v-if="form.errors.department" v-text="form.errors.department" class="text-red-500 text-xs italic mt-2"></div>
+
+            </div>
+
+            <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    Modification Date (Optional)
+                </label>
+
+                <input v-model="form.modification_date" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="date" name="modificationdate">
+                <div v-if="form.errors.modification_date" v-text="form.errors.modification_date" class="text-red-500 text-xs italic mt-2"></div>
+
+            </div>
+
+            <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    User
+                </label>
+
+                <input v-model="form.user" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="text" name="user">
+                <div v-if="form.errors.user" v-text="form.errors.user" class="text-red-500 text-xs italic mt-2"></div>
+                
+
+            </div>
+
+            <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
+                    Register Comment (Optional)
+                </label>
+
+                <input v-model="form.register_comment" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                <div v-if="form.errors.register_comment" v-text="form.errors.register_comment" class="text-red-500 text-xs italic mt-2"></div>
+            </div>
         
             <div class="mb-6">
 
@@ -32,26 +108,10 @@
                 </label>
 
 
-                <input v-model="form.comment" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="text" name="comment" id="comment" autofocus> 
+                <textarea v-model="form.comment" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="text" name="comment" id="comment" autofocus>
+                </textarea>
 
                 <div v-if="form.errors.comment" v-text="form.errors.comment" class="text-red-500 text-xs italic mt-2"></div>
-
-            </div>
-
-             <div class="mb-6">
-
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Model
-                </label>
-                <div>
-                    
-                    <select v-model="form.model" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option v-for="model in models" :key="model.id">{{model.name}}</option>
-                    </select>
-                </div>
-
-                <div v-if="form.errors.model" v-text="form.errors.model" class="text-red-500 text-xs italic mt-2"></div>
 
             </div>
 
@@ -76,23 +136,6 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Status
-                </label>
-                <div>
-                    
-                    <select v-model="form.status" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option v-for="status in statuses" :key="status.id">{{status.name}}</option>
-                    </select>
-                </div>
-
-                <div v-if="form.errors.status" v-text="form.errors.status" class="text-red-500 text-xs italic mt-2"></div>
-
-            </div>
-
-            <div class="mb-6">
-
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
                     Mark
                 </label>
                 <div>
@@ -103,6 +146,39 @@
                 </div>
 
                 <div v-if="form.errors.mark" v-text="form.errors.mark" class="text-red-500 text-xs italic mt-2"></div>
+
+            </div>
+
+             <div class="mb-6">
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
+                    Model
+                </label>
+                <div>
+                    
+                    <select v-model="form.model" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option v-for="model in models" :key="model.id">{{model.name}}</option>
+                    </select>
+                </div>
+
+                <div v-if="form.errors.model" v-text="form.errors.model" class="text-red-500 text-xs italic mt-2"></div>
+
+            </div>
+
+             <div class="mb-6">
+
+
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
+                    Status
+                </label>
+                <div>
+                    
+                    <select v-model="form.status" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option v-for="status in statuses" :key="status.id">{{status.name}}</option>
+                    </select>
+                </div>
+
+                <div v-if="form.errors.status" v-text="form.errors.status" class="text-red-500 text-xs italic mt-2"></div>
 
             </div>
 
@@ -174,12 +250,14 @@
             <div class="mb-6">
 
 
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700 " for="name">
+                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
                     Hard Drive 1 Size
                 </label>
 
-                <input v-model="form.size" class="form-select appearance-none block w-80 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="number" name="size" id="size" autofocus>
-                <label for="size">GB</label> 
+            <div class="flex">
+                <input v-model="form.size" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="number" name="size" id="size" autofocus>
+                <label for="size" class="align-middle ml-2">GB</label> 
+            </div>
 
                 <div v-if="form.errors.size" v-text="form.errors.size" class="text-red-500 text-xs italic mt-2"></div>
 
@@ -200,13 +278,15 @@
 
             <div class="mb-6">
 
-
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
                     Hard Drive 2 Size (Optional)
                 </label>
 
-                <input v-model="form.size1" class="form-select appearance-none block w-96 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="number" name="size1" id="size1" autofocus>
-                <label for="size">GB</label> 
+            <div class="flex">
+                <input v-model="form.size1" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="number" name="size1" id="size1" autofocus>
+                <label for="size" class="align-middle ml-2">GB</label>
+                
+            </div>
 
                 <div v-if="form.errors.size1" v-text="form.errors.size1" class="text-red-500 text-xs italic mt-2"></div>
 
@@ -222,86 +302,6 @@
 
                 <div v-if="form.errors.type1" v-text="form.errors.type1" class="text-red-500 text-xs italic mt-2"></div>
 
-
-            </div>
-
-            
-               <div class="mb-6">
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
-                    User
-                </label>
-
-                <input v-model="form.user" class="border border-gray-400 p-2 w-full" type="text" name="user">
-                <div v-if="form.errors.user" v-text="form.errors.user" class="text-red-500 text-xs italic mt-2"></div>
-                
-
-            </div>
-
-            <div class="mb-6">
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
-                    Register Comment (Optional)
-                </label>
-
-                <textarea v-model="form.register_comment" class="border border-gray-400 p-2 w-full" placeholder="Write your comment"></textarea>
-                <div v-if="form.errors.serial_number" v-text="form.errors.register_comment" class="text-red-500 text-xs italic mt-2"></div>
-            </div>
-
-            <div class="mb-6">
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
-                    Modification Date (Optional)
-                </label>
-
-                <input v-model="form.modification_date" class="border border-gray-400 p-2 w-full" type="date" name="modificationdate">
-                <div v-if="form.errors.modification_date" v-text="form.errors.modification_date" class="text-red-500 text-xs italic mt-2"></div>
-
-            </div>
-
-             <div class="mb-6">
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
-                    Sites
-                </label>
-                <div class="mb-3 xl:w-96">
-                    
-                    <select v-model="selectedsite" @change="getUbications()" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option v-for="site in sites" :value="site.id" :key="site.id">{{site.name}}</option>
-                    </select>
-                </div>
-
-            </div>
-        
-
-            <div class="mb-6">
-
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
-                    Ubication
-                </label>
-                <div class="mb-3 xl:w-96">
-                    
-                    <select v-model="form.ubication" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option v-for="ubication in ubications" :value="ubication.id" :key="ubication.id">{{ubication.name}}</option>
-                    </select>
-                </div>
-
-            </div>
-
-            <div class="mb-6">
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" >
-                    Department
-                </label>
-                <div class="mb-3 xl:w-96">
-                    
-                    <select v-model="form.department" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option v-for="department in departments" :value="department.id" :key="department.id">{{department.name}}</option>
-                    </select>
-                </div>
-
-                <div v-if="form.errors.department" v-text="form.errors.department" class="text-red-500 text-xs italic mt-2"></div>
 
             </div>
 

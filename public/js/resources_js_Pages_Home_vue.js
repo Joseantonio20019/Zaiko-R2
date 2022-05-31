@@ -60,7 +60,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-3xl font-bold"
-}, "Dashboard of Devices", -1
+}, "Summary", -1
 /* HOISTED */
 );
 
@@ -296,7 +296,7 @@ var _hoisted_45 = {
 
 var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "font-bold uppercase text-gray-600"
-}, "Total Printers:", -1
+}, "Total Printers", -1
 /* HOISTED */
 );
 
