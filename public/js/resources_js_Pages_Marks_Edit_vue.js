@@ -60,7 +60,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-3xl text-center"
+  "class": "text-3xl text-center font-bold"
 }, "Edit Mark", -1
 /* HOISTED */
 );
@@ -95,7 +95,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $setup.form.name = $event;
     }),
-    "class": "border border-gray-400 p-2 w-full",
+    "class": "form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
     type: "text",
     name: "name",
     id: "name",
@@ -112,7 +112,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "submit",
     "class": "bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500",
     disabled: $setup.form.processing
-  }, "Edit Mark", 8
+  }, "Edit", 8
   /* PROPS */
   , _hoisted_6)])], 32
   /* HYDRATE_EVENTS */
