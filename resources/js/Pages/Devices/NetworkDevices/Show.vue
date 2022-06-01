@@ -4,17 +4,181 @@
 
         <Head title="Network Device View"/> 
 
-
         <Layout>
 
             <div v-if="$page.props.flash.message" class="absolute top-20 left-10 z-10">
             <Notification :message="$page.props.flash.message" />
             </div>
 
-            <Link class=" mb-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" :href="`/register/create/${networkdevice.device_id}`">Add a Register</Link>
-            <div class=" mt-6 p-6 w-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <div class="text-center w-auto place-items-stretch">
+                <Link class=" mb-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" :href="`/register/create/${networkdevice.device_id}`">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    Add a Register
+                </Link>
+            </div>
+
+            <div class="flex justify-between px-4 mt-6">
+                <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl">
+                    <div class="p-4 border-b">
+                        <h2 class="text-2xl font-bold">
+                            Device Information
+                        </h2>
+                        <p class="text-sm text-gray-500">
+                            {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{networkdevice.device["inventory_number"]}}
+                        </p>
+                    </div>
+                    <div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Inventory Number
+                            </p>
+                            <p>
+                                {{networkdevice.device["inventory_number"]}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Site
+                            </p>
+                            <p>
+                                {{registerdevice.sitename}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Ubication
+                            </p>
+                            <p>
+                                {{registerdevice.ubicationname}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Department
+                            </p>
+                            <p>
+                                {{registerdevice.departmentname}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Comment
+                            </p>
+                            <p v-if="networkdevice.device['comment'] != null">
+
+                                {{networkdevice.device["comment"]}}                    
+                            </p>
+                            <p v-else>
+                                No Comment
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Family
+                            </p>
+                            <p>
+                                {{networkdevice.device["family"]}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Model
+                            </p>
+                            <p>
+                                {{networkdevice.device["model"]}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Status
+                            </p>
+                            <p>
+                                {{networkdevice.device["status"]}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                User
+                            </p>
+                            <p>
+                                {{registerdevice.user}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Register Comment
+                            </p>
+                            <p v-if="registerdevice.comment != null">
+
+                                {{registerdevice.comment}}                    
+                            </p>
+                            <p v-else>
+                                No Comment
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Last Modification
+                            </p>
+                            <p>
+                                {{registerdevice.modification_date}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                    <div class="max-w-4xl bg-white w-full rounded-lg shadow-xl">
+                        <div class="p-4 border-b">
+                            <h2 class="text-2xl font-bold">
+                                Device Specs
+                            </h2>
+                            <p class="text-sm text-gray-500">
+                                {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{networkdevice.device["inventory_number"]}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                                    <p class="text-gray-600">
+                                        Manageable
+                                    </p>
+                                    <p>
+                                        {{networkdevice.manageable}}
+                                    </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                                    <p class="text-gray-600">
+                                        POE
+                                    </p>
+                                    <p>
+                                        {{networkdevice.POE}}
+                                    </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                                    <p class="text-gray-600">
+                                        Speed
+                                    </p>
+                                    <p>
+                                        {{networkdevice.Speed}}
+                                    </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                                    <p class="text-gray-600">
+                                        Fiber Ports Number
+                                    </p>
+                                    <p>
+                                        {{networkdevice.fiber_ports_number}}
+                                    </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                                    <p class="text-gray-600">
+                                        Ethernet Ports Number
+                                    </p>
+                                    <p>
+                                        {{networkdevice.ethernet_ports_number}}
+                                    </p>
+                        </div>
+                    </div>
+                </div>
                 
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Device: {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{networkdevice.device["inventory_number"]}}</h5>
+                <!-- <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Device: {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{networkdevice.device["inventory_number"]}}</h5>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Inventory Number: {{networkdevice.device["inventory_number"]}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Site: {{registerdevice.sitename}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ubication: {{registerdevice.ubicationname}}</p>
@@ -34,93 +198,83 @@
                 <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Last Modification: {{registerdevice.modification_date}}</p>
     
-            </div>
+            </div> -->
 
              <div class="mb-6">
-
-                <h4 class="font-medium leading-tight text-2xl mt-3 mb-3 text-blue-600">Last Registers</h4>
-
-                <div class=" shadow-md sm:rounded-lg">
-                <table class="w-full mt-1 text-sm text-left">
-                    <thead class="text-xs text-gray-300 uppercase bg-gray-50 dark:bg-blue-700 dark:text-amber-500">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                ID
-                            </th>
-                            <th>
+                <h4 class="text-lg text-center font-bold m-5">Last Registers</h4>
+                <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
+                        <tr class="text-left border-b-2 border-gray-300">
+                            <th class="px-4 py-3">
                                 SITE
                             </th>
-                             <th>
+                             <th class="px-4 py-3">
                                  DEPARTMENT
                             </th>
-                            <th>
+                            <th class="px-4 py-3">
                                 UBICATION
                             </th>
-                            <th>
+                            <th class="px-4 py-3">
                                 USER
                             </th>
-                            <th>
+                            <th class="px-4 py-3">
                                 CREATION DATE
                             </th>
-                            <th>
+                            <th class="px-4 py-3">
                                  COMMENT
                             </th>
-                            <th scope="col" class="px-10 py-3 text-center">
-                                CONFIGURATION
+                            <th class="px-4 py-3">
+                                 CONFIGURATION
                             </th>
                         </tr>
+                    <tbody>
 
-                    </thead>
-                     <tbody>
+                      <tr v-for="register in registers" :key="register.id" class="bg-gray-100 border-b border-gray-200">
 
-                      <tr v-for="register in registers" :key="register.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
 
-                            {{register.registerid}}
+                            <td class="px-4 py-3">
 
-                        </th> 
+                                {{register.sitename}}
 
-                        <td>
+                            </td>
 
-                            {{register.sitename}}
+                            <td class="px-4 py-3">
 
-                        </td>
+                                {{register.departmentname}}
+                            </td>
 
-                        <td>
-                            {{register.departmentname}}
-                        </td>
+                            <td class="px-4 py-3">
 
-                        <td>
-                            {{register.ubicationname}}
-                        </td>
+                                {{register.ubicationname}}
+                            </td>
 
-                        <td>
-                            {{register.user}}
-                        </td>
+                            <td class="px-4 py-3">
 
-                        <td>
-                            {{register.created_at}}
-                        </td>
+                                {{register.user}}
+                            </td>
 
-                        <td v-if="register.comment == null ||register.comment == '' ">
-                            No comment
-                        </td>
+                            <td class="px-4 py-3">
 
-                        <td v-else>
-                            {{register.comment}}    
-                        </td>
+                                {{register.created_at}}
+                            </td>
 
-                        <div class=" w-auto mr-20 text-center mt-3 align-middle transform hover:text-red-500 hover:scale-110">
+                            <td class="px-4 py-3" v-if="register.comment == null || register.comment == '' ">
+                                No comment
+                            </td>
+
+                            <td v-else  class="px-4 py-3">
+                                {{register.comment}}    
+                            </td>
+                            <div class=" w-auto mr-20 text-center mt-3 align-middle transform hover:text-red-500 hover:scale-110">
                         
-                            <button type="button" @click="destroy(register.deviceid)"><i class="fa-solid fa-trash-can"></i></button>
+                                <button type="button" @click="destroy(register.deviceid)"><i class="fa-solid fa-trash-can"></i></button>
                     
-                        </div>
-                      </tr>
-            
+                            </div>
+                        </tr>
+
                      </tbody>
+                     
                 </table>
-            
-            </div>
+
             </div>
             
         </Layout>

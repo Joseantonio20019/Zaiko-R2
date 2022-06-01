@@ -37,9 +37,11 @@ class NetworkDeviceController extends Controller
                 ->when(RequestFacade::input('search'), function ($query, $search) {
 
                     $query->where('inventory_number', 'like', '%' . $search . '%')
-                        ->orWhere('manageable', 'like', '%' . $search . '%')
-                        ->orWhere('POE', 'like', '%' . $search . '%')
+                        ->orWhere('department', 'like', '%' . $search . '%')
+                        ->orWhere('site', 'like', '%' . $search . '%')
+                        ->orWhere('ubication', 'like', '%' . $search . '%')
                         ->orWhere('family', 'like', '%' . $search . '%')
+                        ->orWhere('user', 'like', '%' . $search . '%')
                         ->orWhere('status', 'like', '%' . $search . '%');
                 })
                 ->paginate(10)
