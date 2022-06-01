@@ -277,11 +277,11 @@
                             <td v-else  class="px-4 py-3">
                                 {{register.comment}}    
                             </td>
-                            <td class="px-4 py-3">
-
-                                <button type="button" @click="destroy(register.deviceid)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                            <div class=" w-auto mr-20 text-center mt-3 align-middle transform hover:text-red-500 hover:scale-110">
+                        
+                                <button type="button" @click="destroy(register.deviceid)"><i class="fa-solid fa-trash-can"></i></button>
                     
-                            </td>
+                            </div>
                         </tr>
 
                      </tbody>

@@ -4,7 +4,7 @@
     <Head title="Edit Monitor" />
 
 
-    <h1 class="text-3xl text-center font-bold">Edit a Monitor</h1>
+    <h1 class="text-3xl text-center font-bold">Edit Monitor</h1>
 
 
     <form @submit.prevent="submit" action="/" class="max-w-md mx-auto mt-8">
@@ -14,7 +14,7 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Inventory Number
+                    Edit Inventory Number
                 </label>
 
 
@@ -28,7 +28,7 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Comment(Optional)
+                    Edit Comment(Optional)
                 </label>
 
 
@@ -43,7 +43,7 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Family
+                    Edit Family
                 </label>
                 <div>
                     
@@ -60,7 +60,7 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Mark
+                    Edit Mark
                 </label>
                 <div>
                     
@@ -76,7 +76,7 @@
              <div class="mb-6">
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Model
+                    Edit Model
                 </label>
                 <div>
                     
@@ -93,7 +93,7 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Status
+                    Edit Status
                 </label>
                 <div>
                     
@@ -110,7 +110,7 @@
 
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Inches
+                    Edit Inches
                 </label>
 
                 <input v-model="form.inches" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="number" name="inches" id="inches" autofocus> 
@@ -122,7 +122,7 @@
             <div class="mb-6">
 
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Connectivity
+                    Edit Connectivity
                 </label>
 
                 <input type="checkbox" v-model="form.hdmi" true-value="1" false-value="0" name="hdmi" id="hdmi" class="mr-2"> 
