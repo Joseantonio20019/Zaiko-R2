@@ -9,125 +9,267 @@
             <div v-if="$page.props.flash.message" class="absolute top-20 left-10 z-10">
             <Notification :message="$page.props.flash.message" />
             </div>
-            
-            <Link class=" mb-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" :href="`/register/create/${printer.device_id}`">Add a Register</Link>
-            <div class=" mt-6 p-6 w-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Device: {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{printer.device["inventory_number"]}}</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Inventory Number: {{printer.device["inventory_number"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Site: {{registerdevice.sitename}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ubication: {{registerdevice.ubicationname}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Department: {{registerdevice.departmentname}}</p>
-                <p v-if="printer.device['comment'] != ''" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: {{printer.device["comment"] }}</p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Family: {{printer.device["family"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Model: {{printer.device["model"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Status: {{printer.device["status"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ink: {{printer.ink}}</p>
-                <p v-if="printer.USB == '1'" class="mb-3 font-normal text-gray-700 dark:text-gray-400">USB:Yes</p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">USB: No</p>
-                <p v-if="printer.COM == '1'" class="mb-3 font-normal text-gray-700 dark:text-gray-400">COM:Yes</p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">COM: No</p>
-                <p v-if="printer.WIFI == '1'" class="mb-3 font-normal text-gray-700 dark:text-gray-400">WIFI:Yes</p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">WIFI: No</p>
-                <p v-if="printer.Ethernet == '1'" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ethernet:Yes</p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ethernet: No</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">User: {{registerdevice.user}}</p>
-                <p v-if="registerdevice.comment != null" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register Comment: {{registerdevice.comment}} </p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Last Modification: {{registerdevice.modification_date}}</p>
-    
+
+            <div class="text-center w-auto place-items-stretch">
+                <Link class=" mb-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" :href="`/register/create/${printer.device_id}`">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    Add a Register
+                </Link>
             </div>
 
-            <div class="mb-6">
+            <div class="flex justify-between px-4 mt-6">
+                <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl">
+                    <div class="p-4 border-b">
+                        <h2 class="text-2xl font-bold">
+                            Device Information
+                        </h2>
+                        <p class="text-sm text-gray-500">
+                            {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{printer.device["inventory_number"]}}
+                        </p>
+                    </div>
+                    <div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Inventory Number
+                            </p>
+                            <p>
+                                {{printer.device["inventory_number"]}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Site
+                            </p>
+                            <p>
+                                {{registerdevice.sitename}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Ubication
+                            </p>
+                            <p>
+                                {{registerdevice.ubicationname}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Department
+                            </p>
+                            <p>
+                                {{registerdevice.departmentname}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Comment
+                            </p>
+                            <p v-if="printer.device['comment'] != null">
 
-                <h4 class="font-medium leading-tight text-2xl mt-3 mb-3 text-blue-600">Last Registers</h4>
+                                {{printer.device["comment"]}}                    
+                            </p>
+                            <p v-else>
+                                No Comment
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Family
+                            </p>
+                            <p>
+                                {{printer.device["family"]}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Model
+                            </p>
+                            <p>
+                                {{printer.device["model"]}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Status
+                            </p>
+                            <p>
+                                {{printer.device["status"]}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                User
+                            </p>
+                            <p>
+                                {{registerdevice.user}}
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Register Comment
+                            </p>
+                            <p v-if="registerdevice.comment != null">
 
-                <div class=" shadow-md sm:rounded-lg">
-                <table class="w-full mt-1 text-sm text-left">
-                    <thead class="text-xs text-gray-300 uppercase bg-gray-50 dark:bg-blue-700 dark:text-amber-500">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                ID
-                            </th>
-                            <th>
-                                SITE
-                            </th>
-                             <th>
-                                 DEPARTMENT
-                            </th>
-                            <th>
-                                UBICATION
-                            </th>
-                            <th>
-                                USER
-                            </th>
-                            <th>
-                                CREATION DATE
-                            </th>
-                            <th>
-                                 COMMENT
-                            </th>
-                            <th scope="col" class="px-10 py-3 text-center">
-                                CONFIGURATION
-                            </th>
-                        </tr>
+                                {{registerdevice.comment}}                    
+                            </p>
+                            <p v-else>
+                                No Comment
+                            </p>
+                        </div>
+                        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Last Modification
+                            </p>
+                            <p>
+                                {{registerdevice.modification_date}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-                    </thead>
-                     <tbody>
+                <div class="max-w-4xl bg-white w-full rounded-lg shadow-xl">
+                <div class="p-4 border-b">
+                    <h2 class="text-2xl font-bold">
+                        Device Specs
+                    </h2>
+                    <p class="text-sm text-gray-500">
+                        {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{printer.device["inventory_number"]}}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                            <p class="text-gray-600">
+                                Ink
+                            </p>
+                            <p>
+                                {{printer.ink}}
+                            </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        USB
+                    </p>
+                    <p v-if="printer.USB == 1">
+                        Yes
+                    </p>
+                    <p v-else>
+                        No
+                    </p>
+                        </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        COM
+                    </p>
+                    <p v-if="printer.COM == 1">
+                        Yes
+                    </p>
+                    <p v-else>
+                        No
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        WIFI
+                    </p>
+                    <p v-if="printer.WIFI == 1">
+                        Yes
+                    </p>
+                    <p v-else>
+                        No
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Ethernet
+                    </p>
+                    <p v-if="printer.ethernet == 1">
+                        Yes
+                    </p>
+                    <p v-else>
+                        No
+                    </p>
+                </div>
+            </div>
+        </div>  
+                        
+        <div class="mb-6">
+            <h4 class="text-lg text-center font-bold m-5">Last Registers</h4>
+            <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
+                    <tr class="text-left border-b-2 border-gray-300">
+                        <th class="px-4 py-3">
+                            SITE
+                        </th>
+                        <th class="px-4 py-3">
+                            DEPARTMENT
+                        </th>
+                        <th class="px-4 py-3">
+                            UBICATION
+                        </th>
+                        <th class="px-4 py-3">
+                            USER
+                        </th>
+                        <th class="px-4 py-3">
+                            CREATION DATE
+                        </th>
+                        <th class="px-4 py-3">
+                            COMMENT
+                        </th>
+                        <th class="px-4 py-3">
+                            CONFIGURATION
+                        </th>
+                    </tr>
+                <tbody>
 
-                      <tr v-for="register in registers" :key="register.id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
+                    <tr v-for="register in registers" :key="register.id" class="bg-gray-100 border-b border-gray-200">
 
-                            {{register.registerid}}
 
-                        </th> 
-
-                        <td>
+                        <td class="px-4 py-3">
 
                             {{register.sitename}}
 
                         </td>
 
-                        <td>
+                        <td class="px-4 py-3">
+
                             {{register.departmentname}}
                         </td>
 
-                        <td>
+                        <td class="px-4 py-3">
+
                             {{register.ubicationname}}
                         </td>
 
-                        <td>
+                        <td class="px-4 py-3">
+
                             {{register.user}}
                         </td>
 
-                        <td>
+                        <td class="px-4 py-3">
+
                             {{register.created_at}}
                         </td>
 
-                        <td v-if="register.comment == null || register.comment == '' ">
+                        <td class="px-4 py-3" v-if="register.comment == null || register.comment == '' ">
                             No comment
                         </td>
 
-                        <td v-else>
+                        <td v-else  class="px-4 py-3">
                             {{register.comment}}    
                         </td>
-
-                        <td class="px-6 py-4 text-center">
-
-                            <button type="button" @click="destroy(register.deviceid)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
+                        <div class=" w-auto mr-20 text-center mt-3 align-middle transform hover:text-red-500 hover:scale-110">
                     
-                        </td>
-                      </tr>
-            
-                     </tbody>
-                </table>
-            
-            </div>
-            </div>
+                            <button type="button" @click="destroy(register.deviceid)"><i class="fa-solid fa-trash-can"></i></button>
+                
+                        </div>
+                    </tr>
 
-        </Layout>
+                </tbody>
+                    
+            </table>
 
+        </div>
+            
+
+    </Layout>
 
     </div>
 </template>

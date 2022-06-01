@@ -29,13 +29,15 @@ class PdaController extends Controller
 
         return Inertia::render('Devices/PDA/Index', [
 
-            'pdas' => Pda::with('device')->join('devices', 'devices.id', '=', 'pdas.device_id')
+            'pdas' => Pda::with('device')
+            ->join('devices', 'devices.id', '=', 'pdas.device_id')
                 ->when(RequestFacade::input('search'), function ($query, $search) {
 
                     $query->where('inventory_number', 'like', '%' . $search . '%')
-                        ->orWhere('family', 'like', '%' . $search . '%')
-                        ->orWhere('MAC', 'like', '%' . $search . '%')
-                        ->orWhere('mark', 'like', '%' . $search . '%')
+                        ->orWhere('site', 'like', '%' . $search . '%')
+                        ->orWhere('department', 'like', '%' . $search . '%')
+                        ->orWhere('ubication', 'like', '%' . $search . '%')
+                        ->orWhere('user', 'like', '%' . $search . '%')
                         ->orWhere('status', 'like', '%' . $search . '%');
                 })
                 ->paginate(10)
@@ -69,13 +71,6 @@ class PdaController extends Controller
                      'devices.inventory_number','devices.id as deviceid','register_ubications.modification_date')
             ->where('device_id',$id)->orderBy('registers.id','desc')
             ->first(),
-
-            'registerdepartment' => RegisterDepartment::query()
-                ->join('registers', 'registers.id', '=', 'register_departments.register_id')
-                ->join('departments', 'departments.id', '=', 'register_departments.departments_id')
-                ->where('device_id', $id)
-                ->orderBy('registers.id', 'desc')
-                ->first(),
 
             'registers' => Register::query()
                 ->join('register_ubications', 'register_ubications.register_id', '=', 'registers.id')

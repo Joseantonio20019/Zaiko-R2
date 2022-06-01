@@ -13,67 +13,105 @@
 
             <div class="flex justify-between mb-6">
         
-            <div class="flex items-center">
-            <h1 class="text-3xl">Printers</h1>
+            <h1 class="text-3xl font-bold">Printers</h1>
 
-            <Link href="/printers/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
-            Create New Printer
-            </Link>
+            <div class="flex w-auto place-items-stretch">
 
-            <a href="/printers/excel" class=" ml-3 bg-transparent hover:bg-green-500 text-blue-green font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded align-middle">
-            Export in Excel
-            </a>
+                <Link href="/printers/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    Create New Printer
+                    </Link>
 
+                <a href="/printers/excel" class=" ml-3 bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded align-middle">
+                    <i class="fa-solid fa-file-excel"></i>
+                    Export in Excel
+                </a>
 
             </div>
             
            <input v-model="search" type="text" placeholder="Search" class="border px-2 rounded-lg" >
            </div>
 
-           <div class=" shadow-md sm:rounded-lg">
-                <table class="w-full mt-1 text-sm text-left">
-                    <thead class="text-xs text-gray-300 uppercase bg-gray-50 dark:bg-blue-700 dark:text-amber-500">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
+           <div class="mb-6">
+                <table class="rounded-t-lg m-5 w-full mx-auto bg-gray-200 text-gray-800">
+                    <tr class="text-left border-b-2 border-gray-300">
+                            <th class="px-4 py-3">
                                 INVENTORY NUMBER
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                INK
+                            <th class="px-4 py-3">
+                                SITE
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th class="px-4 py-3">
+                                DEPARTMENT
+                            </th>
+                            <th class="px-4 py-3">
+                                UBICATION
+                            </th>
+                            <th class="px-4 py-3">
+                                USER
+                            </th>
+                            <th class="px-4 py-3">
                                 FAMILY
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th class="px-4 py-3">
+                                MODEL
+                            </th>
+                            <th class="px-4 py-3">
                                 STATUS
                             </th>
-                            <th scope="col" class="px-10 py-3 text-center">
+                            <th class="px-4 py-3">
+                                LAST MODIFICATION
+                            </th>
+                            <th class="px-4 py-3">
                                 CONFIGURATION
                             </th>
-                        </tr>
-                    </thead>
+                    </tr>
                 <tbody>
                     <tr v-for="printer in printers.data" :key="printer.device_id" class="bg-white border-b dark:bg-gray-200 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-black dark:text-black whitespace-nowrap">
-                            {{ printer.device['inventory_number'] }}
-                        </th>
-                        <td class="px-6 py-4">
-                            {{printer.ink}}
+                        <td class="px-4 py-3">
+                            {{ printer.inventory_number }}
                         </td>
-                        <td class="px-6 py-4">
-                            {{printer.device['family']}}
+                        <td class="px-4 py-3">
+                            {{printer.site}}
                         </td>
-                        <td class="px-6 py-4">
-                            {{printer.device['status']}}
+                        <td class="px-4 py-3">
+                            {{printer.department}}
                         </td>
-                        <td class="px-6 py-4 flex justify-evenly text-center">
-                            <Link :href="`/printers/show/${printer.device_id}`" class="font-medium text-green-400 dark:text-amber-400 hover:underline">Show</Link>
-
-                            <Link :href="`/printers/edit/${printer.device_id}`" class="font-medium text-green-400 dark:text-green-400 hover:underline">Edit</Link>
-                
-                            <button type="buttton" @click="destroy(printer.device_id)" class="font-medium text-red-600 dark:text-red-600 hover:underline">Delete</button>
-
-                        
+                        <td class="px-4 py-3">
+                            {{printer.ubication}}
                         </td>
+                        <td class="px-4 py-3">
+                            {{printer.user}}
+                        </td>
+                        <td class="px-4 py-3">
+                            {{printer.family}}
+                        </td>
+                        <td class="px-4 py-3">
+                            {{printer.model}}
+                        </td>
+                        <td class="px-4 py-3">
+                            {{printer.status}}
+                        </td>
+                        <td class="px-4 py-3">
+                            {{printer.updated_at}}
+                        </td>
+                        <div class="flex item-center justify-evenly text-center mt-4 mb-4 ">
+                            <div class="w-4 transform hover:text-blue-500 hover:scale-110">
+                                <Link :href="`/printers/show/${printer.device_id}`">
+                                <i class="fa-regular fa-eye"></i>
+                                </Link>
+                            </div>
+                            <div class="w-4 transform hover:text-green-500 hover:scale-110">
+                                <Link :href="`/printers/edit/${printer.device_id}`" >
+                                <i class="fa-solid fa-pencil"></i>
+                                </Link>
+                            </div>
+                            <div class="w-4 transform hover:text-red-500 hover:scale-110">
+                                <button type="buttton" @click="destroy(printer.device_id)">
+                                <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
                     </tr>
                 </tbody>
                 
@@ -81,12 +119,9 @@
             </div>
 
         
-        <Pagination :links="printers.links" class="mt-6" />
+        <Pagination :links="printers.links" class="fixed bottom-0 left-10 mb-16" />
 
-            
         </Layout>
-
-        
 
     </div>
 </template>
