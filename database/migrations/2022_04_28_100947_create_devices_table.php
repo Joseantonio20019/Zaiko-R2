@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('family')->nullable(false);
             $table->string('status')->nullable(false);
             $table->string('mark')->nullable(false);
+            $table->string('user')->nullable(false);
             $table->string('site')->nullable(false);
             $table->string('ubication')->nullable(false);
             $table->string('department')->nullable(false);

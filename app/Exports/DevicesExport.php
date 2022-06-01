@@ -26,6 +26,7 @@ class DevicesExport implements FromCollection,WithHeadings
             'Family',
             'Status',
             'Mark',
+            'User',
             'Site',
             'Ubication',
             'Department',

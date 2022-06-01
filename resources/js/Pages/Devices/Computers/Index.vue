@@ -60,6 +60,9 @@
                                 RAM TYPE
                             </th>
                             <th class="px-4 py-3">
+                                FAMILY
+                            </th>
+                            <th class="px-4 py-3">
                                 LAST MODIFICATION 
                             </th>
                             <th scope="col" class="px-10 py-3 text-center">
@@ -91,6 +94,9 @@
                         </td>
                        <td class="px-4 py-3">
                             {{computer.ram_type}}
+                        </td>
+                        <td class="px-4 py-3">
+                            {{computer.family}}
                         </td>
                        <td class="px-4 py-3">
                             {{computer.updated_at}}

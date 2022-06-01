@@ -94,7 +94,7 @@
             </div>
 
         
-        <Pagination :links="devices.links" class="mt-6" />
+        <Pagination :links="devices.links" class="fixed bottom-0 left-10 mb-16" />
 
             
         </Layout>
@@ -109,7 +109,6 @@ import Pagination from '../../Shared/Pagination.vue';
 import {Inertia} from "@inertiajs/inertia"
 import debounce from 'lodash/throttle';
 import Notification from '../../Shared/Notification.vue';
-
 
 
     let props = defineProps({

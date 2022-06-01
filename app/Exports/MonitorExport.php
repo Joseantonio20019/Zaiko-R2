@@ -16,7 +16,7 @@ class MonitorExport implements FromCollection,WithHeadings
         return Monitor::join('devices','devices.id','=','monitors.device_id')
         ->select(
             'monitors.device_id','monitors.inches','monitors.HDMI','monitors.VGA','monitors.DVI','monitors.DisplayPort',
-            'devices.inventory_number','devices.comment','devices.model','devices.family','devices.status','devices.mark','devices.site','devices.ubication','devices.department','devices.created_at'
+            'devices.inventory_number','devices.comment','devices.model','devices.family','devices.status','devices.mark','devices.user','devices.site','devices.ubication','devices.department','devices.created_at'
         )
         ->get();
     }
@@ -37,6 +37,7 @@ class MonitorExport implements FromCollection,WithHeadings
             'Family',
             'Status',
             'Mark',
+            'User',
             'Site',
             'Ubication',
             'Department',

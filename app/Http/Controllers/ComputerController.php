@@ -33,7 +33,7 @@ class ComputerController extends Controller
 
             'computers' => Computer::with('device')
             ->join('devices', 'devices.id', '=', 'computers.device_id')
-             ->when(RequestFacade::input('search'), function ($query,$search){
+            ->when(RequestFacade::input('search'), function ($query,$search){
     
                 $query->where('site','like','%'.$search.'%')
                 ->orWhere('department','like','%'.$search.'%')
@@ -105,8 +105,6 @@ class ComputerController extends Controller
 
     }
 
-
-
     public function create()
     {
         return Inertia::render('Devices/Computers/Create',[
@@ -162,6 +160,7 @@ class ComputerController extends Controller
             'status' => $data['status'],
             'mark' => $data['mark'],
             'site' =>$site->name,
+            'user' => $data['user'],
             'ubication'=>$ubication->name,
             'department' => $department->name,
 
@@ -239,8 +238,6 @@ class ComputerController extends Controller
 
        return Inertia::render('Devices/Computers/Edit',[
 
-
-
                 'computer' => Computer::with('device')->where('device_id',$id)->get()->first(),
                 'device' => Device::find($id),
                 'marks' => Mark::all(),
@@ -311,6 +308,7 @@ class ComputerController extends Controller
         ]);
 
         $harddrive2->update([
+
             'size' => $request->size1,
             'type' => $request->type1,
         ]);

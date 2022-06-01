@@ -178,104 +178,82 @@
                     </div>
                 </div>
                 
-                <!-- <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Device: {{registerdevice.sitealias}} - {{registerdevice.departmentalias}} - {{networkdevice.device["inventory_number"]}}</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Inventory Number: {{networkdevice.device["inventory_number"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Site: {{registerdevice.sitename}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ubication: {{registerdevice.ubicationname}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Department: {{registerdevice.departmentname}}</p>
-                <p v-if="networkdevice.device['comment'] != ''" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: {{networkdevice.device["comment"] }}</p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Family: {{networkdevice.device["family"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Model: {{networkdevice.device["model"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Status: {{networkdevice.device["status"]}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Manageable: {{networkdevice.manageable}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ethernet Ports Number: {{networkdevice.ethernet_ports_number}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Speed: {{networkdevice.Speed}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Fiber Ports Number: {{networkdevice.fiber_ports_number}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">POE: {{networkdevice.POE}}</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">User: {{registerdevice.user}}</p>
-                <p v-if="registerdevice.comment != null" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register Comment: {{registerdevice.comment}} </p>
-                <p v-else class="mb-3 font-normal text-gray-700 dark:text-gray-400">Comment: No comment</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Last Modification: {{registerdevice.modification_date}}</p>
-    
-            </div> -->
+                <div class="mb-6">
+                    <h4 class="text-lg text-center font-bold m-5">Last Registers</h4>
+                    <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
+                            <tr class="text-left border-b-2 border-gray-300">
+                                <th class="px-4 py-3">
+                                    SITE
+                                </th>
+                                <th class="px-4 py-3">
+                                    DEPARTMENT
+                                </th>
+                                <th class="px-4 py-3">
+                                    UBICATION
+                                </th>
+                                <th class="px-4 py-3">
+                                    USER
+                                </th>
+                                <th class="px-4 py-3">
+                                    CREATION DATE
+                                </th>
+                                <th class="px-4 py-3">
+                                    COMMENT
+                                </th>
+                                <th class="px-4 py-3">
+                                    CONFIGURATION
+                                </th>
+                            </tr>
+                        <tbody>
 
-             <div class="mb-6">
-                <h4 class="text-lg text-center font-bold m-5">Last Registers</h4>
-                <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
-                        <tr class="text-left border-b-2 border-gray-300">
-                            <th class="px-4 py-3">
-                                SITE
-                            </th>
-                             <th class="px-4 py-3">
-                                 DEPARTMENT
-                            </th>
-                            <th class="px-4 py-3">
-                                UBICATION
-                            </th>
-                            <th class="px-4 py-3">
-                                USER
-                            </th>
-                            <th class="px-4 py-3">
-                                CREATION DATE
-                            </th>
-                            <th class="px-4 py-3">
-                                 COMMENT
-                            </th>
-                            <th class="px-4 py-3">
-                                 CONFIGURATION
-                            </th>
-                        </tr>
-                    <tbody>
-
-                      <tr v-for="register in registers" :key="register.id" class="bg-gray-100 border-b border-gray-200">
+                        <tr v-for="register in registers" :key="register.id" class="bg-gray-100 border-b border-gray-200">
 
 
-                            <td class="px-4 py-3">
+                                <td class="px-4 py-3">
 
-                                {{register.sitename}}
+                                    {{register.sitename}}
 
-                            </td>
+                                </td>
 
-                            <td class="px-4 py-3">
+                                <td class="px-4 py-3">
 
-                                {{register.departmentname}}
-                            </td>
+                                    {{register.departmentname}}
+                                </td>
 
-                            <td class="px-4 py-3">
+                                <td class="px-4 py-3">
 
-                                {{register.ubicationname}}
-                            </td>
+                                    {{register.ubicationname}}
+                                </td>
 
-                            <td class="px-4 py-3">
+                                <td class="px-4 py-3">
 
-                                {{register.user}}
-                            </td>
+                                    {{register.user}}
+                                </td>
 
-                            <td class="px-4 py-3">
+                                <td class="px-4 py-3">
 
-                                {{register.created_at}}
-                            </td>
+                                    {{register.created_at}}
+                                </td>
 
-                            <td class="px-4 py-3" v-if="register.comment == null || register.comment == '' ">
-                                No comment
-                            </td>
+                                <td class="px-4 py-3" v-if="register.comment == null || register.comment == '' ">
+                                    No comment
+                                </td>
 
-                            <td v-else  class="px-4 py-3">
-                                {{register.comment}}    
-                            </td>
-                            <div class=" w-auto mr-20 text-center mt-3 align-middle transform hover:text-red-500 hover:scale-110">
+                                <td v-else  class="px-4 py-3">
+                                    {{register.comment}}    
+                                </td>
+                                <div class=" w-auto mr-20 text-center mt-3 align-middle transform hover:text-red-500 hover:scale-110">
+                            
+                                    <button type="button" @click="destroy(register.deviceid)"><i class="fa-solid fa-trash-can"></i></button>
                         
-                                <button type="button" @click="destroy(register.deviceid)"><i class="fa-solid fa-trash-can"></i></button>
-                    
-                            </div>
-                        </tr>
+                                </div>
+                            </tr>
 
-                     </tbody>
-                     
-                </table>
+                        </tbody>
+                        
+                    </table>
 
-            </div>
+                </div>
             
         </Layout>
 

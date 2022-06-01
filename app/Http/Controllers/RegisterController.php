@@ -110,6 +110,7 @@ class RegisterController extends Controller
             'site' => $site->name,
             'ubication' => $ubication->name,
             'department' => $department->name,
+            'user' => $data['user'],
 
         ]);
 

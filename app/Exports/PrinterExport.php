@@ -16,7 +16,7 @@ class PrinterExport implements FromCollection,WithHeadings
         return Printer::join('devices','devices.id','=','printers.device_id')
         ->select(
             'printers.device_id','printers.ink','printers.USB','printers.COM','printers.WIFI','printers.Ethernet','devices.inventory_number','devices.comment'
-            ,'devices.model','devices.family','devices.status','devices.mark','devices.site','devices.ubication','devices.department','devices.created_at'
+            ,'devices.model','devices.family','devices.status','devices.mark','devices.user','devices.site','devices.ubication','devices.department','devices.created_at'
         )->get();
     }
 
@@ -36,6 +36,7 @@ class PrinterExport implements FromCollection,WithHeadings
             'Family',
             'Status',
             'Mark',
+            'User',
             'Site',
             'Ubication',
             'Department',

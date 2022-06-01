@@ -21,6 +21,7 @@ class Device extends Model
         'site',
         'ubication',
         'department',
+        'user',
     ];
 
     protected $casts = [
@@ -66,6 +67,12 @@ class Device extends Model
     public function register(){
 
         return $this->hasMany(Register::class);
+    }
+
+    public function family(){
+
+        return $this->belongsTo(Family::class);
+
     }
 
 

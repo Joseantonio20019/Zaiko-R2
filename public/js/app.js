@@ -465,6 +465,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 _: 1
                 /* STABLE */
 
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MenuItem, null, {
+                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref8) {
+                  var active = _ref8.active;
+                  return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+                    href: "/others",
+                    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm'])
+                  }, "Others", 2
+                  /* CLASS */
+                  )];
+                }),
+                _: 1
+                /* STABLE */
+
               })])];
             }),
             _: 1
@@ -1202,6 +1215,42 @@ var map = {
 	"./Devices/NetworkDevices/Show.vue": [
 		"./resources/js/Pages/Devices/NetworkDevices/Show.vue",
 		"resources_js_Pages_Devices_NetworkDevices_Show_vue"
+	],
+	"./Devices/Others/Create": [
+		"./resources/js/Pages/Devices/Others/Create.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_Others_Create_vue"
+	],
+	"./Devices/Others/Create.vue": [
+		"./resources/js/Pages/Devices/Others/Create.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_Others_Create_vue"
+	],
+	"./Devices/Others/Edit": [
+		"./resources/js/Pages/Devices/Others/Edit.vue",
+		"resources_js_Pages_Devices_Others_Edit_vue"
+	],
+	"./Devices/Others/Edit.vue": [
+		"./resources/js/Pages/Devices/Others/Edit.vue",
+		"resources_js_Pages_Devices_Others_Edit_vue"
+	],
+	"./Devices/Others/Index": [
+		"./resources/js/Pages/Devices/Others/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_Others_Index_vue"
+	],
+	"./Devices/Others/Index.vue": [
+		"./resources/js/Pages/Devices/Others/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Devices_Others_Index_vue"
+	],
+	"./Devices/Others/Show": [
+		"./resources/js/Pages/Devices/Others/Show.vue",
+		"resources_js_Pages_Devices_Others_Show_vue"
+	],
+	"./Devices/Others/Show.vue": [
+		"./resources/js/Pages/Devices/Others/Show.vue",
+		"resources_js_Pages_Devices_Others_Show_vue"
 	],
 	"./Devices/PDA/Create": [
 		"./resources/js/Pages/Devices/PDA/Create.vue",

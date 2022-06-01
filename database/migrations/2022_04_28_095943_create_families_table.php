@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('families', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement();
             $table->string('name')->nullable(false);
-            $table->enum('device',['PCS','PHONES','PDA','MONITORS','PRINTER','NETWORK DEVICES']);
+            $table->enum('device',['PCS','PHONES','PDA','MONITORS','PRINTER','NETWORK DEVICES','OTHER']);
             $table->timestamps();
         });
     }

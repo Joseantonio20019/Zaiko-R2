@@ -149,6 +149,7 @@ class MonitorController extends Controller
             'family' => $data['family'],
             'status' => $data['status'],
             'mark' => $data['mark'],
+            'user' => $data['user'],
             'site' =>$site->name,
             'ubication'=>$ubication->name,
             'department' => $department->name,

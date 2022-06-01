@@ -16,7 +16,7 @@ class PhonesExport implements FromCollection, WithHeadings
         return Phone::join('devices','devices.id','=','phones.device_id')
         ->select(
             'phones.device_id','phones.extension','phones.serial_number','phones.imei','devices.inventory_number','devices.comment','devices.model',
-            'devices.family','devices.status','devices.mark','devices.site','devices.ubication','devices.department','devices.created_at')
+            'devices.family','devices.status','devices.mark','devices.user','devices.site','devices.ubication','devices.department','devices.created_at')
         ->get();
     }
 
@@ -35,6 +35,10 @@ class PhonesExport implements FromCollection, WithHeadings
             'Family',
             'Status',
             'Mark',
+            'User',
+            'Site',
+            'Ubication',
+            'Department',
             'created At',
             'updated At',
 

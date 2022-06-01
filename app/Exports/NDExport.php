@@ -16,7 +16,7 @@ class NDExport implements FromCollection,WithHeadings
         return NetworkDevice::join('devices','devices.id','=','network_devices.device_id')
         ->select(
             'network_devices.device_id','network_devices.manageable','network_devices.POE','network_devices.Speed','network_devices.ethernet_ports_number','network_devices.fiber_ports_number',
-            'devices.inventory_number','devices.comment','devices.model','devices.family','devices.status','devices.mark','devices.site','devices.ubication','devices.department','devices.created_at'
+            'devices.inventory_number','devices.comment','devices.model','devices.family','devices.status','devices.mark','devices.user','devices.site','devices.ubication','devices.department','devices.created_at'
 
         )->get();
  
@@ -38,6 +38,7 @@ class NDExport implements FromCollection,WithHeadings
             'Family',
             'Status',
             'Mark',
+            'User',
             'Site',
             'Ubication',
             'Department',

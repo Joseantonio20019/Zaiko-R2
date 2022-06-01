@@ -289,7 +289,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* KEYED_FRAGMENT */
       ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Pagination"], {
         links: $props.devices.links,
-        "class": "mt-6"
+        "class": "fixed bottom-0 left-10 mb-16"
       }, null, 8
       /* PROPS */
       , ["links"])];

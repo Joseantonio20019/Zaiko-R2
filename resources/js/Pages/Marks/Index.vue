@@ -13,13 +13,12 @@
 
             <div class="flex justify-between mb-6">
         
-            
             <h1 class="text-3xl font-bold">Marks</h1>
 
             <div class="flex w-auto place-items-stretch">
                 <Link href="/marks/create" class=" ml-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded align-middle">
                     <i class="fa-solid fa-circle-plus"></i>
-                    Create New Site
+                    Create New Mark
                 </Link>
 
             </div>

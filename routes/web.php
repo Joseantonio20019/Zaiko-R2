@@ -180,7 +180,23 @@ Route::delete('/departments/delete/{id}',[DepartmentController::class,'destroy']
 
 Route::get('/devices', [DeviceController::class, 'index']);
 
+Route::get('/others', [DeviceController::class, 'otherIndex']);
+
+Route::get('/others/create', [DeviceController::class, 'create']);
+
+Route::post('/others/create',[DeviceController::class,'store']);
+
+Route::get('/others/edit/{id}',[DeviceController::class,'edit']);
+
+Route::put('/others/edit/{id}',[DeviceController::class,'update']);
+
+Route::delete('/others/delete/{id}',[DeviceController::class,'destroy']);
+
+Route::get('/others/show/{id}',[DeviceController::class,'show']);
+
 Route::get('/devices/excel', [DeviceController::class, 'export']);
+
+Route::get('devices/othersExcels', [DeviceController::class, 'otherExport']);
 
 //Computers Routes
 
