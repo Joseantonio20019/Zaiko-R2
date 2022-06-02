@@ -108,41 +108,6 @@
 
             <div class="mb-6">
 
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Inches
-                </label>
-
-                <input v-model="form.inches" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="number" name="inches" id="inches" autofocus> 
-
-                <div v-if="form.errors.inches" v-text="form.errors.inches" class="text-red-500 text-xs italic mt-2"></div>
-
-            </div>
-
-            <div class="mb-6">
-
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">
-                    Edit Connectivity
-                </label>
-
-                <input type="checkbox" v-model="form.hdmi" true-value="1" false-value="0" name="hdmi" id="hdmi" class="mr-2"> 
-                <label>HDMI</label>
-                <br>
-                <input type="checkbox"  v-model="form.vga" true-value="1" false-value="0" name="vga" id="vga" class="mr-2"> 
-                <label>VGA</label>
-                <br>
-                <input type="checkbox"  v-model="form.dvi" true-value="1" false-value="0" name="dvi" id="dvi" class="mr-2"> 
-                <label>DVI</label>
-                <br>
-                <input type="checkbox" v-model="form.displayport" true-value="1" false-value="0" name="displayport" id="displayport" class="mr-2" > 
-                <label>DisplayPort</label>
-                
-
-                
-            </div>      
-
-            <div class="mb-6">
-
                 <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" >Edit</button>
 
 

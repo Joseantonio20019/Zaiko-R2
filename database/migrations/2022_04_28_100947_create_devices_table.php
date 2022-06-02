@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement();
-            $table->string('inventory_number')->nullable(false);
+            $table->string('inventory_number')->unique()->nullable(false);
             $table->text('comment')->nullable(true);
             $table->string('model')->nullable(false);
             $table->string('family')->nullable(false);

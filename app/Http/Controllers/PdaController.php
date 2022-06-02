@@ -98,7 +98,7 @@ class PdaController extends Controller
         return Inertia::render('Devices/PDA/Create', [
 
             'statuses' => Status::all(),
-            'families' => Family::where('device','=','PDA')->get(),
+            'families' => Family::where('device','PDA')->get(),
             'models' => ModelDevice::all(),
             'marks' => Mark::all(),
             'ubications' => Ubication::all(),

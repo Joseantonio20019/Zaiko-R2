@@ -41,7 +41,7 @@ Route::post('logout',[LoginController::class, 'destroy'])->middleware('auth');
 
 //Middleware to make more secure the app 
 
-Route::middleware('auth')->group(function () { 
+//Route::middleware('auth')->group(function () { 
 
 
 Route::get('/',[HomeController::class, 'index']);    
@@ -307,4 +307,4 @@ Route::get('/pdas/show/{id}',[PdaController::class,'show']);
 
 Route::get('/pdas/excel', [PdaController::class, 'export']);
 
-});  
+//});  
