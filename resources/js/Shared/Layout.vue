@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="p-6 bg-blue-200">
+        <section class="p-6 bg-blue-200 shadow-lg sm: dark:bg-blue-200">
         <header class="flex justify-between">
             <div class="flex items-center">
             <h1 class="font-bold text-3xl mr-3">ZAIKO</h1>
@@ -12,7 +12,7 @@
 
     </header>
 
-    </section>
+    </section> 
 
     <section class="p-6">
 

@@ -104,7 +104,7 @@ class MonitorController extends Controller
         return Inertia::render('Devices/Monitors/Create', [
 
             'statuses' => Status::all(),
-            'families' => Family::all(),
+            'families' => Family::where('device','=','MONITORS')->get(),
             'models' => ModelDevice::all(),
             'marks' => Mark::all(),
             'ubications' => Ubication::all(),
@@ -213,7 +213,7 @@ class MonitorController extends Controller
             'device' => Device::find($id),
             'marks' => Mark::all(),
             'statuses' => Status::all(),
-            'families' => Family::all(),
+            'families' => Family::where('device','=','MONITORS')->get(),
             'models' => ModelDevice::all(),
             
         ]);

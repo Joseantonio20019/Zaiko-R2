@@ -110,7 +110,7 @@ class ComputerController extends Controller
         return Inertia::render('Devices/Computers/Create',[
 
             'statuses' => Status::all(),
-            'families' => Family::all(),
+            'families' => Family::query()->where('device','=','PCS')->get(),
             'models' => ModelDevice::all(),
             'marks' => Mark::all(),
             'departments' => Department::all(),
@@ -241,7 +241,7 @@ class ComputerController extends Controller
                 'computer' => Computer::with('device')->where('device_id',$id)->get()->first(),
                 'device' => Device::find($id),
                 'marks' => Mark::all(),
-                'families' => Family::all(),
+                'families' => Family::query()->where('device','=','PCS')->get(),
                 'models' => ModelDevice::all(),
                 'statuses' => Status::all(),
                 'harddrive1' => HardDrive::where('pc_id',$id)->get()->first(),

@@ -99,7 +99,7 @@ class NetworkDeviceController extends Controller
         return Inertia::render('Devices/NetworkDevices/Create', [
 
             'statuses' => Status::all(),
-            'families' => Family::all(),
+            'families' => Family::where('device','=','NETWORK DEVICES')->get(),
             'models' => ModelDevice::all(),
             'marks' => Mark::all(),
             'ubications' => Ubication::all(),
@@ -213,7 +213,7 @@ class NetworkDeviceController extends Controller
             'networkdevice' => NetworkDevice::where('device_id', $id)->first(),
             'device' => Device::find($id),
             'marks' => Mark::all(),
-            'families' => Family::all(),
+            'families' => Family::where('device','=','NETWORK DEVICES')->get(),
             'models' => ModelDevice::all(),
             'statuses' => Status::all(),
 

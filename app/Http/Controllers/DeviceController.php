@@ -133,7 +133,7 @@ class DeviceController extends Controller
         return Inertia::render('Devices/Others/Create',[
             
             'statuses' => Status ::all(),
-            'families' => Family::all(),
+            'families' => Family::where('device','=','OTHER')->get(),
             'models' => ModelDevice::all(),
             'marks' => Mark::all(),
             'ubications' => Ubication::all(),
@@ -217,7 +217,7 @@ class DeviceController extends Controller
 
             'device' => Device::find($id),
             'marks' => Mark::all(),
-            'families' => Family::all(),
+            'families' => Family::where('device','=','OTHER')->get(),
             'models' => ModelDevice::all(),
             'statuses' => Status::all(),
 
@@ -235,7 +235,6 @@ class DeviceController extends Controller
             'family' => ['required'],
             'status' => ['required'],
             'mark' => ['required'],
-            'user' => ['required'],
         ]);
 
 
@@ -249,7 +248,6 @@ class DeviceController extends Controller
             'family' => $request->family,
             'status' => $request->status,
             'mark' => $request->mark,
-            'user' => $request->user,
 
         ]);
 

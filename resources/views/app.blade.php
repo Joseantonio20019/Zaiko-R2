@@ -7,6 +7,7 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <link  rel="icon" type="image/png" href="images/R2Hotels-Logo.png"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
     
 
     <!-- Scripts de TailWind y FlowBite -->
@@ -14,6 +15,7 @@
     <script src="{{ mix('/js/app.js') }}" defer></script>
     <script src="{{ mix('/js/manifest.js') }}" defer></script>
     <script src="{{ mix('/js/vendor.js') }}" defer></script>
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
     @inertiaHead
   </head>
   <body>

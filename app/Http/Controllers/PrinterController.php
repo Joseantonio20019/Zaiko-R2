@@ -103,7 +103,7 @@ class PrinterController extends Controller
         return Inertia::render('Devices/Printers/Create', [
 
             'statuses' => Status::all(),
-            'families' => Family::all(),
+            'families' => Family::where('device','=','PHONES')->get(),
             'models' => ModelDevice::all(),
             'marks' => Mark::all(),
             'ubications' => Ubication::all(),
@@ -210,7 +210,7 @@ class PrinterController extends Controller
             'printer' => Printer::where('device_id', $id)->first(),
             'device' => Device::find($id),
             'marks' => Mark::all(),
-            'families' => Family::all(),
+            'families' => Family::where('device','=','PRINTERS')->get(),
             'models' => ModelDevice::all(),
             'statuses' => Status::all(),
 

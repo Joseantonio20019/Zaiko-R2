@@ -22,7 +22,7 @@
                                     <h2 class="font-bold uppercase text-gray-600">Total Computers</h2>
                                     <p class="font-bold text-3xl">{{computers}} <span class="text-red-500"></span></p>
                                 </div>
-                                <a :href="`/computers/create`" type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">
+                                <a :href="`/computers/create`" type="button" class="text-white relative bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">
                                     <i class="fa-solid fa-plus"></i>
                                     New Computer
                                 </a>
@@ -41,7 +41,7 @@
                                 <h2 class="font-bold uppercase text-gray-600">Total Phones:</h2>
                                 <p class="font-bold text-3xl">{{phones}}<span class="text-purple-500"></span></p>
                             </div>
-                            <a :href="`/phones/create`" type="button" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
+                            <a :href="`/phones/create`" type="button" class="text-white relative bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
                                     <i class="fa-solid fa-plus"></i>
                                     New Phone
                             </a>
@@ -60,7 +60,7 @@
                                     <h2 class="font-bold uppercase text-gray-600">Total PDAS</h2>
                                     <p class="font-bold text-3xl">{{pdas}} <span class="text-green-500"></span></p>
                                 </div>
-                                <a :href="`/pdas/create`" type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
+                                <a :href="`/pdas/create`" type="button" class="text-white relative bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
                                     <i class="fa-solid fa-plus"></i>
                                     New PDA
                             </a>
@@ -83,7 +83,7 @@
                                     <h2 class="font-bold uppercase text-gray-600">Total Network Devices</h2>
                                     <p class="font-bold text-3xl">{{networkdevices}} <span class="text-blue-500"></span></p>
                                 </div>
-                                <a :href="`/network-devices/create`" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                <a :href="`/network-devices/create`" type="button" class="text-white relative bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                                     <i class="fa-solid fa-plus"></i>
                                     New Network Device
                             </a>
@@ -101,7 +101,7 @@
                                 <h2 class="font-bold uppercase text-gray-600">Total Printers</h2>
                                 <p class="font-bold text-3xl">{{printers}}<span class="text-yellow-500"></span></p>
                             </div>
-                            <a :href="`/printers/create`" type="button" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">
+                            <a :href="`/printers/create`" type="button" class="text-white relative bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">
                                     <i class="fa-solid fa-plus"></i>
                                     New Printer
                             </a>
@@ -119,7 +119,7 @@
                                     <h2 class="font-bold uppercase text-gray-600">Total Monitors</h2>
                                     <p class="font-bold text-3xl">{{monitors}} <span class="text-cyan-500"></span></p>
                                 </div>
-                                <a :href="`/monitors/create`" type="button" class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800">
+                                <a :href="`/monitors/create`" type="button" class="text-white relative bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800">
                                     <i class="fa-solid fa-plus"></i>
                                     New Monitor
                             </a>
@@ -140,7 +140,7 @@
                                 </div>
                                 <div class="flex-1 text-right md:text-center">
                                     <h2 class="font-bold uppercase text-gray-600">Total Devices</h2>
-                                    <p class="font-bold text-3xl">{{phones}} <span class="text-orange-500"></span></p>
+                                    <p class="font-bold text-3xl">{{devices}} <span class="text-orange-500"></span></p>
                                 </div>
                             </div>
                         </div>

@@ -106,7 +106,7 @@ class PhoneController extends Controller
         return Inertia::render('Devices/Phones/Create',[
 
             'statuses' => Status::all(),
-            'families' => Family::all(),
+            'families' => Family::where('device','=','PHONES')->get(),
             'models' => ModelDevice::all(),
             'marks' => Mark::all(),
             'ubications' => Ubication::all(),
@@ -211,7 +211,7 @@ class PhoneController extends Controller
             'device' => Device::find($id),
             'marks' => Mark::all(),
             'statuses' => Status::all(),
-            'families' => Family::all(),
+            'families' => Family::where('device','=','PHONES')->get(),
             'models' => ModelDevice::all()
 
         ]);
