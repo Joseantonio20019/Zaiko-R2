@@ -14,7 +14,7 @@
                     Site
                 </label>
                 
-                    <select v-model="selectedsite" @change="getUbications()" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                    <select v-model="form.selectedsite" @change="getUbications()" class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
                         <option v-for="site in sites" :value="site.id" :key="site.id">{{site.name}}</option>
                     </select>
                 
@@ -244,7 +244,7 @@
 
     const getUbications = async () => {
 
-        await axios.get(`/api/ubications/${selectedsite.value}`).then(response => {
+        await axios.get(`/api/ubications/${form.selectedsite}`).then(response => {
             ubications.value = response.data;
         });
 
@@ -278,6 +278,7 @@
         user:'',
         register_comment:'',
         ubication:'',
+        selectedsite:'',
         department:'',
         modification_date:'',
 
