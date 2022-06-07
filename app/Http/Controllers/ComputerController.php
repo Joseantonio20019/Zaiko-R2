@@ -141,6 +141,7 @@ class ComputerController extends Controller
             'type1'=> ['nullable'],
             'user' => ['required'],
             'register_comment' => ['nullable'],
+            'selectedsite' => ['required'],
             'ubication' => ['required'],
             'department' => ['required'],
             'modification_date' => ['nullable'],
@@ -148,7 +149,7 @@ class ComputerController extends Controller
         ]);
 
         $ubication = Ubication::where('id',$data['ubication'])->first();
-        $site =  Site::where('id',$data['ubication'])->first();
+        $site =  Site::where('id',$data['selectedsite'])->first();
         $department = Department::where('id',$data['department'])->first();
 
         $device = Device::create([
