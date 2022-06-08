@@ -133,12 +133,13 @@ class MonitorController extends Controller
             'user' => ['required'],
             'register_comment' => ['nullable'],
             'ubication' => ['required'],
+            'selectedsite' => ['required'],
             'department' => ['required'],
             'modification_date' => ['nullable'],
         ]);
 
         $ubication = Ubication::where('id',$data['ubication'])->first();
-        $site =  Site::where('id',$data['ubication'])->first();
+        $site =  Site::where('id',$data['selectedsite'])->first();
         $department = Department::where('id',$data['department'])->first();
 
         $device = Device::create([
