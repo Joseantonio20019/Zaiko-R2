@@ -113,8 +113,29 @@ class RegisterController extends Controller
             'user' => $data['user'],
 
         ]);
+        
+        $dv = Device::find($id);
 
-        return redirect()->back()->with('message', 'Register created successfully');
+		if ($dv->monitors()->count() >= 1){
+			return redirect()->route('monitors.show',[$id])->with('message', 'Register created successfully');
+		}
+		if ($dv->printers()->count() >= 1){
+			return redirect()->route('printers.show',[$id])->with('message', 'Register created successfully');
+		}
+		if ($dv->networkDevices()->count() >= 1){
+			return redirect()->route('networkdevices.show',[$id])->with('message', 'Register created successfully');
+		}
+		if ($dv->phones()->count() >= 1){
+			return redirect()->route('phones.show',[$id])->with('message', 'Register created successfully');
+		}
+		if ($dv->computers()->count() >= 1){
+			return redirect()->route('computers.show',[$id])->with('message', 'Register created successfully');
+		}
+		if ($dv->pdas()->count() >= 1){
+			return redirect()->route('pdas.show',[$id])->with('message', 'Register created successfully');
+		}
+        
+        //return redirect()->back()->with('message', 'Register created successfully');
     }
 
     public function destroy($id)
