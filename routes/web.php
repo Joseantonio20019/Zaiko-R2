@@ -212,7 +212,7 @@ Route::put('/computers/edit/{id}',[ComputerController::class,'update']);
 
 Route::delete('/computers/delete/{id}',[ComputerController::class,'destroy']);
 
-Route::get('/computers/show/{id}',[ComputerController::class,'show']);
+Route::get('/computers/show/{id}',[ComputerController::class,'show'])->name('computers.show');
 
 Route::get('/computers/excel', [ComputerController::class, 'export']);
 
@@ -231,7 +231,7 @@ Route::put('/monitors/edit/{id}',[MonitorController::class,'update']);
 
 Route::delete('/monitors/delete/{id}',[MonitorController::class,'destroy']);
 
-Route::get('/monitors/show/{id}',[MonitorController::class,'show']);
+Route::get('/monitors/show/{id}',[MonitorController::class,'show'])->name('monitors.show');
 
 Route::get('/monitors/excel', [MonitorController::class, 'export']);
 
@@ -249,7 +249,7 @@ Route::put('/printers/edit/{id}',[PrinterController::class,'update']);
 
 Route::delete('/printers/delete/{id}',[PrinterController::class,'destroy']);
 
-Route::get('/printers/show/{id}',[PrinterController::class,'show']);
+Route::get('/printers/show/{id}',[PrinterController::class,'show'])->name('printers.show');
 
 Route::get('/printers/excel', [PrinterController::class, 'export']);
 
@@ -267,7 +267,7 @@ Route::put('/network-devices/edit/{id}',[NetworkDeviceController::class,'update'
 
 Route::delete('/network-devices/delete/{id}',[NetworkDeviceController::class,'destroy']);
 
-Route::get('/network-devices/show/{id}',[NetworkDeviceController::class,'show']);
+Route::get('/network-devices/show/{id}',[NetworkDeviceController::class,'show'])->name('networkdevices.show');
 
 Route::get('/network-devices/excel', [NetworkDeviceController::class, 'export']);
 
@@ -285,7 +285,7 @@ Route::put('/phones/edit/{id}',[PhoneController::class,'update']);
 
 Route::delete('/phones/delete/{id}',[PhoneController::class,'destroy']);
 
-Route::get('/phones/show/{id}',[PhoneController::class,'show']);
+Route::get('/phones/show/{id}',[PhoneController::class,'show'])->name('phones.show');
 
 Route::get('/phones/excel', [PhoneController::class, 'export']);
 
@@ -303,7 +303,7 @@ Route::put('/pdas/edit/{id}',[PdaController::class,'update']);
 
 Route::delete('/pdas/delete/{id}',[PdaController::class,'destroy']);
 
-Route::get('/pdas/show/{id}',[PdaController::class,'show']);
+Route::get('/pdas/show/{id}',[PdaController::class,'show'])->name('pdas.show');
 
 Route::get('/pdas/excel', [PdaController::class, 'export']);
 
